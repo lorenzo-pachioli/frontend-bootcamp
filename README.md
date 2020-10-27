@@ -113,38 +113,37 @@ Tener en cuenta para realizar el desarrolo que sea orientado a Mobile-First.
 Antes de empezar con el desarrollo se debe solicitar (al SM o Funcional) permisos de acceso a Taiga. 
 
 ### Construir login 
-	Crear una pagina con un formulario utilizando reactive form con los campos definidos segun la informacion que necesite el [endpoint 
-	correspondiente](https://taigaio.github.io/taiga-doc/dist/api.html#auth-normal-login) validando y controlando posibles errores.
-	Luego del logueo se debera redirigir a una segunda pantalla (siguente US).
+Crear una pagina con un formulario utilizando reactive form con los campos definidos segun la informacion que necesite el [endpoint 
+correspondiente](https://taigaio.github.io/taiga-doc/dist/api.html#auth-normal-login) validando y controlando posibles errores. Luego del
+logueo se debera redirigir a una segunda pantalla (siguente US).
 	
 
 ### Construir listado de proyectos disponibles
-	Mensaje de bienvenida con el nombre completo de usuario (obtenido de la respuesta del login). 
-	Crear una tabla (utilizar lo que provee Material) de [listado de proyectos](https://taigaio.github.io/taiga-doc/dist/api
-	.html#projects-list) pertenecientes al usuario logueado donde cada fila de la tabla tendra un boton *'Ver'* que redireccionara a una 
-	siguiente pagina (siguiente US).
+Mensaje de bienvenida con el nombre completo de usuario (obtenido de la respuesta del login). 
+Crear una tabla (utilizar lo que provee Material) de [listado de proyectos](https://taigaio.github.io/taiga-doc/dist/api
+.html#projects-list) pertenecientes al usuario logueado donde cada fila de la tabla tendra un boton *'Ver'* que redireccionara a una 
+siguiente pagina (siguiente US).
 	
 
 ### Construir listado de U. Stories disponibles
-	Crear una tabla (utilizar lo que provee Material) de [listado de User Stories](https://taigaio.github.io/taiga-doc/dist/api
-	.html#user-stories-list) sin cerrar, pertenecientes al sprint actual del usuario logueado, donde cada fila de la tabla tendra un 
-	boton  *'Ver'* que redireccionara a una siguiente pagina (siguiente US).
-	
+Crear una tabla (utilizar lo que provee Material) de [listado de User Stories](https://taigaio.github.io/taiga-doc/dist/api
+.html#user-stories-list) sin cerrar, pertenecientes al sprint actual del usuario logueado, donde cada fila de la tabla tendra un boton  
+*'Ver'* que redireccionara a una siguiente pagina (siguiente US).
+
 	
 ### Construir listado de tareas disponibles
-	La pagina debera tener un titulo, correspondiente al de la US y su descripción.
-	Ademas se debe crear una tabla (utilizar lo que provee Material) de [listado de tareas](https://taigaio.github.io/taiga-doc/dist/api
-	.html#tasks-list) pertenecientes a una US. El encabezado de la tabla tendra un boton *'Nueva Tarea'* que redireccionara a una siguiente 
-	pagina (siguiente US).
+La pagina debera tener un titulo, correspondiente al de la US y su descripción. 
+Ademas se debe crear una tabla (utilizar lo que provee 
+Material) de [listado de tareas](https://taigaio.github.io/taiga-doc/dist/api.html#tasks-list) pertenecientes a una US. El encabezado de 
+la tabla tendra un boton *'Nueva Tarea'* que redireccionara a una siguiente pagina (siguiente US).
 	
 
 ### Construir formulario para creacion de nueva tarea
-	Crear una pagina con un formulario utilizando reactive form y definiendo los campos necesarios segun el [endpoint correspondiente]
-	(https://taigaio.github.io/taiga-doc/dist/api.html#tasks-create). Luego del submit del form se debera volver al listado de tareas 
-	previo.
+Crear una pagina con un formulario utilizando reactive form y definiendo los campos necesarios segun el [endpoint correspondiente]
+(https://taigaio.github.io/taiga-doc/dist/api.html#tasks-create). Luego del submit del form se debera volver al listado de tareas previo.
 
 ### Construir PWA
-	Permitir el soporte PWA en el proyecto. [Documentación](https://angular.io/guide/service-worker-getting-started). 
+Permitir el soporte PWA en el proyecto. [Documentación](https://angular.io/guide/service-worker-getting-started). 
 
 
 
