@@ -10,10 +10,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-### New module with routin
+### New module with routing
 > `ng generate module modules/backoffice --route backoffice --module app.module`
 
-### New module without routin
+### New module without routing
 > `ng generate module modules/api-rest --module app.module`
 
 ### Nuevo endpoint
