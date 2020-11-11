@@ -105,29 +105,41 @@ En la carpeta `styles` se encuentran los archivos *.scss* correspondientes a los
 
 ## Objetivos / User Stories 
 
-En esta primer etapa del Bootcamp la obtencion de datos la realizaremos por medio de la api de nuestro tracker de tareas [Taiga]
-(https://www.taiga.io/) instalado en nuestros servidores (http://taiga.pladema.net/).
-La documentacion de la api esta disponible [aquí](https://taigaio.github.io/taiga-doc/dist/api.html).
-Tener en cuenta para realizar el desarrolo que sea orientado a Mobile-First. 
+En esta primer etapa del Bootcamp disponemos de una estructura de proyecto basica como se describió anteriormente, a medida que se vayan 
+desarrollando las distintas UserStories se debera analizar mediante alguna grooming la estrategia a utilizar para llevar a cabo su 
+solución, definiendo las posibles creaciones o modificaciones de modulos, componentes y servicios. Ante cualquier duda siempre revisar la
+ [documentacion](https://angular.io/docs) o consultar con el referente asignado.
 
-Antes de empezar con el desarrollo se debe solicitar (al SM o Funcional) permisos de acceso a Taiga. 
+La obtencion de datos la realizaremos por medio de la api de nuestro tracker de tareas [Taiga](https://www.taiga.io/) instalado en 
+nuestros servidores (http://taiga.pladema.net/).
+La documentacion de la api esta disponible [aquí](https://taigaio.github.io/taiga-doc/dist/api.html).
+
+
+##### Consideraciones:
+
+- Antes de empezar se debe solicitar (al SM o Funcional) permisos de acceso a Taiga.
+
+- Que el desarrollo sea preferentemente orientado a Mobile-First.
+
+- Para el maquetado utilizar la libreria, ya incluida, flex-layout ([documentación](https://github.com/angular/flex-layout)). 
+ 
+- Para el uso de servicios ademas de la documentacion mencionada se pueden usar como guia algun [ejemplo](https://angular.io/tutorial/toh-pt6).
+
 
 ### Construir login 
-Crear una pagina con un formulario utilizando reactive form con los campos definidos segun la informacion que necesite el [endpoint 
-correspondiente](https://taigaio.github.io/taiga-doc/dist/api.html#auth-normal-login) validando y controlando posibles errores. Luego del
+Crear una pagina con un formulario utilizando reactive form ([documentacion](https://angular.io/guide/reactive-forms)) con los campos 
+definidos segun la informacion que necesite el [endpoint correspondiente](https://taigaio.github.io/taiga-doc/dist/api.html#auth-normal-login) validando y controlando posibles errores. Luego del
 logueo se debera redirigir a una segunda pantalla (siguente US).
 	
 
 ### Construir listado de proyectos disponibles
 Mensaje de bienvenida con el nombre completo de usuario (obtenido de la respuesta del login). 
-Crear una tabla (utilizar lo que provee Material) de [listado de proyectos](https://taigaio.github.io/taiga-doc/dist/api
-.html#projects-list) pertenecientes al usuario logueado donde cada fila de la tabla tendra un boton *'Ver'* que redireccionara a una 
+Crear una tabla (utilizar lo que provee Material) de [listado de proyectos](https://taigaio.github.io/taiga-doc/dist/api.html#projects-list) pertenecientes al usuario logueado donde cada fila de la tabla tendra un boton *'Ver'* que redireccionara a una 
 siguiente pagina (siguiente US).
 	
 
 ### Construir listado de U. Stories disponibles
-Crear una tabla (utilizar lo que provee Material) de [listado de User Stories](https://taigaio.github.io/taiga-doc/dist/api
-.html#user-stories-list) sin cerrar, pertenecientes al sprint actual del usuario logueado, donde cada fila de la tabla tendra un boton  
+Crear una tabla (utilizar lo que provee Material) de [listado de User Stories](https://taigaio.github.io/taiga-doc/dist/api.html#user-stories-list) sin cerrar, pertenecientes al sprint actual del usuario logueado, donde cada fila de la tabla tendra un boton  
 *'Ver'* que redireccionara a una siguiente pagina (siguiente US).
 
 	
@@ -139,8 +151,7 @@ la tabla tendra un boton *'Nueva Tarea'* que redireccionara a una siguiente pagi
 	
 
 ### Construir formulario para creacion de nueva tarea
-Crear una pagina con un formulario utilizando reactive form y definiendo los campos necesarios segun el [endpoint correspondiente]
-(https://taigaio.github.io/taiga-doc/dist/api.html#tasks-create). Luego del submit del form se debera volver al listado de tareas previo.
+Crear una pagina con un formulario utilizando reactive form y definiendo los campos necesarios segun el [endpoint correspondiente](https://taigaio.github.io/taiga-doc/dist/api.html#tasks-create). Luego del submit del form se debera volver al listado de tareas previo.
 
 ### Construir PWA
 Permitir el soporte PWA en el proyecto. [Documentación](https://angular.io/guide/service-worker-getting-started). 
