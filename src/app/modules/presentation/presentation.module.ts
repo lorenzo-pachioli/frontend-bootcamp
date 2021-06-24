@@ -1,22 +1,18 @@
-import { NgModule } from '@angular/core';
+import { MaterialModule } from './../material/material.module';
 import { CommonModule } from '@angular/common';
-import { MessageSnackbarComponent } from './component/message-snackbar/message-snackbar.component';
-import { CoreModule } from '../core/core.module';
-import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
 	declarations: [
-		MessageSnackbarComponent
 	],
 	imports: [
 		CommonModule,
-		CoreModule,
-		FlexModule,
-		FlexLayoutModule
+		FlexLayoutModule,
 	],
 	exports: [
-		MessageSnackbarComponent
+		FlexLayoutModule,
 	]
 })
 export class PresentationModule {

@@ -9,10 +9,12 @@ const DEFAULT_LANG = 'es-AR';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	title = 'FrontendBootcamp';
+
+	currentYear = new Date().getFullYear()
 
 	constructor(translate: TranslateService) {
-		translate.setDefaultLang(DEFAULT_LANG);
-		translate.use(DEFAULT_LANG);
+		translate.setDefaultLang(DEFAULT_LANG)
+		translate.use(DEFAULT_LANG)
 	}
+
 }
