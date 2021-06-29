@@ -7,6 +7,7 @@
 		"build": "ng build",
 		"build:prod": "ng build --prod --base-href /",
 		"test": "ng test",
+		"test:ci": "ng test --karma-config=./karma-ci.conf.js --no-progress",
 		"lint": "ng lint",
 		"e2e": "ng e2e"
 	},
