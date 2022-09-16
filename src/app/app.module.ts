@@ -2,6 +2,7 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import localeEsAr from '@angular/common/locales/es-AR';
 import { LOCALE_ID, NgModule } from '@angular/core';
+import { CoreModule } from './modules/core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -32,6 +33,7 @@ registerLocaleData(localeEsAr, 'es-AR');
 			}
 		}),
 		PresentationModule,
+		CoreModule
 	],
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'es-AR' }

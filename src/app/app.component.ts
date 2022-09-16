@@ -10,8 +10,6 @@ const DEFAULT_LANG = 'es-AR';
 })
 export class AppComponent {
 
-	currentYear = new Date().getFullYear()
-
 	constructor(translate: TranslateService) {
 		translate.setDefaultLang(DEFAULT_LANG)
 	}
