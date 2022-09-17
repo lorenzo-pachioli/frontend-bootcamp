@@ -23,5 +23,6 @@
 	"angularCompilerOptions": {
 		"fullTemplateTypeCheck": true,
 		"preserveWhitespaces": true,
+		"strictTemplates": true
 	}
 }

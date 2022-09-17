@@ -1,1 +1,13 @@
-<p>card-list works!</p>
+<ul class="cardList-container">
+    <p>card-list works!</p>
+    <li *ngFor="let task of tasks" >
+        <div>
+            <ng-container
+            [ngTemplateOutlet]="cardTemplateRef"
+            [ngTemplateOutletContext]="{$implicit:task}"
+        >
+        </ng-container>
+            <ng-content task={{task}}></ng-content>
+        </div>
+    </li>
+</ul>

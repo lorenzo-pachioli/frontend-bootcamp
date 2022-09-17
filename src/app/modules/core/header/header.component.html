@@ -1,7 +1,5 @@
-<header>
-	<mat-toolbar color="primary">
-		<mat-toolbar-row>
-			<h1 translate="app.TITLE"></h1>
-		</mat-toolbar-row>
-	</mat-toolbar>
+<header class="header-container">
+	<button (click)="setMenuState()">Menu</button>
+	<app-menu *ngIf="menuState"></app-menu>
+	<h1 translate="app.HEADER"></h1>
 </header>

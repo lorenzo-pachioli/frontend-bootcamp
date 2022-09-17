@@ -1,0 +1,5 @@
+.cardList-container {
+    width: 100%;
+    min-height: 70%;
+    border: var(--border2);
+}

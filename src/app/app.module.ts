@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material/material.module';
 import { PresentationModule } from './modules/presentation/presentation.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 
 registerLocaleData(localeEsAr, 'es-AR');
@@ -33,7 +34,8 @@ registerLocaleData(localeEsAr, 'es-AR');
 			}
 		}),
 		PresentationModule,
-		CoreModule
+		CoreModule,
+		SharedModule
 	],
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'es-AR' }

@@ -7,6 +7,7 @@ import { MaterialModule } from '../material/material.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PresentationModule } from '../presentation/presentation.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 				useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json'),
 				deps: [HttpClient]
 			}
-		})
+		}),
+    PresentationModule
   ],
   exports: [HeaderComponent, FooterComponent, MainComponent]
 })

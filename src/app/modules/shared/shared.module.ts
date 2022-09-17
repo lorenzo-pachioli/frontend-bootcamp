@@ -9,6 +9,7 @@ import { CardComponent } from './card/card.component';
   declarations: [CardListComponent, CardComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [CardListComponent, CardComponent]
 })
 export class SharedModule { }

@@ -1,13 +1,4 @@
-<main fxLayoutAlign="center">
-	<mat-card class="card">
-		<mat-card-header>
-			<mat-card-title>
-				{{ 'app.WELCOME.HEADER' | translate: { year: currentYear } }}
-			</mat-card-title>
-		</mat-card-header>
-		<img mat-card-image src="assets/images/angular.png" alt="Angular's Logo">
-		<mat-card-content>
-			<p translate>app.WELCOME.CONTENT</p>
-		</mat-card-content>
-	</mat-card>
+<main class="main-container">
+	<h1>Main</h1>
+	<ng-content></ng-content>
 </main>

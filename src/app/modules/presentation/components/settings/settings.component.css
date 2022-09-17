@@ -1,0 +1,5 @@
+.settings-container {
+    width: 100%;
+    height: calc(80vh - 4px);
+    border: var(--border1);
+}

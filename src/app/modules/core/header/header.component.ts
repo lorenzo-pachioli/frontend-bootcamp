@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  menuState: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setMenuState(){
+    this.menuState = !this.menuState;
+    console.log(this.menuState);
+    
   }
 
 }

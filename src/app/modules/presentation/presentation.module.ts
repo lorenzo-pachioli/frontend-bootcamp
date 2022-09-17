@@ -5,25 +5,31 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { LabelComponent } from './components/label/label.component';
 import { HomeComponent } from './components/home/home.component';
 import { MyStoriesComponent } from './components/my-stories/my-stories.component';
-import { MyProyectsComponent } from './components/my-proyects/my-proyects.component';
+import { MyProjectsComponent } from './components/my-projects/my-projects.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { MenuComponent } from './components/menu/menu.component';
 
 
 @NgModule({
 	declarations: [
-	LabelComponent,
-	HomeComponent,
-	MyStoriesComponent,
-	MyProyectsComponent,
-	SettingsComponent,
-	MenuComponent],
+		LabelComponent,
+		HomeComponent,
+		MyStoriesComponent,
+		MyProjectsComponent,
+		SettingsComponent,
+		MenuComponent
+	],
 	imports: [
 		CommonModule,
 		FlexLayoutModule,
 	],
 	exports: [
 		FlexLayoutModule,
+		HomeComponent,
+		MyStoriesComponent,
+		MyProjectsComponent,
+		SettingsComponent,
+		MenuComponent
 	]
 })
 export class PresentationModule {

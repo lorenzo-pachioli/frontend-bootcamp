@@ -5,4 +5,11 @@ body {
 	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
 	background-color: whitesmoke;
+	
+}
+
+:root {
+	--border: 2px solid black;
+	--border1: 2px solid red;
+	--border2: 2px solid green;
 }

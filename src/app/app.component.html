@@ -1,3 +1,20 @@
 <app-header></app-header>
-<app-main></app-main>
+<app-main>
+    <app-home></app-home>
+    <app-my-stories>
+        <app-card-list>
+            <ng-template let-task #card>
+                <app-card task={{task}}></app-card>
+            </ng-template>
+        </app-card-list>
+    </app-my-stories>
+    <app-my-projects>
+        <app-card-list>
+            <ng-template let-task #card>
+                <app-card task={{task}}></app-card>
+            </ng-template>
+        </app-card-list>
+    </app-my-projects>
+    <app-settings></app-settings>
+</app-main>
 <app-footer></app-footer>
