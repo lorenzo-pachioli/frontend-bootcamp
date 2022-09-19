@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  menuState: boolean = false;
+  @Input() menuState: boolean = false;
+  @Output() menuStateChange: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 
@@ -16,8 +17,6 @@ export class HeaderComponent implements OnInit {
 
   setMenuState(){
     this.menuState = !this.menuState;
-    console.log(this.menuState);
-    
   }
 
 }

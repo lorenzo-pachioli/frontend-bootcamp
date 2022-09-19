@@ -8,7 +8,8 @@ import { MyStoriesComponent } from './components/my-stories/my-stories.component
 import { MyProjectsComponent } from './components/my-projects/my-projects.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { MenuComponent } from './components/menu/menu.component';
-
+import { SharedModule } from '../shared/shared.module';
+import { AppRoutingModule } from '../../app-routing.module';
 
 @NgModule({
 	declarations: [
@@ -22,6 +23,8 @@ import { MenuComponent } from './components/menu/menu.component';
 	imports: [
 		CommonModule,
 		FlexLayoutModule,
+		SharedModule,
+		AppRoutingModule
 	],
 	exports: [
 		FlexLayoutModule,

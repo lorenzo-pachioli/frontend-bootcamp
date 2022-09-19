@@ -1,5 +1,5 @@
 <header class="header-container">
 	<button (click)="setMenuState()">Menu</button>
-	<app-menu *ngIf="menuState"></app-menu>
+	<app-menu *ngIf="menuState" [(menuState)]="menuState"></app-menu>
 	<h1 translate="app.HEADER"></h1>
 </header>
