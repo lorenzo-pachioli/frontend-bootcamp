@@ -1,0 +1,11 @@
+@import '../../../../../mixins';
+
+.menu-container {
+    width: calc(612px * 0.8);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    border: var(--border1);
+    background-color: white;
+}

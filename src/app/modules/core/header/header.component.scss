@@ -1,0 +1,10 @@
+@import '../../../../mixins';
+
+.header-container {
+    @include width-responsive;
+    @include flex(flex, center, flex-start, row);
+    min-width: 312px;
+    height: calc(10vh - 4px);
+    border: var(--border);
+    position: relative;
+}

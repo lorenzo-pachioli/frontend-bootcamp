@@ -1,8 +1,13 @@
 {
 	"app": {
+		"HEADER": {
+			"HOME": "Página principal",
+			"STORY": "Mis Historias",
+			"PROJECT": "Mis Proyectos",
+			"SETTINGS": "Configuración"
+		},
 		"TITLE": "Entrenamiento de Front-end",
 		"WELCOME": {
-			"HEADER": "Header",
 			"CONTENT": "Angular es un framework para diseño de aplicaciones y una plataforma de desarrollo para crear sofisticadas y eficientes single-page apps."
 		},
 		"FOOTER": "Footer"

@@ -1,0 +1,6 @@
+@import '../mixins';
+
+.app {
+	@include flex(flex, center, flex-start, column);
+}
+

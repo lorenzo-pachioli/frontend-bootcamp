@@ -10,6 +10,8 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../../app-routing.module';
+import { ProjectService } from '../api-rest/services/projects/project.service';
+import { StoriesService } from '../api-rest/services/stories/stories.service';
 
 @NgModule({
 	declarations: [
@@ -33,6 +35,10 @@ import { AppRoutingModule } from '../../app-routing.module';
 		MyProjectsComponent,
 		SettingsComponent,
 		MenuComponent
+	],
+	providers: [
+		ProjectService, 
+		StoriesService
 	]
 })
 export class PresentationModule {

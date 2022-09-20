@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IProject } from '../../api-rest/services/interfaces/projectInterface';
+import { IStory} from '../../api-rest/services/interfaces/storyInterface';
 
 @Component({
   selector: 'app-card',
@@ -6,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() task: string = '';
+  @Input() item: IProject | IStory;
   constructor() { }
 
   ngOnInit(): void {

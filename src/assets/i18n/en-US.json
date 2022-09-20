@@ -1,8 +1,13 @@
 {
 	"app": {
+		"HEADER": {
+			"HOME": "Home",
+			"STORY": "My Stories",
+			"PROJECT": "My Project",
+			"SETTINGS": "Settings"
+		},
 		"TITLE": "Front-end's Bootcamp",
 		"WELCOME": {
-			"HEADER": "Header",
 			"CONTENT": "Angular is an application design framework and development platform for creating efficient and sophisticated single-page apps."
 		},
 		"FOOTER": "App footer"

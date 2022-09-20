@@ -1,8 +1,0 @@
-.menu-container {
-    position: absolute;
-    left: 0;
-    top: 10vh;
-    width: 80%;
-    height: calc(80vh - 4px);
-    border: var(--border1);
-}

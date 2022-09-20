@@ -1,9 +1,9 @@
 <div class="myStories-container">
     <p>my-stories works!</p>
     <!-- <ng-content></ng-content> -->
-    <app-card-list>
-        <ng-template let-task #card>
-            <app-card task={{task}}></app-card>
+    <app-card-list [list]="stories">
+        <ng-template let-item #card>
+            <app-card [item]='item'></app-card>
         </ng-template>
     </app-card-list>
 </div>

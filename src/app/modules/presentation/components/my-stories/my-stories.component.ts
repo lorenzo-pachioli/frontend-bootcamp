@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
 
 @Component({
   selector: 'app-my-stories',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyStoriesComponent implements OnInit {
 
-  constructor() { }
+  stories = [];
+  constructor(public storiesList:StoriesService) { }
 
   ngOnInit(): void {
+    this.stories = this.storiesList.getStories()
   }
-
 }

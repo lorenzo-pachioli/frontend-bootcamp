@@ -1,0 +1,7 @@
+@import '../../../../mixins';
+
+.main-container {
+    @include width-responsive;
+    min-width: 312px;
+    border: var(--border);
+}

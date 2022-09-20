@@ -1,0 +1,9 @@
+@import '../../../../mixins';
+
+.footer-container {
+    @include width-responsive;
+    @include flex(flex, center, flex-start, row);
+    min-width: 312px;
+    height: calc(5vh - 4px);
+    border: var(--border);
+}
