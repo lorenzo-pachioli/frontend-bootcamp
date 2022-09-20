@@ -1,6 +1,6 @@
 build-app:
   stage: build
-  image: circleci/openjdk:8-stretch-node-browsers
+  image: circleci/node:16.17.0
   cache:
     paths:
       - node_modules
