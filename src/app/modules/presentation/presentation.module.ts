@@ -14,6 +14,7 @@ import { StoriesService } from '../api-rest/services/stories/stories.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { UserService } from '../api-rest/services/user/user.service';
 @NgModule({
 	declarations: [
 		LabelComponent,
@@ -45,7 +46,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 	],
 	providers: [
 		ProjectService,
-		StoriesService
+		StoriesService,
+		UserService
 	]
 })
 export class PresentationModule {

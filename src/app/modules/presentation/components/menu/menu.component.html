@@ -1,4 +1,4 @@
-<div class="menu-container">
+<div class="menu-container" [ngClass]="menuState ? 'deployed':''">
     <div class="menu-logo">
         <span>
             <div>Brainstorming</div>
@@ -15,7 +15,9 @@
         <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.MENU" (click)="setMenuState()">
         </button>
     </div>
-    <a class="menu-user" translate="app.HEADER.SETTINGS" routerLink="/settings" (click)="setMenuState()">
+    <a class="menu-user" mat-button routerLink="/settings" (click)="setMenuState()">
+        {{userLogged.name.first}} {{userLogged.name.last}}
+        
     </a>
 </div>
 

@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IUser } from 'src/app/modules/api-rest/services/interfaces/userInterface';
+import { UserService } from 'src/app/modules/api-rest/services/user/user.service';
 
 @Component({
 	selector: 'app-menu',
@@ -7,12 +9,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+	userLogged: IUser;
 	@Input() menuState = false;
 	@Output() menuStateChange: EventEmitter<boolean> = new EventEmitter();
 
-	constructor() { }
+	constructor(public user: UserService) { }
 
 	ngOnInit(): void {
+		this.userLogged = this.user.getUser();
 	}
 
 	setMenuState(): void {
