@@ -14,9 +14,10 @@ body {
 	--border: 2px solid black;
 	--border1: 2px solid red;
 	--border2: 2px solid green;
-	--border3: 2px solid var($color5);
+	--border3: 2px solid var(--color5);
     --gap: 20px;
-    --radius: 30px;
+	--radius1: 15px;
+    --radius2: 30px;
 	--color1: rgba(243, 243, 242, 1);
     --color2: rgba(237, 245, 218, 1);
     --color3: rgba(159, 199, 67, 1);
