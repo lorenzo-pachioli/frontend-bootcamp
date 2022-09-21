@@ -1,17 +1,21 @@
 <div class="menu-container">
-    <p>menu works!</p>
-    <button (click)="setMenuState()">X</button>
-    <a routerLink="/home">
-        <button (click)="setMenuState()">Home</button>
-    </a>
-    <a routerLink="/my-stories">
-        <button (click)="setMenuState()">My Stories</button>
-    </a>
-    <a routerLink="/my-projects">
-        <button (click)="setMenuState()">My Projects</button>
-    </a>
-    <a routerLink="/settings">
-        <button (click)="setMenuState()">Settings</button>
+    <div class="menu-logo">
+        <p>logo</p>
+    </div>
+    <div class="menu-nav">
+        <a class="menu-button" mat-button mat-flat-button routerLink="/home" (click)="setMenuState()">
+            Home
+        </a>
+        <a class="menu-button" mat-button mat-flat-button routerLink="/my-stories" (click)="setMenuState()">
+            My Stories
+        </a>
+        <a class="menu-button" mat-button mat-flat-button routerLink="/my-projects" (click)="setMenuState()">
+            My Projects
+        </a>
+        <button class="menu-button" mat-button mat-flat-button (click)="setMenuState()">Close menu</button>
+    </div>
+    <a class="menu-user" routerLink="/settings" (click)="setMenuState()">
+        Settings
     </a>
 </div>
 

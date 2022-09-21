@@ -1,4 +1,4 @@
-import { MaterialModule } from './../material/material.module';
+import { MaterialModule } from '../material/material.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { LabelComponent } from './components/label/label.component';
@@ -11,7 +11,6 @@ import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../../app-routing.module';
 import { ProjectService } from '../api-rest/services/projects/project.service';
 import { StoriesService } from '../api-rest/services/stories/stories.service';
-
 @NgModule({
 	declarations: [
 		LabelComponent,
@@ -24,7 +23,8 @@ import { StoriesService } from '../api-rest/services/stories/stories.service';
 	imports: [
 		CommonModule,
 		SharedModule,
-		AppRoutingModule
+		AppRoutingModule,
+		MaterialModule
 	],
 	exports: [
 		HomeComponent,
