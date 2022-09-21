@@ -1,6 +1,7 @@
 @import '../../../../../mixins';
 
 $gap: var(--gap);
+$radius: var(--radius);
 
 .menu-container {
     @include flex(flex, flex-start, space-between, column);
@@ -10,7 +11,8 @@ $gap: var(--gap);
     top: 0;
     height: calc(100vh - 4px);
     gap: $gap;
-    border-radius: 0 20px 20px 0;
+    background-color: var(--color2);
+    border-radius: 0 $radius $radius 0;
     box-shadow: 5px 0px 5px 0px rgba(0,0,0,0.5);
 }
 
@@ -18,7 +20,9 @@ $gap: var(--gap);
     @include flex(flex, center, center);
     width: 100%;
     height: 15%;
-    
+    border-radius: 0 $radius 0px 0px;
+    border-bottom: 2px solid var(--color5);
+    background-color: var(--color1);
 }
 .menu-nav{
     @include flex(flex, center, flex-start, column);
@@ -31,7 +35,11 @@ $gap: var(--gap);
     @include flex(flex, center, center, column);
     width: 90%;
     height: 10%;
-    
+    background-color: var(--color3);
+    color: white;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 .menu-user {
@@ -39,5 +47,7 @@ $gap: var(--gap);
     border-top: 2px solid var(--color5);
     width: 100%;
     height: 10%;
-    
+    text-decoration: none;
+    background-color: var(--color1);
+    border-radius: 0px 0px $radius 0;
 }

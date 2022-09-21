@@ -11,6 +11,9 @@ import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../../app-routing.module';
 import { ProjectService } from '../api-rest/services/projects/project.service';
 import { StoriesService } from '../api-rest/services/stories/stories.service';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 @NgModule({
 	declarations: [
 		LabelComponent,
@@ -24,7 +27,14 @@ import { StoriesService } from '../api-rest/services/stories/stories.service';
 		CommonModule,
 		SharedModule,
 		AppRoutingModule,
-		MaterialModule
+		MaterialModule,
+		TranslateModule.forRoot({
+			loader: {
+				provide: TranslateLoader,
+				useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json'),
+				deps: [HttpClient]
+			}
+		}),
 	],
 	exports: [
 		HomeComponent,

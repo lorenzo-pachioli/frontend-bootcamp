@@ -3,19 +3,16 @@
         <p>logo</p>
     </div>
     <div class="menu-nav">
-        <a class="menu-button" mat-button mat-flat-button routerLink="/home" (click)="setMenuState()">
-            Home
+        <a class="menu-button" mat-button mat-flat-button translate="app.HEADER.HOME" routerLink="/home" (click)="setMenuState()">
         </a>
-        <a class="menu-button" mat-button mat-flat-button routerLink="/my-stories" (click)="setMenuState()">
-            My Stories
+        <a class="menu-button" mat-button mat-flat-button translate="app.HEADER.STORY" routerLink="/my-stories" (click)="setMenuState()">  
         </a>
-        <a class="menu-button" mat-button mat-flat-button routerLink="/my-projects" (click)="setMenuState()">
-            My Projects
+        <a class="menu-button" mat-button mat-flat-button translate="app.HEADER.PROJECT" routerLink="/my-projects" (click)="setMenuState()">
         </a>
-        <button class="menu-button" mat-button mat-flat-button (click)="setMenuState()">Close menu</button>
+        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.MENU" (click)="setMenuState()">
+        </button>
     </div>
-    <a class="menu-user" routerLink="/settings" (click)="setMenuState()">
-        Settings
+    <a class="menu-user" translate="app.HEADER.SETTINGS" routerLink="/settings" (click)="setMenuState()">
     </a>
 </div>
 

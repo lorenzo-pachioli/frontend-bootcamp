@@ -3,10 +3,12 @@
 html, body { height: 100%; }
 body {
 	margin: 0;
-	font-family: Roboto, "Helvetica Neue", sans-serif;
+	/* font-family: Roboto, "Helvetica Neue", sans-serif; */
+	font-family: 'Roboto Flex', sans-serif;
 	background-color: whitesmoke;
 	box-sizing: border-box;
 }
+
 
 :root {
 	--border: 2px solid black;
@@ -14,7 +16,7 @@ body {
 	--border2: 2px solid green;
 	--border3: 2px solid var($color5);
     --gap: 20px;
-    --radius: 20px;
+    --radius: 30px;
 	--color1: rgba(243, 243, 242, 1);
     --color2: rgba(237, 245, 218, 1);
     --color3: rgba(159, 199, 67, 1);
