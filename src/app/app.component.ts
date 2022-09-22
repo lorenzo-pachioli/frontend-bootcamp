@@ -10,8 +10,8 @@ const DEFAULT_LANG = 'en-US';
 })
 export class AppComponent {
 
-	constructor(translate: TranslateService) {
-		translate.setDefaultLang(DEFAULT_LANG)
+	constructor(public translate: TranslateService) {
+		this.translate.setDefaultLang(DEFAULT_LANG)
 	}
 
 }

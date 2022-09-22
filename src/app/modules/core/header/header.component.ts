@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-header',
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
 	@Input() menuState = false;
 	@Output() menuStateChange: EventEmitter<boolean> = new EventEmitter();
 
-	constructor(public routerPath: Router) {
+	constructor(public routerPath: Router, public translate: TranslateService) {
 		routerPath.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
 				this.pathValue = event,
@@ -29,7 +30,6 @@ export class HeaderComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-
 	}
 
 	setMenuState(): void {

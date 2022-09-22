@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SharedModule } from 'src/app/modules/shared/shared.module';
+import { TranslateService } from '@ngx-translate/core';
 import { MyStoriesComponent } from './my-stories.component';
+import { TranslateServiceMock } from 'src/app/test/mocks/services/translate.service.mock';
 
 describe('MyStoriesComponent', () => {
 	let component: MyStoriesComponent;
@@ -8,7 +10,12 @@ describe('MyStoriesComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [ MyStoriesComponent ]
+			imports: [
+				SharedModule
+			],
+			declarations: [
+				MyStoriesComponent
+			]
 		})
 			.compileComponents();
 	});

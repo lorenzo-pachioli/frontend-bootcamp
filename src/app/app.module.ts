@@ -14,7 +14,7 @@ import { PresentationModule } from './modules/presentation/presentation.module';
 import { SharedModule } from './modules/shared/shared.module';
 
 
-registerLocaleData(localeEsAr, 'es-AR');
+registerLocaleData(localeEsAr, 'en-US');
 
 @NgModule({
 	declarations: [
@@ -38,7 +38,7 @@ registerLocaleData(localeEsAr, 'es-AR');
 		SharedModule
 	],
 	providers: [
-		{ provide: LOCALE_ID, useValue: 'es-AR' }
+		{ provide: LOCALE_ID, useValue: 'en-US' }
 	],
 	bootstrap: [AppComponent]
 })
