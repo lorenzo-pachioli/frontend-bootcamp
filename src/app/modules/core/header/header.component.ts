@@ -42,5 +42,4 @@ export class HeaderComponent implements OnInit {
 		if (path === '/my-projects') { return 'app.HEADER.PROJECT' }
 		if (path === '/settings') { return 'app.HEADER.SETTINGS' }
 	}
-
 }
