@@ -1,14 +1,9 @@
 build-app:
   stage: build
-  image: cimg/node:16.17.0-browsers
+  image: circleci/node:16-bullseye-browsers-legacy
   cache:
     paths:
       - node_modules
-  before_script:
-    - apt-get update
-    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - apt install -y ./google-chrome*.deb;
-    - export CHROME_BIN=/usr/bin/google-chrome
   script:
     - ./ci/jobs/build/build.sh
     - (echo "el built-commit es $(git rev-parse HEAD)" > git-sha)
