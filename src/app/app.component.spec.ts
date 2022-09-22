@@ -7,6 +7,9 @@ import { PresentationModule } from './modules/presentation/presentation.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { TranslatePipeMock } from './test/mocks/pipes/translate.pipe.mock';
 import { TranslateServiceMock } from './test/mocks/services/translate.service.mock';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
 describe('AppComponent', () => {
 	beforeEach(async () => {
@@ -15,7 +18,14 @@ describe('AppComponent', () => {
 				RouterTestingModule,
 				PresentationModule,
 				CoreModule,
-				SharedModule
+				SharedModule,
+				TranslateModule.forRoot({
+					loader: {
+						provide: TranslateLoader,
+						useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json'),
+						deps: [HttpClient]
+					}
+				})
 			],
 			declarations: [
 				AppComponent,
