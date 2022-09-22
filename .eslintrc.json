@@ -39,6 +39,7 @@
             "type": "attribute"
           }
         ],
+        "@angular-eslint/no-empty-lifecycle-method": "off",
         "@typescript-eslint/tslint/config": ["warn", {
           "lintFile": "./tslint.json", 
           "rules": {

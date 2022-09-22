@@ -11,19 +11,19 @@ import { PresentationModule } from '../presentation/presentation.module';
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, MainComponent],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    TranslateModule.forRoot({
+	declarations: [HeaderComponent, FooterComponent, MainComponent],
+	imports: [
+		CommonModule,
+		MaterialModule,
+		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,
 				useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json'),
 				deps: [HttpClient]
 			}
 		}),
-    PresentationModule
-  ],
-  exports: [HeaderComponent, FooterComponent, MainComponent]
+		PresentationModule
+	],
+	exports: [HeaderComponent, FooterComponent, MainComponent]
 })
 export class CoreModule { }

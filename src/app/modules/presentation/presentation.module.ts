@@ -34,7 +34,7 @@ import { StoriesService } from '../api-rest/services/stories/stories.service';
 		MenuComponent
 	],
 	providers: [
-		ProjectService, 
+		ProjectService,
 		StoriesService
 	]
 })

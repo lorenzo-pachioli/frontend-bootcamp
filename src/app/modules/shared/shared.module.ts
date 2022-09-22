@@ -6,10 +6,10 @@ import { CardComponent } from './card/card.component';
 
 
 @NgModule({
-  declarations: [CardListComponent, CardComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [CardListComponent, CardComponent]
+	declarations: [CardListComponent, CardComponent],
+	imports: [
+		CommonModule
+	],
+	exports: [CardListComponent, CardComponent]
 })
 export class SharedModule { }
