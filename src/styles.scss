@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html,
+body {
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -12,12 +16,16 @@ body {
 	--border: 2px solid black;
 	--border1: 2px solid red;
 	--border2: 2px solid green;
-	--border3: 2px solid var($color5);
-    --gap: 20px;
-    --radius: 20px;
+	--border3: 2px solid var(--color5);
+
+	--gap: 20px;
+
+	--radius1: 10px;
+	--radius2: 20px;
+
 	--color1: rgba(243, 243, 242, 1);
-    --color2: rgba(237, 245, 218, 1);
-    --color3: rgba(159, 199, 67, 1);
-    --color4: rgba(134, 193, 0, 1);
-    --color5: rgba(167, 176, 50, 1);
+	--color2: rgba(237, 245, 218, 1);
+	--color3: rgba(159, 199, 67, 1);
+	--color4: rgba(134, 193, 0, 1);
+	--color5: rgba(167, 176, 50, 1);
 }
