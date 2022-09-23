@@ -1,11 +1,34 @@
 @import '../../../../mixins';
 
+$radius1: var(--radius1);
+$gap1: var(--gap1);
+
 .header-container {
-    @include width-responsive;
     @include flex(flex, center, flex-start, row);
-    min-width: 312px;
+    width: calc(100vw - 4px);
     height: calc(10vh - 4px);
-    border: var(--border);
-    position: relative;
+    border: 2px solid var(--color4);
+    background-color: var(--color4);
+    color: var(--color1);
+    border-radius: 0 0 $radius1 $radius1;
+    gap: $gap1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.5);
+
+    h1 {
+        font-size: 30px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    button {
+        @include flex(flex, center, center);
+        height: 30px;
+    }
 }
 
+.menu-icon {
+    font-size: 30px;
+}

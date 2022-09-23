@@ -1,0 +1,12 @@
+@import '../../../../mixins';
+
+.chart-container {
+  @include flex(flex, center, center, row);
+  width: 100%;
+  height: 100%;
+}
+
+.chart-subcontainer {
+  width: 100%;
+  height: fit-content;
+}

@@ -11,6 +11,11 @@
 		"WELCOME": {
 			"CONTENT": "Angular es un framework para diseño de aplicaciones y una plataforma de desarrollo para crear sofisticadas y eficientes single-page apps."
 		},
+		"MAIN": {
+			"HOME": {
+				"PROJECTBYEPICS": "Proyectos por cantidad de epicas"
+			}
+		},
 		"FOOTER": "Footer"
 	}
 }

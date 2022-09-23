@@ -1,5 +1,7 @@
 <header class="header-container">
-	<button (click)="setMenuState()">Menu</button>
-	<app-menu *ngIf="menuState" [(menuState)]="menuState"></app-menu>
+	<button mat-icon-button (click)="setMenuState()">
+		<mat-icon class="menu-icon">menu</mat-icon>
+	</button>
+	<app-menu [(menuState)]="menuState"></app-menu>
 	<h1 [translate]="headerTitle"></h1>
 </header>

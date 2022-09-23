@@ -6,6 +6,5 @@
 }
 
 @mixin width-responsive {
-    width:  min(100vw , 612px);
+    width: min(100vw - 4px, 612px);
 }
-

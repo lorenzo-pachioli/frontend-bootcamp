@@ -3,5 +3,7 @@
 .main-container {
     @include width-responsive;
     min-width: 312px;
-    border: var(--border);
+    min-height: calc(85vh);
+    background-color: var(--color1);
+    margin-top: 10vh;
 }
