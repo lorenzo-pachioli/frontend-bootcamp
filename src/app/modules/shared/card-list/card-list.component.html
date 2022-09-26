@@ -1,14 +1,22 @@
-<ul *ngIf="list.length > 0; else emptyList" class="cardList-container">
-    <li *ngFor="let item of list" >
-        <div>
-            <ng-container
-            [ngTemplateOutlet]="cardTemplateRef"
-            [ngTemplateOutletContext]="{$implicit:item}"
-        >
-        </ng-container>
-            <ng-content item={{item}}></ng-content>
-        </div>
-    </li>
-</ul>
+<div  class="cardList-container">
+    <ul *ngIf="list && list.length > 0; else emptyList">
+        <li *ngFor="let item of list" >
+            <div>
+                <ng-container
+                [ngTemplateOutlet]="cardTemplateRef"
+                [ngTemplateOutletContext]="{$implicit:item}"
+            >
+            </ng-container>
+                <ng-content item={{item}}></ng-content>
+            </div>
+        </li>
+    </ul>
+    
+    <ng-template #emptyList>
+        <mat-spinner *ngIf="loading; else noList"></mat-spinner>
+        <ng-template #noList>
+            <h1 [translate]="optional"></h1>
+        </ng-template>
+    </ng-template>
+</div>
 
-<ng-template #emptyList><h2 [translate]="optional"></h2></ng-template>

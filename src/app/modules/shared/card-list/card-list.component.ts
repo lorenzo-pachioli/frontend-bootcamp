@@ -8,11 +8,16 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class CardListComponent implements OnInit {
 
+	@Input() loading = true;
 	@Input() list: Array<any>;
 	@Input() optional = '';
 	@ContentChild('card', { static: false }) cardTemplateRef: TemplateRef<any>;
 	constructor(public translate: TranslateService) { }
 
 	ngOnInit(): void {
+		/* setTimeout(() => {
+			this.loading = false;
+		}, 5000); */
 	}
+
 }

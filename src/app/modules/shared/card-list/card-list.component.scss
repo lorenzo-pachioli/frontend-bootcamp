@@ -1,5 +1,19 @@
+@import '../../../../mixins';
+
 .cardList-container {
-    min-height: 70%;
-    list-style: none;
-    padding: 0;
+    @include flex(flex, center, flex-start, column);
+
+    ul {
+        width: 100%;
+        min-height: 70%;
+        list-style: none;
+        padding: 0;
+    }
+
+    h1 {
+        color: var(--color5);
+        border: var(--border5);
+        border-radius: var(--radius1);
+        padding: 20px;
+    }
 }

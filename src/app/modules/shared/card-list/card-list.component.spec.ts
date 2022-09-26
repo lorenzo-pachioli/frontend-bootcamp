@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TranslateService } from '@ngx-translate/core';
+import { TranslateServiceMock } from 'src/app/test/mocks/services/translate.service.mock';
 import { CardListComponent } from './card-list.component';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientServiceMock } from 'src/app/test/mocks/services/http-client.service.mock';
+import { MaterialModule } from '../../material/material.module';
 
 describe('CardListComponent', () => {
 	let component: CardListComponent;
@@ -8,7 +12,20 @@ describe('CardListComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [ CardListComponent ]
+			imports: [
+				MaterialModule
+			],
+			declarations: [CardListComponent],
+			providers: [
+				{
+					provide: TranslateService,
+					useClass: TranslateServiceMock
+				},
+				{
+					provide: HttpClient,
+					useClass: HttpClientServiceMock
+				}
+			]
 		})
 			.compileComponents();
 	});

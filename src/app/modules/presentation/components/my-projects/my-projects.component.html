@@ -7,7 +7,7 @@
 			</ng-template>
 		</app-card-list>
 	</mat-menu>
-	<app-card-list class="list" [list]="projects" optional="app.NO-PROJECTS">
+	<app-card-list class="list" [list]="projects" optional="app.NO-PROJECTS" [loading]="loading">
 		<ng-template let-item #card>
 			<app-card [item]='item' [matMenuTriggerFor]="menu" (click)="setEpicList(item.id)"></app-card>
 		</ng-template>

@@ -32,7 +32,7 @@ export class ProjectService {
 
 	constructor() { }
 
-	getProjects(): IProject[] {
+	getProjects(): any {
 		return this.projectsMock;
 	}
 }

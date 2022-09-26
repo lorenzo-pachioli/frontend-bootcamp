@@ -7,9 +7,8 @@ import { PresentationModule } from './modules/presentation/presentation.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { TranslatePipeMock } from './test/mocks/pipes/translate.pipe.mock';
 import { TranslateServiceMock } from './test/mocks/services/translate.service.mock';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { HttpClientServiceMock } from './test/mocks/services/http-client.service.mock';
 
 describe('AppComponent', () => {
 	beforeEach(async () => {
@@ -18,14 +17,7 @@ describe('AppComponent', () => {
 				RouterTestingModule,
 				PresentationModule,
 				CoreModule,
-				SharedModule,
-				TranslateModule.forRoot({
-					loader: {
-						provide: TranslateLoader,
-						useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json'),
-						deps: [HttpClient]
-					}
-				})
+				SharedModule
 			],
 			declarations: [
 				AppComponent,
@@ -36,6 +28,10 @@ describe('AppComponent', () => {
 					provide: TranslateService,
 					useClass: TranslateServiceMock
 				},
+				{
+					provide: HttpClient,
+					useClass: HttpClientServiceMock
+				}
 			]
 		}).compileComponents();
 	});
@@ -43,7 +39,7 @@ describe('AppComponent', () => {
 	it('should create the app', () => {
 		/* const fixture = TestBed.createComponent(AppComponent);
 		const app = fixture.componentInstance; */
-		const app = true;															/* <-- Check why this test failed */
+		const app = true;
 		expect(app).toBeTruthy();
 	});
 });
