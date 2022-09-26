@@ -1,6 +1,14 @@
-<div class="card-container">
+<!-- <div class="card-container">
     <p>card works!</p>
     <p>{{item && item.name}}</p>
     <p>{{item && item.description}}</p>
-</div>
+</div> -->
+
+<mat-card class="card-container">
+    <mat-card-title >{{item && item.name}}</mat-card-title>
+    <mat-card-content >{{item && item.description}}</mat-card-content>
+    <mat-card-footer>
+        <hr [ngStyle]="itemColor()" />
+    </mat-card-footer>
+</mat-card>
 

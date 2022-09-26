@@ -18,6 +18,7 @@ $radius2: var(--radius2);
     transform: scaleX(0);
     transform-origin: left;
     transition: 0.5s;
+    z-index: 60;
 }
 
 .deployed {

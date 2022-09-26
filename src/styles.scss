@@ -14,8 +14,10 @@ body {
 :root {
 	--border: 2px solid black;
 	--border1: 2px solid red;
-	--border2: 2px solid green;
+	--border2: 2px solid var(--color2);
 	--border3: 2px solid var(--color3);
+	--border4: 2px solid var(--color4);
+	--border5: 2px solid var(--color5);
 
 	--gap1: 10px;
 	--gap2: 20px;

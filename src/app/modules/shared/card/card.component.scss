@@ -1,0 +1,33 @@
+@import '../../../../mixins';
+
+.mat-card {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 10px;
+    z-index: 1;
+    border-radius: var(--radius1);
+    padding: 15px;
+}
+
+.mat-card-title {
+    width: 100%;
+    color: white;
+    background-color: var(--color3);
+    padding: 10px;
+    border-radius: var(--radius1);
+}
+
+.mat-card-content {
+    color: var(--color5);
+}
+
+.mat-card-footer {
+    @include flex(flex, center, center);
+    height: 20px;
+
+    hr {
+        width: calc(100% - (15px * 2));
+        height: 4px;
+        border: none;
+    }
+}
