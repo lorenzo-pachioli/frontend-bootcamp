@@ -4,3 +4,11 @@
 	@include flex(flex, center, flex-start, column);
 }
 
+.header {
+	width: 100%;
+}
+
+.main {
+	@include flex(flex, center, flex-start, column);
+	width: 100%;
+}

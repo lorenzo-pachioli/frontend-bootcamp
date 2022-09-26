@@ -11,7 +11,7 @@ Chart.register(...registerables);
 export class DoughnutChartComponent implements OnInit {
 
 	chart: any;
-	labels = ['Red', 'Blue', 'Yellowooooooooooooooooooooooooooo'];
+	labels = [];
 	data = [];
 	@Input() items = [];
 	@Input() subItems = [];
@@ -21,18 +21,16 @@ export class DoughnutChartComponent implements OnInit {
 		this.labels = this.items.map(item => item.name);
 		this.data = this.items.map(item => {
 			return this.subItems.filter(subitem => subitem.project === item.id.toString()).length;
-		})
-		console.log(this.data);
+		});
 
 		this.createChart();
 	}
 
-	labelClicked(event, legendItem, legend): void {
+	/* labelClicked(event, legendItem, legend): void {
 		console.log('event:', event, 'legendItem:', legendItem, 'legend:', legend)
-	}
+	} */
 
 	createChart(): any {
-
 		this.chart = new Chart('MyChart', {
 			type: 'doughnut',
 			data: {

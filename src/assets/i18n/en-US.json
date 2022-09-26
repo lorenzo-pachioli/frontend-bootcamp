@@ -13,7 +13,8 @@
 		},
 		"MAIN": {
 			"HOME": {
-				"PROJECTBYEPICS": "Projects by amount of epics"
+				"PROJECTBYEPICS": "Projects by amount of epics",
+				"PROJECTPROGRESS": "Projects by stories finished"
 			}
 		},
 		"FOOTER": "App footer"

@@ -5,3 +5,9 @@ export interface IProject {
 	description?: string,
 	icon?: string
 }
+
+export interface IProjectNum {
+	name: string,
+	total: number,
+	completed: number
+}

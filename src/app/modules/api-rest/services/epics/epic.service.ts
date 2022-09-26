@@ -15,7 +15,7 @@ export class EpicService {
 		},
 		{
 			id: 2,
-			project: '3',
+			project: '2',
 			name: 'Epic 2',
 			description: 'This is the second Epic for Project 2',
 			icon: '🥁'

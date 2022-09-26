@@ -13,7 +13,8 @@
 		},
 		"MAIN": {
 			"HOME": {
-				"PROJECTBYEPICS": "Proyectos por cantidad de epicas"
+				"PROJECTBYEPICS": "Proyectos por cantidad de epicas",
+				"PROJECTPROGRESS": "Proyectos por historias terminadas"
 			}
 		},
 		"FOOTER": "Footer"

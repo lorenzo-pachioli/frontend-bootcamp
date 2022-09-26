@@ -5,10 +5,9 @@ body {
 	height: 100%;
 }
 
-body {
+* {
 	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
-	background-color: whitesmoke;
 	box-sizing: border-box;
 }
 
@@ -16,7 +15,7 @@ body {
 	--border: 2px solid black;
 	--border1: 2px solid red;
 	--border2: 2px solid green;
-	--border3: 2px solid var(--color5);
+	--border3: 2px solid var(--color3);
 
 	--gap1: 10px;
 	--gap2: 20px;

@@ -5,7 +5,7 @@ $gap1: var(--gap1);
 
 .header-container {
     @include flex(flex, center, flex-start, row);
-    width: calc(100vw - 4px);
+    width: 100%;
     height: calc(10vh - 4px);
     border: 2px solid var(--color4);
     background-color: var(--color4);

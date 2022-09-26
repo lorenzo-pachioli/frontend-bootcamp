@@ -5,3 +5,9 @@ export interface IEpic {
 	description?: string,
 	icon?: string
 }
+
+export interface IEpicNum {
+	project: string,
+	total: number,
+	completed: number
+}
