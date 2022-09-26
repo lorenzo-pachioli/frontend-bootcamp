@@ -1,10 +1,8 @@
 <div class="myProject-container">
-    <p>my-projects works!</p>
-    <!-- <ng-content></ng-content> -->
-    <app-card-list [list]="projects">
-        <ng-template let-item #card>
-            <app-card [item]='item'></app-card>
-        </ng-template>
-    </app-card-list>
+	<app-card-list class="list" [list]="projects">
+		<ng-template let-item #card>
+			<app-card [item]='item'></app-card>
+		</ng-template>
+	</app-card-list>
 </div>
 

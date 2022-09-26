@@ -1,0 +1,13 @@
+@import '../../../../../mixins';
+
+.myProject-container {
+    @include flex(flex, center, flex-start, column);
+    width: 100%;
+    min-height: calc(85vh - 4px);
+    display: flex;
+    flex-direction: column;
+
+    .list {
+        width: 90%;
+    }
+}

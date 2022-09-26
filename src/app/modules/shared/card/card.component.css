@@ -1,5 +1,6 @@
 .card-container {
-    width: 80%;
+    width: 100%;
     height: fit-content;
     border: var(--border2);
+    margin-bottom: 10px;
 }
