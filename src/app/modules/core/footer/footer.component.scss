@@ -1,9 +1,26 @@
 @import '../../../../mixins';
 
+$radius1: var(--radius1);
+
 .footer-container {
-    @include width-responsive;
-    @include flex(flex, center, flex-start, row);
+    @include flex(flex, center, center, row);
+    width: 100%;
     min-width: 312px;
-    height: calc(5vh - 4px);
-    border: var(--border);
+    height: 5vh;
+    gap: var(--gap1);
+    background-color: var(--color4);
+    border-radius: $radius1 $radius1 0 0;
+
+    h2 {
+        @include flex(flex, center, center);
+        height: 90%;
+        margin: 0;
+        color: white;
+        font-weight: 400;
+    }
+
+    img {
+        height: 80%;
+        fill: white;
+    }
 }

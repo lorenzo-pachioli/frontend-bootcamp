@@ -45,6 +45,10 @@ $gap2: var(--gap2);
     .donutChart {
         width: 80%;
     }
+
+    .barChart {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width:439px) {
@@ -58,5 +62,10 @@ $gap2: var(--gap2);
 
     .donutChart {
         width: 90%;
+    }
+
+    .barChart {
+        width: 90%;
+        height: fit-content;
     }
 }

@@ -71,6 +71,20 @@ export class BarChartComponent implements OnInit {
 								return `  ${context.dataset.data[0]} stories completed of ${context.dataset.data[1]}`;
 							}
 						}
+					},
+					legend: {
+						display: true,
+						fullSize: true,
+						labels: {
+							usePointStyle: true,
+							pointStyle: 'rectRounded',
+							font: {
+								size: 15
+							}
+						},
+						title: {
+							color: 'rgba(167, 176, 50, 1)'
+						}
 					}
 				},
 				scales: {
