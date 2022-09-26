@@ -34,4 +34,9 @@ export class EpicService {
 	getEpics(): any {
 		return this.epicList;
 	}
+
+	getEpicsByProyectId(id: number): any {
+		const list = this.epicList.filter(epic => epic.project === id.toString());
+		return list;
+	}
 }

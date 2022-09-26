@@ -17,6 +17,10 @@
 				"PROJECTPROGRESS": "Proyectos por historias terminadas"
 			}
 		},
-		"FOOTER": "Footer"
+		"FOOTER": "Footer",
+		"NO-TASK": "Todavía no hay tareas",
+		"NO-STORIES": "Todavía no hay historias",
+		"NO-EPICS": "Todavía no hay epicas",
+		"NO-PROJECTS": "Todavía no hay proyectos"
 	}
 }

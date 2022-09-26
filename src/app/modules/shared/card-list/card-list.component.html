@@ -1,4 +1,4 @@
-<ul class="cardList-container">
+<ul *ngIf="list.length > 0; else emptyList" class="cardList-container">
     <li *ngFor="let item of list" >
         <div>
             <ng-container
@@ -10,3 +10,5 @@
         </div>
     </li>
 </ul>
+
+<ng-template #emptyList><h2 [translate]="optional"></h2></ng-template>

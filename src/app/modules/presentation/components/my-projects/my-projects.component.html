@@ -1,7 +1,15 @@
 <div class="myProject-container">
-	<app-card-list class="list" [list]="projects">
+	<mat-menu #menu="matMenu" class="matMenu" >
+		<h1>Epics</h1>
+		<app-card-list [list]="epics" optional="app.NO-EPICS" >
+			<ng-template let-item #card>
+				<p>{{item.name}}</p>
+			</ng-template>
+		</app-card-list>
+	</mat-menu>
+	<app-card-list class="list" [list]="projects" optional="app.NO-PROJECTS">
 		<ng-template let-item #card>
-			<app-card [item]='item'></app-card>
+			<app-card [item]='item' [matMenuTriggerFor]="menu" (click)="setEpicList(item.id)"></app-card>
 		</ng-template>
 	</app-card-list>
 </div>

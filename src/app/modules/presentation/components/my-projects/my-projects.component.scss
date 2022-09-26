@@ -11,3 +11,18 @@
         width: 90%;
     }
 }
+
+::ng-deep .matMenu {
+    width: 500px;
+    padding: 0 10px;
+
+    h1 {
+        border-bottom: var(--border3);
+    }
+
+    p {
+        border: var(--border5);
+        padding: 10px;
+        border-radius: var(--radius1);
+    }
+}

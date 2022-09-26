@@ -17,6 +17,10 @@
 				"PROJECTPROGRESS": "Projects by stories finished"
 			}
 		},
-		"FOOTER": "App footer"
+		"FOOTER": "App footer",
+		"NO-TASK": "There are no tasks",
+		"NO-STORIES": "There are no stories",
+		"NO-EPICS": "There are no epics",
+		"NO-PROJECTS": "There are no projects"
 	}
 }

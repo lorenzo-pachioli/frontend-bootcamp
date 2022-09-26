@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from '../../../api-rest/services/projects/project.service'
+import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
+import { ProjectService } from '../../../api-rest/services/projects/project.service';
 
 @Component({
 	selector: 'app-my-projects',
@@ -9,10 +10,14 @@ import { ProjectService } from '../../../api-rest/services/projects/project.serv
 export class MyProjectsComponent implements OnInit {
 
 	projects = [];
-	constructor(public projectList: ProjectService) { }
+	epics = [];
+	constructor(public projectList: ProjectService, public epicList: EpicService) { }
 
 	ngOnInit(): void {
-		this.projects = this.projectList.getProjects()
+		this.projects = this.projectList.getProjects();
 	}
 
+	setEpicList(id: number): void {
+		this.epics = this.epicList.getEpicsByProyectId(id);
+	}
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ContentChild, Input } from '@angular/core';
-import { IProject } from '../../api-rest/services/interfaces/projectInterface';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-card-list',
@@ -9,10 +9,10 @@ import { IProject } from '../../api-rest/services/interfaces/projectInterface';
 export class CardListComponent implements OnInit {
 
 	@Input() list: Array<any>;
+	@Input() optional = '';
 	@ContentChild('card', { static: false }) cardTemplateRef: TemplateRef<any>;
-	constructor() { }
+	constructor(public translate: TranslateService) { }
 
 	ngOnInit(): void {
 	}
-
 }

@@ -5,6 +5,9 @@ import { CardComponent } from './card/card.component';
 import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { MaterialModule } from '../material/material.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 	declarations: [
@@ -15,7 +18,14 @@ import { MaterialModule } from '../material/material.module';
 	],
 	imports: [
 		CommonModule,
-		MaterialModule
+		MaterialModule,
+		TranslateModule.forRoot({
+			loader: {
+				provide: TranslateLoader,
+				useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json'),
+				deps: [HttpClient]
+			}
+		})
 	],
 	exports: [
 		CardListComponent,
