@@ -23,8 +23,10 @@ export class ProjectComponent implements OnInit {
 		if (project) {
 			this.project = project;
 			const epics = this.epicList.getEpicsByProyectId(id);
-			if (epics) {
+			if (epics.length > 0) {
 				this.epics = epics;
+			} else {
+				this.loading = false;
 			}
 		} else {
 			this.loading = false;

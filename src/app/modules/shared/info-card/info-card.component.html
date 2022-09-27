@@ -1,4 +1,14 @@
 <mat-card class="card-container">
   <mat-card-title >{{item && item.name}}</mat-card-title>
-  <mat-card-content >{{item && item.description}}</mat-card-content>
+  <mat-card-content >Description:  {{item && item.description}}</mat-card-content>
+  <mat-card-content >{{setMembers()}}</mat-card-content>
+  <mat-card-content >Color: <div [ngStyle]="setColor()"></div></mat-card-content>
+  <mat-card-content >{{setOwner()}}</mat-card-content>
+  <mat-card-content >{{setAssignedTo()}}</mat-card-content>
+  <mat-card-content >{{setPoints()}}</mat-card-content>
+  <mat-card-content >{{setCreated()}}</mat-card-content>
+  <mat-card-content >{{setDue()}}</mat-card-content>
+  <mat-card-content >{{setStarted()}}</mat-card-content>
+  <mat-card-content >{{setFinished()}}</mat-card-content>
+  <mat-card-content >{{setStatus()}}</mat-card-content>
 </mat-card>

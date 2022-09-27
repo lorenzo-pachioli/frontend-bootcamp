@@ -1,5 +1,5 @@
 <div class="project-container">
-  <app-info-card [item]="project"></app-info-card>
+  <app-info-card [project]="project"></app-info-card>
 	<app-card-list class="list" [list]="epics" optional="app.NO-PROJECTS" [loading]="loading">
 		<ng-template let-item #card>
 			<app-card [item]='item'></app-card>
