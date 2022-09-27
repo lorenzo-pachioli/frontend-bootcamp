@@ -1,0 +1,7 @@
+<div class="projectList-container">
+	<app-card-list class="list" [list]="projects" optional="app.NO-PROJECTS" [loading]="loading">
+		<ng-template let-item #card>
+			<app-card [item]='item' [routerLink]="setRoute(item.id)"></app-card>
+		</ng-template>
+	</app-card-list>
+</div>

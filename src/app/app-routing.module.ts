@@ -4,10 +4,19 @@ import { HomeComponent } from './modules/presentation/components/home/home.compo
 import { MyProjectsComponent } from './modules/presentation/components/my-projects/my-projects.component';
 import { MyStoriesComponent } from './modules/presentation/components/my-stories/my-stories.component';
 import { SettingsComponent } from './modules/presentation/components/settings/settings.component';
+import { ProjectListComponent } from './modules/presentation/subcomponents/project-list/project-list.component';
+import { ProjectComponent } from './modules/presentation/subcomponents/project/project.component';
 
 const routes: Routes = [
 	{ path: 'settings', component: SettingsComponent },
-	{ path: 'my-projects', component: MyProjectsComponent },
+	{
+		path: 'my-projects',
+		component: MyProjectsComponent,
+		children: [
+			{ path: ':id', component: ProjectComponent },
+			{ path: '', component: ProjectListComponent, pathMatch: 'full' }
+		],
+	},
 	{ path: 'my-stories', component: MyStoriesComponent },
 	{ path: 'home', component: HomeComponent },
 	{ path: '', redirectTo: '/home', pathMatch: 'full' },

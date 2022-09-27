@@ -9,21 +9,9 @@ import { ProjectService } from '../../../api-rest/services/projects/project.serv
 })
 export class MyProjectsComponent implements OnInit {
 
-	projects = [];
-	epics = [];
-	loading = true;
 	constructor(public projectList: ProjectService, public epicList: EpicService) { }
 
 	ngOnInit(): void {
-		const data = this.projectList.getProjects();
-		if (data) {
-			this.projects = data;
-		} else {
-			this.loading = false;
-		}
 	}
 
-	setEpicList(id: number): void {
-		this.epics = this.epicList.getEpicsByProyectId(id);
-	}
 }

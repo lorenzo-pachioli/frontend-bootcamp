@@ -35,4 +35,12 @@ export class ProjectService {
 	getProjects(): any {
 		return this.projectsMock;
 	}
+
+	getOneProject(id: number): IProject | false {
+		const project = this.projectsMock.find(p => p.id === id);
+		if (project) {
+			return project;
+		}
+		return false;
+	}
 }

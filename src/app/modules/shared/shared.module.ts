@@ -8,13 +8,15 @@ import { MaterialModule } from '../material/material.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { InfoCardComponent } from './info-card/info-card.component';
 
 @NgModule({
 	declarations: [
 		CardListComponent,
 		CardComponent,
 		DoughnutChartComponent,
-		BarChartComponent
+		BarChartComponent,
+		InfoCardComponent
 	],
 	imports: [
 		CommonModule,
@@ -31,7 +33,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 		CardListComponent,
 		CardComponent,
 		DoughnutChartComponent,
-		BarChartComponent
+		BarChartComponent,
+		InfoCardComponent
 	]
 })
 export class SharedModule { }

@@ -15,6 +15,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserService } from '../api-rest/services/user/user.service';
+import { ProjectComponent } from './subcomponents/project/project.component';
+import { ProjectListComponent } from './subcomponents/project-list/project-list.component';
 
 @NgModule({
 	declarations: [
@@ -23,7 +25,9 @@ import { UserService } from '../api-rest/services/user/user.service';
 		MyStoriesComponent,
 		MyProjectsComponent,
 		SettingsComponent,
-		MenuComponent
+		MenuComponent,
+		ProjectComponent,
+		ProjectListComponent
 	],
 	imports: [
 		CommonModule,

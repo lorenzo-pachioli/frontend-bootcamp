@@ -24,7 +24,8 @@ export class HeaderComponent implements OnInit {
 		routerPath.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
 				this.pathValue = event,
-					this.headerTitle = this.setHeader(this.pathValue.urlAfterRedirects)
+					this.headerTitle = this.setHeader(this.pathValue.urlAfterRedirects),
+					console.log(this.pathValue.urlAfterRedirects)
 			}
 		});
 	}
