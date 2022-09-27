@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-
+import { NavigationService } from '../../api-rest/services/navigation/navigation.service';
 @Component({
 	selector: 'app-header',
 	templateUrl: './header.component.html',
@@ -10,23 +8,23 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
 
 	headerTitle = '';
-	pathValue = {
-		id: 1,
-		type: 1,
-		url: '/',
-		urlAfterRedirects: '/'
-	};
+	url = {
+		path: '',
+		projectName: '',
+		epicName: '',
+		storyName: ''
+	}
 
 	@Input() menuState = false;
 	@Output() menuStateChange: EventEmitter<boolean> = new EventEmitter();
 
-	constructor(public routerPath: Router, public translate: TranslateService) {
-		routerPath.events.subscribe((event) => {
-			if (event instanceof NavigationEnd) {
-				this.pathValue = event,
-					this.headerTitle = this.setHeader(this.pathValue.urlAfterRedirects),
-					console.log(this.pathValue.urlAfterRedirects)
-			}
+	constructor(private navigation: NavigationService) {
+		this.navigation.url.subscribe(sub => {
+			this.url.path = sub.path
+			this.url.projectName = sub.projectName
+			this.url.epicName = sub.epicName
+			this.url.storyName = sub.storyName
+			this.setHeader();
 		});
 	}
 
@@ -37,10 +35,13 @@ export class HeaderComponent implements OnInit {
 		this.menuState = !this.menuState;
 	}
 
-	setHeader(path: string): string {
-		if (path === '/home') { return 'app.HEADER.HOME' }
-		if (path === '/my-stories') { return 'app.HEADER.STORY' }
-		if (path === '/my-projects') { return 'app.HEADER.PROJECT' }
-		if (path === '/settings') { return 'app.HEADER.SETTINGS' }
+	setHeader(): any {
+		if (this.url.projectName.length > 0) {
+			return this.headerTitle = this.url.projectName;
+		}
+		if (this.url.path === 'home') { return this.headerTitle = 'app.HEADER.HOME' }
+		if (this.url.path === 'my-stories') { return this.headerTitle = 'app.HEADER.STORY' }
+		if (this.url.path === 'my-projects') { return this.headerTitle = 'app.HEADER.PROJECT' }
+		if (this.url.path === 'settings') { return this.headerTitle = 'app.HEADER.SETTINGS' }
 	}
 }

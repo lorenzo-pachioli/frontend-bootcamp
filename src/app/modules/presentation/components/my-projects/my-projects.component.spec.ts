@@ -6,6 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { TranslateServiceMock } from 'src/app/test/mocks/services/translate.service.mock';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientServiceMock } from 'src/app/test/mocks/services/http-client.service.mock';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MyProjectsComponent ', () => {
 	let component: MyProjectsComponent;
@@ -15,6 +16,7 @@ describe('MyProjectsComponent ', () => {
 		await TestBed.configureTestingModule({
 			imports: [
 				SharedModule,
+				RouterTestingModule,
 				MaterialModule
 			],
 			declarations: [

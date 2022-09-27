@@ -4,19 +4,23 @@ $radius1: var(--radius1);
 $gap1: var(--gap1);
 
 .header-container {
-    @include flex(flex, center, flex-start, row);
+    @include flex(flex, center, space-between, row);
     width: 100%;
     height: calc(10vh - 4px);
     border: 2px solid var(--color4);
     background-color: var(--color4);
     color: var(--color1);
     border-radius: 0 0 $radius1 $radius1;
-    gap: $gap1;
     position: fixed;
     left: 0;
     top: 0;
     box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.5);
     z-index: 50;
+
+    div {
+        @include flex(flex, center, flex-start, row);
+        gap: $gap1;
+    }
 
     h1 {
         font-size: 30px;
@@ -27,6 +31,11 @@ $gap1: var(--gap1);
     button {
         @include flex(flex, center, center);
         height: 30px;
+    }
+
+    img {
+        height: 80%;
+        margin-right: 20px;
     }
 }
 

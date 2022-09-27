@@ -8,6 +8,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PresentationModule } from '../presentation/presentation.module';
+import { ApiRestModule } from '../api-rest/api-rest.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { PresentationModule } from '../presentation/presentation.module';
 	imports: [
 		CommonModule,
 		MaterialModule,
+		ApiRestModule,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,

@@ -1,7 +1,18 @@
 <header class="header-container">
-	<button mat-icon-button (click)="setMenuState()">
-		<mat-icon class="menu-icon">menu</mat-icon>
-	</button>
+	<div *ngIf="url.projectName.length === 0 ; else backArrow">
+		<button mat-icon-button (click)="setMenuState()">
+			<mat-icon class="menu-icon">menu</mat-icon>
+		</button>
+		<h1 [translate]="headerTitle"></h1>
+	</div>
+	<ng-template #backArrow>
+		<div>
+			<button mat-icon-button appBackRoute>
+				<mat-icon class="menu-icon">keyboard_arrow_left</mat-icon>
+			</button>
+			<h1>{{headerTitle}}</h1>
+		</div>
+	</ng-template>
 	<app-menu [(menuState)]="menuState"></app-menu>
-	<h1 [translate]="headerTitle"></h1>
+	<img src="../../../../assets/images/LogoWhite.svg" alt="" />
 </header>
