@@ -31,6 +31,7 @@ $gap1: var(--gap1);
     button {
         @include flex(flex, center, center);
         height: 30px;
+        margin-right: 20px;
     }
 
     img {
@@ -40,5 +41,34 @@ $gap1: var(--gap1);
 }
 
 .menu-icon {
-    font-size: 30px;
+    font-size: 40px;
+}
+
+.title {
+    @include flex(flex, center, flex-start, row);
+
+    .mat-icon {
+        @include flex(flex, center, center);
+        font-size: 30px;
+        width: 10px;
+    }
+}
+
+@media screen and (max-width:540px) {
+    .header-container {
+
+        h1 {
+            font-size: 25px;
+        }
+
+        button {
+            margin-right: 0;
+        }
+
+        img {
+            height: 60%;
+            margin-right: 10px;
+        }
+    }
+
 }

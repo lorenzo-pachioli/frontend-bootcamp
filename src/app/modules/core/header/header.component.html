@@ -10,9 +10,14 @@
 			<button mat-icon-button appBackRoute>
 				<mat-icon class="menu-icon">keyboard_arrow_left</mat-icon>
 			</button>
-			<h1>{{headerTitle}}</h1>
+			<div class="title" *ngIf="url.epic; else projectPage">
+				<h1>{{headerTitle}} </h1>
+				<mat-icon >keyboard_arrow_right</mat-icon> 
+				<h1>{{headerTitle2}}</h1>
+			</div>
+			<ng-template #projectPage><h1>{{headerTitle}}</h1></ng-template>
 		</div>
 	</ng-template>
 	<app-menu [(menuState)]="menuState"></app-menu>
-	<img src="../../../../assets/images/LogoWhite.svg" alt="" />
+	<img *ngIf="!url.project" src="../../../../assets/images/LogoWhite.svg" alt="" />
 </header>

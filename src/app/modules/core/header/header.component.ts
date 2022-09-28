@@ -9,6 +9,7 @@ import { NavigationService } from '../../api-rest/services/navigation/navigation
 export class HeaderComponent implements OnInit {
 
 	headerTitle = '';
+	headerTitle2 = '';
 	url: IUrl = {
 		path: '',
 		project: false,
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
 			this.url.project = sub.project
 			this.url.epic = sub.epic
 			this.url.story = sub.story
+			console.log(this.url);
 			this.setHeader();
 		});
 	}
@@ -37,6 +39,9 @@ export class HeaderComponent implements OnInit {
 	}
 
 	setHeader(): any {
+		if (this.url.epic) {
+			this.headerTitle2 = this.url.epic.name;
+		}
 		if (this.url.project) {
 			return this.headerTitle = this.url.project.name;
 		}
