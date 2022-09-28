@@ -1,23 +1,37 @@
 <header class="header-container">
-	<div *ngIf="!url.project ; else backArrow">
-		<button mat-icon-button (click)="setMenuState()">
-			<mat-icon class="menu-icon">menu</mat-icon>
-		</button>
-		<h1 [translate]="headerTitle"></h1>
-	</div>
-	<ng-template #backArrow>
-		<div>
+	<div [ngSwitch]="path">
+		<!-- story route & project route -->
+		<div *ngSwitchCase="'story'">
 			<button mat-icon-button appBackRoute>
 				<mat-icon class="menu-icon">keyboard_arrow_left</mat-icon>
 			</button>
-			<div class="title" *ngIf="url.epic; else projectPage">
-				<h1>{{headerTitle}} </h1>
-				<mat-icon >keyboard_arrow_right</mat-icon> 
-				<h1>{{headerTitle2}}</h1>
-			</div>
-			<ng-template #projectPage><h1>{{headerTitle}}</h1></ng-template>
+			<h1>{{headerTitle}}</h1>
 		</div>
-	</ng-template>
+		<!-- epic route -->
+		<div class="title" *ngSwitchCase="'epic'">
+			<button mat-icon-button appBackRoute>
+				<mat-icon class="menu-icon">keyboard_arrow_left</mat-icon>
+			</button>
+			<h1>{{headerTitle}} </h1>
+			<mat-icon class="icon-separator">keyboard_arrow_right</mat-icon> 
+			<h1>{{headerTitle2}}</h1>
+		</div>
+		<!-- project route -->
+		<div *ngSwitchCase="'project'">
+			<button mat-icon-button appBackRoute>
+				<mat-icon class="menu-icon">keyboard_arrow_left</mat-icon>
+			</button>
+			<h1>{{headerTitle}}</h1>
+		</div>
+		<!-- main routes -->
+		<div *ngSwitchDefault >
+			<button mat-icon-button (click)="setMenuState()">
+				<mat-icon class="menu-icon">menu</mat-icon>
+			</button>
+			<h1 [translate]="headerTitle"></h1>
+		</div>
+	</div>
+	<!-- menu -->
 	<app-menu [(menuState)]="menuState"></app-menu>
 	<img *ngIf="!url.project" src="../../../../assets/images/LogoWhite.svg" alt="" />
 </header>

@@ -30,7 +30,7 @@ $gap1: var(--gap1);
 
     button {
         @include flex(flex, center, center);
-        height: 30px;
+        height: 40px;
         margin-right: 20px;
     }
 
@@ -47,7 +47,7 @@ $gap1: var(--gap1);
 .title {
     @include flex(flex, center, flex-start, row);
 
-    .mat-icon {
+    .icon-separator {
         @include flex(flex, center, center);
         font-size: 30px;
         width: 10px;

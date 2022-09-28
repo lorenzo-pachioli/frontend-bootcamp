@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
 
 	headerTitle = '';
 	headerTitle2 = '';
+	path = '';
 	url: IUrl = {
 		path: '',
 		project: false,
@@ -26,7 +27,7 @@ export class HeaderComponent implements OnInit {
 			this.url.project = sub.project
 			this.url.epic = sub.epic
 			this.url.story = sub.story
-			console.log(this.url);
+			console.log(this.path);
 			this.setHeader();
 		});
 	}
@@ -39,12 +40,20 @@ export class HeaderComponent implements OnInit {
 	}
 
 	setHeader(): any {
-		if (this.url.epic) {
-			this.headerTitle2 = this.url.epic.name;
+		if (this.url.story) {
+			this.path = 'story';
+			return this.headerTitle = this.url.story.name;
 		}
-		if (this.url.project) {
+		if (this.url.epic && this.url.project) {
+			this.path = 'epic'
+			this.headerTitle2 = this.url.epic.name;
 			return this.headerTitle = this.url.project.name;
 		}
+		if (this.url.project) {
+			this.path = 'project';
+			return this.headerTitle = this.url.project.name;
+		}
+		this.path = '';
 		if (this.url.path === 'home') { return this.headerTitle = 'app.HEADER.HOME' }
 		if (this.url.path === 'my-stories') { return this.headerTitle = 'app.HEADER.STORY' }
 		if (this.url.path === 'my-projects') { return this.headerTitle = 'app.HEADER.PROJECT' }
