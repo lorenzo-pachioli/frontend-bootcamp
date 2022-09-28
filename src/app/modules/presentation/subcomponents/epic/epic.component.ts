@@ -48,4 +48,8 @@ export class EpicComponent implements OnInit {
 			}
 		}
 	}
+
+	setRoute(id: number): string {
+		return `/my-projects/${this.url.project && this.url.project.id}/${this.url.epic && this.url.epic.id}/${id}`;
+	}
 }

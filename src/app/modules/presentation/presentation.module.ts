@@ -18,6 +18,7 @@ import { UserService } from '../api-rest/services/user/user.service';
 import { ProjectComponent } from './subcomponents/project/project.component';
 import { ProjectListComponent } from './subcomponents/project-list/project-list.component';
 import { EpicComponent } from './subcomponents/epic/epic.component';
+import { StoryComponent } from './subcomponents/story/story.component';
 
 @NgModule({
 	declarations: [
@@ -29,7 +30,8 @@ import { EpicComponent } from './subcomponents/epic/epic.component';
 		MenuComponent,
 		ProjectComponent,
 		ProjectListComponent,
-		EpicComponent
+		EpicComponent,
+  StoryComponent
 	],
 	imports: [
 		CommonModule,

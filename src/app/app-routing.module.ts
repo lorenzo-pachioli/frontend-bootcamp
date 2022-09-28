@@ -7,6 +7,7 @@ import { SettingsComponent } from './modules/presentation/components/settings/se
 import { EpicComponent } from './modules/presentation/subcomponents/epic/epic.component';
 import { ProjectListComponent } from './modules/presentation/subcomponents/project-list/project-list.component';
 import { ProjectComponent } from './modules/presentation/subcomponents/project/project.component';
+import { StoryComponent } from './modules/presentation/subcomponents/story/story.component';
 
 const routes: Routes = [
 	{ path: 'settings', component: SettingsComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
 		path: 'my-projects',
 		component: MyProjectsComponent,
 		children: [
-			{ path: ':prjectId/:id', component: EpicComponent },
+			{ path: ':prjectId/:epicId/:storyId', component: StoryComponent },
+			{ path: ':prjectId/:epicId', component: EpicComponent },
 			{ path: ':prjectId', component: ProjectComponent, pathMatch: 'full' },
 			{ path: '', component: ProjectListComponent, pathMatch: 'full' }
 		],

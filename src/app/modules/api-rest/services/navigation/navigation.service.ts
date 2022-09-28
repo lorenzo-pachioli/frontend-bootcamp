@@ -48,7 +48,6 @@ export class NavigationService {
 				const separeted = this.pathValue.urlAfterRedirects.split(/\//);
 				this.setPathValues(separeted);
 				this.url.next(this.urlTemp);
-				console.log(this.url)
 			}
 		})
 	}
