@@ -4,6 +4,7 @@ import { HomeComponent } from './modules/presentation/components/home/home.compo
 import { MyProjectsComponent } from './modules/presentation/components/my-projects/my-projects.component';
 import { MyStoriesComponent } from './modules/presentation/components/my-stories/my-stories.component';
 import { SettingsComponent } from './modules/presentation/components/settings/settings.component';
+import { EpicComponent } from './modules/presentation/subcomponents/epic/epic.component';
 import { ProjectListComponent } from './modules/presentation/subcomponents/project-list/project-list.component';
 import { ProjectComponent } from './modules/presentation/subcomponents/project/project.component';
 
@@ -13,7 +14,8 @@ const routes: Routes = [
 		path: 'my-projects',
 		component: MyProjectsComponent,
 		children: [
-			{ path: ':id', component: ProjectComponent },
+			{ path: ':prjectId/:id', component: EpicComponent },
+			{ path: ':prjectId', component: ProjectComponent, pathMatch: 'full' },
 			{ path: '', component: ProjectListComponent, pathMatch: 'full' }
 		],
 	},

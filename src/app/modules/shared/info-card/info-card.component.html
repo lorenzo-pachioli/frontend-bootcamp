@@ -1,5 +1,5 @@
 <mat-card class="card-container">
-  <mat-card-title >{{item && item.name}}</mat-card-title>
+  <mat-card-title>{{epic && epic.icon}} {{item && item.name}}</mat-card-title>
   <mat-card-content >Description:  {{item && item.description}}</mat-card-content>
   <mat-card-content >{{setMembers()}}</mat-card-content>
   <mat-card-content *ngIf="project" >Color: <div [ngStyle]="setColor()"></div></mat-card-content>

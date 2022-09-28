@@ -1,11 +1,15 @@
 @import '../../../../../mixins';
 
-.projectList-container {
+.epic-container {
   @include flex(flex, center, flex-start, column);
   @include width-root-responsive;
   min-height: calc(85vh - 4px);
   display: flex;
   flex-direction: column;
+
+  app-info-card {
+    width: 90%;
+  }
 
   .list {
     width: 90%;

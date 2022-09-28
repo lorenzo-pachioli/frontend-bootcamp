@@ -3,6 +3,8 @@ import { Location } from '@angular/common'
 import { Router, NavigationEnd } from '@angular/router'
 import { ProjectService } from '../projects/project.service';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { EpicService } from '../epics/epic.service';
+import { IUrl } from '../interfaces/urlInterface';
 
 @Injectable({
 	providedIn: 'root'
@@ -11,18 +13,13 @@ export class NavigationService {
 
 	private history: string[] = []
 
-	private urlTemp = {
-		path: '',
-		projectName: '',
-		epicName: '',
-		storyName: ''
-	}
+	private urlTemp: IUrl;
 
-	public url = new BehaviorSubject({
+	public url: BehaviorSubject<IUrl> = new BehaviorSubject({
 		path: '',
-		projectName: '',
-		epicName: '',
-		storyName: ''
+		project: false,
+		epic: false,
+		story: false
 	});
 
 	private pathValue = {
@@ -32,20 +29,26 @@ export class NavigationService {
 		urlAfterRedirects: '/'
 	};
 
-	constructor(private projectService: ProjectService, private router: Router, private location: Location) {
+	constructor(
+		private projectService: ProjectService,
+		private epicService: EpicService,
+		private router: Router,
+		private location: Location
+	) {
 		this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
 				this.pathValue = event
 				this.urlTemp = {
 					path: '',
-					projectName: '',
-					epicName: '',
-					storyName: ''
+					project: false,
+					epic: false,
+					story: false
 				};
 				this.history.push(event.urlAfterRedirects)
 				const separeted = this.pathValue.urlAfterRedirects.split(/\//);
 				this.setPathValues(separeted);
 				this.url.next(this.urlTemp);
+				console.log(this.url)
 			}
 		})
 	}
@@ -63,7 +66,11 @@ export class NavigationService {
 		this.urlTemp.path = array[1];
 		if (array[2]) {
 			const project = this.projectService.getOneProject(Number(array[2]));
-			this.urlTemp.projectName = project ? project.name : '';
+			this.urlTemp.project = project ? project : false;
+		}
+		if (array[3]) {
+			const epic = this.epicService.getOneEpic(Number(array[3]));
+			this.urlTemp.epic = epic ? epic : false;
 		}
 	}
 }

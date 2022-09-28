@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IUrl } from '../../api-rest/services/interfaces/urlInterface';
 import { NavigationService } from '../../api-rest/services/navigation/navigation.service';
 @Component({
 	selector: 'app-header',
@@ -8,11 +9,11 @@ import { NavigationService } from '../../api-rest/services/navigation/navigation
 export class HeaderComponent implements OnInit {
 
 	headerTitle = '';
-	url = {
+	url: IUrl = {
 		path: '',
-		projectName: '',
-		epicName: '',
-		storyName: ''
+		project: false,
+		epic: false,
+		story: false
 	}
 
 	@Input() menuState = false;
@@ -21,9 +22,9 @@ export class HeaderComponent implements OnInit {
 	constructor(private navigation: NavigationService) {
 		this.navigation.url.subscribe(sub => {
 			this.url.path = sub.path
-			this.url.projectName = sub.projectName
-			this.url.epicName = sub.epicName
-			this.url.storyName = sub.storyName
+			this.url.project = sub.project
+			this.url.epic = sub.epic
+			this.url.story = sub.story
 			this.setHeader();
 		});
 	}
@@ -36,8 +37,8 @@ export class HeaderComponent implements OnInit {
 	}
 
 	setHeader(): any {
-		if (this.url.projectName.length > 0) {
-			return this.headerTitle = this.url.projectName;
+		if (this.url.project) {
+			return this.headerTitle = this.url.project.name;
 		}
 		if (this.url.path === 'home') { return this.headerTitle = 'app.HEADER.HOME' }
 		if (this.url.path === 'my-stories') { return this.headerTitle = 'app.HEADER.STORY' }

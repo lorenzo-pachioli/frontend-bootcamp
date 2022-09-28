@@ -1,19 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
-import { IEpic } from 'src/app/modules/api-rest/services/interfaces/epicInterface';
-import { IProject } from 'src/app/modules/api-rest/services/interfaces/projectInterface';
 import { IUrl } from 'src/app/modules/api-rest/services/interfaces/urlInterface';
 import { NavigationService } from 'src/app/modules/api-rest/services/navigation/navigation.service';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
-import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
+import { StoriesService } from '../../../api-rest/services/stories/stories.service';
 
 @Component({
-	selector: 'app-project',
-	templateUrl: './project.component.html',
-	styleUrls: ['./project.component.scss']
+	selector: 'app-epic',
+	templateUrl: './epic.component.html',
+	styleUrls: ['./epic.component.scss']
 })
-export class ProjectComponent implements OnInit {
+export class EpicComponent implements OnInit {
 
 	item;
 	list = [];
@@ -40,18 +37,15 @@ export class ProjectComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.item = this.url.project;
-		const epics = this.epicList.getEpicsByProyectId(this.url.project && this.url.project.id);
-		if (epics.length > 0) {
-			this.list = epics;
-		} else {
-			this.loading = false;
+		if (this.url.epic) {
+			this.item = this.url.epic;
+			const stories = this.storyList.getStoriesByEpicId(this.url.epic.id);
+			console.log(stories);
+			if (stories.length > 0) {
+				this.list = stories;
+			} else {
+				this.loading = false;
+			}
 		}
 	}
-
-	setRoute(id: number): string {
-		return `/my-projects/${this.url.project && this.url.project.id}/${id}`;
-	}
 }
-
-

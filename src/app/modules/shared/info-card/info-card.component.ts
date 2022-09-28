@@ -36,10 +36,14 @@ export class InfoCardComponent implements OnInit {
 	}
 
 	setMembers(): string {
+		console.log(this.project, this.epic, this.story);
 		if (this.project && this.project.members.length > 0) {
 			return `Members:  ${this.project.members}`
 		}
-		return `Members:  no members assign to this project`;
+		if (this.project && this.project.members.length === 0) {
+			return `Members:  no members assign to this project`;
+		}
+		return '';
 	}
 
 	setColor(): any {

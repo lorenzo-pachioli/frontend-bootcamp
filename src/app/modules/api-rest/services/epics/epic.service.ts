@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IEpic } from '../interfaces/epicInterface';
 
 @Injectable({
 	providedIn: 'root'
@@ -33,6 +34,14 @@ export class EpicService {
 
 	getEpics(): any {
 		return this.epicList;
+	}
+
+	getOneEpic(id: number): IEpic | false {
+		const epic = this.epicList.find(e => e.id === id);
+		if (epic) {
+			return epic;
+		}
+		return false;
 	}
 
 	getEpicsByProyectId(id: number): any {

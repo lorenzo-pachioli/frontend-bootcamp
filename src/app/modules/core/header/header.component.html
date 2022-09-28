@@ -1,5 +1,5 @@
 <header class="header-container">
-	<div *ngIf="url.projectName.length === 0 ; else backArrow">
+	<div *ngIf="!url.project ; else backArrow">
 		<button mat-icon-button (click)="setMenuState()">
 			<mat-icon class="menu-icon">menu</mat-icon>
 		</button>

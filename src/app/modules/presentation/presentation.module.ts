@@ -17,6 +17,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserService } from '../api-rest/services/user/user.service';
 import { ProjectComponent } from './subcomponents/project/project.component';
 import { ProjectListComponent } from './subcomponents/project-list/project-list.component';
+import { EpicComponent } from './subcomponents/epic/epic.component';
 
 @NgModule({
 	declarations: [
@@ -27,7 +28,8 @@ import { ProjectListComponent } from './subcomponents/project-list/project-list.
 		SettingsComponent,
 		MenuComponent,
 		ProjectComponent,
-		ProjectListComponent
+		ProjectListComponent,
+		EpicComponent
 	],
 	imports: [
 		CommonModule,
@@ -47,7 +49,8 @@ import { ProjectListComponent } from './subcomponents/project-list/project-list.
 		MyStoriesComponent,
 		MyProjectsComponent,
 		SettingsComponent,
-		MenuComponent
+		MenuComponent,
+		EpicComponent
 	],
 	providers: [
 		ProjectService,

@@ -74,4 +74,9 @@ export class StoriesService {
 	getStories(): IStory[] {
 		return this.storiesMock;
 	}
+
+	getStoriesByEpicId(id: number): any {
+		const list = this.storiesMock.filter(story => story.epic === id.toString());
+		return list;
+	}
 }
