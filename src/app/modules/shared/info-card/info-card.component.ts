@@ -58,9 +58,13 @@ export class InfoCardComponent implements OnInit {
 	}
 
 	setAssignedTo(): string {
-		if (this.story && this.story.assignedTo) {
+		if (this.story && this.story.assignedTo.length > 0) {
 			return `AssignedTo: ${this.story.assignedTo}`
 		}
+		if (this.story && this.story.assignedTo.length === 0) {
+			return `AssignedTo:  no members assign to this task`;
+		}
+		return '';
 	}
 
 	setPoints(): string {

@@ -5,6 +5,7 @@ import { ProjectService } from '../projects/project.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { EpicService } from '../epics/epic.service';
 import { IUrl } from '../interfaces/urlInterface';
+import { StoriesService } from '../stories/stories.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -32,6 +33,7 @@ export class NavigationService {
 	constructor(
 		private projectService: ProjectService,
 		private epicService: EpicService,
+		private storyList: StoriesService,
 		private router: Router,
 		private location: Location
 	) {
@@ -70,6 +72,10 @@ export class NavigationService {
 		if (array[3]) {
 			const epic = this.epicService.getOneEpic(Number(array[3]));
 			this.urlTemp.epic = epic ? epic : false;
+		}
+		if (array[4]) {
+			const story = this.storyList.getOneStory(Number(array[4]));
+			this.urlTemp.story = story ? story : false;
 		}
 	}
 }

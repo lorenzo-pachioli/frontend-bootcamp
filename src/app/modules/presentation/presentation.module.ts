@@ -31,7 +31,7 @@ import { StoryComponent } from './subcomponents/story/story.component';
 		ProjectComponent,
 		ProjectListComponent,
 		EpicComponent,
-  StoryComponent
+		StoryComponent
 	],
 	imports: [
 		CommonModule,
@@ -52,7 +52,8 @@ import { StoryComponent } from './subcomponents/story/story.component';
 		MyProjectsComponent,
 		SettingsComponent,
 		MenuComponent,
-		EpicComponent
+		EpicComponent,
+		StoryComponent
 	],
 	providers: [
 		ProjectService,
