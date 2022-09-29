@@ -21,6 +21,11 @@
 		"NO-TASK": "Todavía no hay tareas",
 		"NO-STORIES": "Todavía no hay historias",
 		"NO-EPICS": "Todavía no hay epicas",
-		"NO-PROJECTS": "Todavía no hay proyectos"
+		"NO-PROJECTS": "Todavía no hay proyectos",
+		"DELETE": {
+			"TITLE": "Borrar",
+			"QUESTION": "Quieres borrar"
+		},
+		"YES": "Si"
 	}
 }

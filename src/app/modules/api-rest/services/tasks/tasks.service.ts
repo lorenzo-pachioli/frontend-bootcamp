@@ -42,17 +42,23 @@ export class TasksService {
 		return this.tasksMock;
 	}
 
-	getTasksByStoryId(id: number): any {
+	getTasksByStoryId(id: number): ITasks[] {
 		const list = this.tasksMock.filter(task => task.story === id.toString());
 		return list;
 	}
 
-	updateTask(task: ITasks): void {
+	updateTask(task: ITasks): boolean {
 		this.tasksMock = this.tasksMock.map(t => {
 			if (t.id === task.id) {
 				return task;
 			}
 			return t;
-		})
+		});
+		return true;
+	}
+
+	deleteTask(id: number): boolean {
+		this.tasksMock = this.tasksMock.filter(task => task.id !== id);
+		return true;
 	}
 }

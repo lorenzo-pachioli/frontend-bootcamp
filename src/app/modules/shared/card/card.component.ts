@@ -8,6 +8,8 @@ import { ProjectService } from '../../api-rest/services/projects/project.service
 import { EpicService } from '../../api-rest/services/epics/epic.service';
 import { StoriesService } from '../../api-rest/services/stories/stories.service';
 import { TasksService } from '../../api-rest/services/tasks/tasks.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
 	selector: 'app-card',
@@ -32,7 +34,8 @@ export class CardComponent implements OnInit {
 		public projectList: ProjectService,
 		public epicList: EpicService,
 		public storyList: StoriesService,
-		public taskList: TasksService
+		public taskList: TasksService,
+		public dialog: MatDialog
 	) { }
 
 	ngOnInit(): void {
@@ -80,6 +83,24 @@ export class CardComponent implements OnInit {
 	taskDueDate(): string {
 		const date = this.datepipe.transform(this.task.dueDate, 'dd/MM/yyyy');
 		return `DueDate: ${date}`;
+	}
+
+	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+		const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+			width: '250px',
+			enterAnimationDuration,
+			exitAnimationDuration,
+		});
+		dialogRef.afterClosed().subscribe(result => {
+			if (result) {
+				this.deleteTask()
+			}
+		});
+	}
+
+	deleteTask(): void {
+		console.log('task:', this.task);
+		this.taskList.deleteTask(this.task.id);
 	}
 
 }

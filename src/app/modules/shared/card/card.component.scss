@@ -17,6 +17,11 @@
     padding: 10px;
     border-radius: var(--radius1);
     font-size: 20px;
+
+    div {
+        @include flex(flex, center, space-between, row);
+        width: 100%;
+    }
 }
 
 .title {
@@ -50,4 +55,16 @@
     line-height: 20px;
     font-size: 15px;
     margin: 0;
+}
+
+.delete {
+    width: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    .mat-icon {
+        color: var(--color1);
+        transform: scale(1.2);
+    }
 }

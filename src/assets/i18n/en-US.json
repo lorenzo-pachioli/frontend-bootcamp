@@ -21,6 +21,13 @@
 		"NO-TASK": "There are no tasks",
 		"NO-STORIES": "There are no stories",
 		"NO-EPICS": "There are no epics",
-		"NO-PROJECTS": "There are no projects"
+		"NO-PROJECTS": "There are no projects",
+		"DELETE": {
+			"TITLE": "Delete",
+			"QUESTION": {
+				"TASK": "Would you like to delete this task?"
+			}
+		},
+		"YES": "Yes"
 	}
 }
