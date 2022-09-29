@@ -1,8 +1,8 @@
 <div class="story-container">
   <app-info-card [story]="item"></app-info-card>
-	<app-card-list class="list" [list]="list" optional="app.NO-STORIES" [loading]="loading">
+	<app-card-list class="list" [list]="list" optional="app.NO-TASK" [loading]="loading">
 		<ng-template let-item #card>
-			<app-card [item]='item'></app-card>
+			<app-card [task]='item'></app-card>
 		</ng-template>
 	</app-card-list>
 </div>

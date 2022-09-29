@@ -1,6 +1,15 @@
 <mat-card class="card-container">
-    <mat-card-title >{{item && item.name}}</mat-card-title>
+    <mat-card-title [ngSwitch]="path">
+        <mat-checkbox *ngSwitchCase="'task'" class="checkbox" (change)="changeState($event.checked)" [checked]="task.done" color="white">
+            <h2 class="checkbox-label" [ngStyle]="{'text-decoration': task.done ? 'line-through':'none'}">
+                {{item && item.name}}
+            </h2>
+        </mat-checkbox>
+        <div *ngSwitchDefault class="title">{{item && item.name}}</div>
+    </mat-card-title>
     <mat-card-content >{{item && item.description}}</mat-card-content>
+    <mat-card-content *ngIf="task">{{taskCreated()}}</mat-card-content>
+    <mat-card-content *ngIf="task">{{taskDueDate()}}</mat-card-content>
     <mat-card-footer>
         <hr [ngStyle]="itemColor()" />
     </mat-card-footer>

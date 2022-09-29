@@ -41,7 +41,6 @@ export class StoryComponent implements OnInit {
 		if (this.url.story) {
 			this.item = this.url.story;
 			const task = this.taskList.getTasksByStoryId(this.url.story.id);
-			console.log(task);
 			if (task.length > 0) {
 				this.list = task;
 			} else {
@@ -49,5 +48,4 @@ export class StoryComponent implements OnInit {
 			}
 		}
 	}
-
 }

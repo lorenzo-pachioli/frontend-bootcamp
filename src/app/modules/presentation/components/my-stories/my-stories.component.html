@@ -3,7 +3,7 @@
     <!-- <ng-content></ng-content> -->
     <app-card-list [list]="stories">
         <ng-template let-item #card>
-            <app-card [item]='item'></app-card>
+            <app-card [story]='item'></app-card>
         </ng-template>
     </app-card-list>
 </div>

@@ -10,15 +10,23 @@
 }
 
 .mat-card-title {
+    @include flex(flex, center, flex-start, row);
     width: 100%;
     color: white;
     background-color: var(--color3);
     padding: 10px;
     border-radius: var(--radius1);
+    font-size: 20px;
+}
+
+.title {
+    font-size: 20px;
+    margin-bottom: 0;
 }
 
 .mat-card-content {
     color: var(--color5);
+    margin: 0;
 }
 
 .mat-card-footer {
@@ -30,4 +38,16 @@
         height: 4px;
         border: none;
     }
+}
+
+.checkbox {
+    @include flex(flex, center, flex-start, row);
+    transform: scale(1.4);
+    margin-left: 15px;
+}
+
+.checkbox-label {
+    line-height: 20px;
+    font-size: 15px;
+    margin: 0;
 }

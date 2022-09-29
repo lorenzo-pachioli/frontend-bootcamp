@@ -3,9 +3,8 @@
 .main-container {
     @include width-responsive;
     min-width: 312px;
-    min-height: calc(85vh);
+    min-height: calc(95vh);
     background-color: var(--color1);
-    margin-top: 10vh;
-    padding: 20px 0 20px 0;
+    padding-top: 10vh;
     box-sizing: border-box;
 }

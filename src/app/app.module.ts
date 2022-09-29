@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material/material.module';
 import { PresentationModule } from './modules/presentation/presentation.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { DatePipe } from '@angular/common';
 
 
 registerLocaleData(localeEsAr, 'en-US');
@@ -38,7 +39,8 @@ registerLocaleData(localeEsAr, 'en-US');
 		SharedModule
 	],
 	providers: [
-		{ provide: LOCALE_ID, useValue: 'en-US' }
+		{ provide: LOCALE_ID, useValue: 'en-US' },
+		DatePipe
 	],
 	bootstrap: [AppComponent]
 })

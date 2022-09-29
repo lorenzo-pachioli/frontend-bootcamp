@@ -17,7 +17,7 @@ export class TasksService {
 			dueDate: '2022-02-07T21:44:50.568Z'
 		},
 		{
-			done: false,
+			done: true,
 			id: 2,
 			name: 'Task 2',
 			description: 'This is task #2',
@@ -45,5 +45,14 @@ export class TasksService {
 	getTasksByStoryId(id: number): any {
 		const list = this.tasksMock.filter(task => task.story === id.toString());
 		return list;
+	}
+
+	updateTask(task: ITasks): void {
+		this.tasksMock = this.tasksMock.map(t => {
+			if (t.id === task.id) {
+				return task;
+			}
+			return t;
+		})
 	}
 }

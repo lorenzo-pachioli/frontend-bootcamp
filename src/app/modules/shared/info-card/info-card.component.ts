@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IEpic } from '../../api-rest/services/interfaces/epicInterface';
 import { IProject } from '../../api-rest/services/interfaces/projectInterface';
 import { IStory } from '../../api-rest/services/interfaces/storyInterface';
+import { DatePipe } from '@angular/common';
 
 @Component({
 	selector: 'app-info-card',
@@ -18,7 +19,7 @@ export class InfoCardComponent implements OnInit {
 	@Input() epic?: IEpic;
 	@Input() story?: IStory;
 
-	constructor() { }
+	constructor(public datepipe: DatePipe) { }
 
 	ngOnInit(): void {
 		if (this.project) {
@@ -75,13 +76,15 @@ export class InfoCardComponent implements OnInit {
 
 	setCreated(): string {
 		if (this.story && this.story.created) {
-			return `Created: ${this.story.created}`
+			const date = this.datepipe.transform(this.story.created, 'dd/MM/yyyy');
+			return `Created: ${date}`;
 		}
 	}
 
 	setDue(): string {
 		if (this.story && this.story.due) {
-			return `Due: ${this.story.due}`
+			const date = this.datepipe.transform(this.story.due, 'dd/MM/yyyy');
+			return `Due: ${date}`;
 		}
 	}
 
