@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IUrl } from '../../api-rest/services/interfaces/urlInterface';
-import { NavigationService } from '../../api-rest/services/navigation/navigation.service';
+import { IUrl } from '../interfaces/urlInterface';
+import { NavigationService } from '../services/navigation/navigation.service';
 @Component({
 	selector: 'app-header',
 	templateUrl: './header.component.html',

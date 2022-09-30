@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IEpic } from '../interfaces/epicInterface';
-
+import { IEpic } from 'src/app/modules/core/interfaces/epicInterface';
 @Injectable({
 	providedIn: 'root'
 })

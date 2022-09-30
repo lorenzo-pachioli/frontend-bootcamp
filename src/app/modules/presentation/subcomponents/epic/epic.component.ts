@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
-import { IUrl } from 'src/app/modules/api-rest/services/interfaces/urlInterface';
-import { NavigationService } from 'src/app/modules/api-rest/services/navigation/navigation.service';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
+import { IUrl } from 'src/app/modules/core/interfaces/urlInterface';
+import { NavigationService } from 'src/app/modules/core/services/navigation/navigation.service';
 import { StoriesService } from '../../../api-rest/services/stories/stories.service';
 
 @Component({

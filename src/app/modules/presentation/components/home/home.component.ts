@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
 import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
-import { IProject, IProjectNum } from 'src/app/modules/api-rest/services/interfaces/projectInterface';
-import { IEpic, IEpicNum } from 'src/app/modules/api-rest/services/interfaces/epicInterface';
-import { IStory } from 'src/app/modules/api-rest/services/interfaces/storyInterface';
+import { IProject, IProjectNum } from 'src/app/modules/core/interfaces/projectInterface';
+import { IEpic, IEpicNum } from 'src/app/modules/core/interfaces/epicInterface';
+import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
+
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',

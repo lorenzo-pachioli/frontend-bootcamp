@@ -1,8 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IEpic } from '../../api-rest/services/interfaces/epicInterface';
-import { IProject } from '../../api-rest/services/interfaces/projectInterface';
-import { IStory } from '../../api-rest/services/interfaces/storyInterface';
-import { ITasks } from '../../api-rest/services/interfaces/tasksInterface';
+import { Component, OnInit, Input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ProjectService } from '../../api-rest/services/projects/project.service';
 import { EpicService } from '../../api-rest/services/epics/epic.service';
@@ -10,6 +6,10 @@ import { StoriesService } from '../../api-rest/services/stories/stories.service'
 import { TasksService } from '../../api-rest/services/tasks/tasks.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { IProject } from '../../core/interfaces/projectInterface';
+import { IEpic } from '../../core/interfaces/epicInterface';
+import { IStory } from '../../core/interfaces/storyInterface';
+import { ITasks } from '../../core/interfaces/tasksInterface';
 
 @Component({
 	selector: 'app-card',

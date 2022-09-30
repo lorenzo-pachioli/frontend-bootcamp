@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IEpic } from '../../api-rest/services/interfaces/epicInterface';
-import { IProject } from '../../api-rest/services/interfaces/projectInterface';
-import { IStory } from '../../api-rest/services/interfaces/storyInterface';
 import { DatePipe } from '@angular/common';
+import { IProject } from '../../core/interfaces/projectInterface';
+import { IEpic } from '../../core/interfaces/epicInterface';
+import { IStory } from '../../core/interfaces/storyInterface';
 
 @Component({
 	selector: 'app-info-card',
@@ -22,17 +22,15 @@ export class InfoCardComponent implements OnInit {
 	constructor(public datepipe: DatePipe) { }
 
 	ngOnInit(): void {
-		if (this.project) {
-			this.item.name = this.project.name
-			this.item.description = this.project.description
-		}
-		if (this.epic) {
-			this.item.name = this.epic.name
-			this.item.description = this.epic.description
-		}
-		if (this.story) {
-			this.item.name = this.story.name
-			this.item.description = this.story.description
+		this.setItemValue(this.project);
+		this.setItemValue(this.epic);
+		this.setItemValue(this.story);
+	}
+
+	setItemValue(input: IProject | IEpic | IStory): void {
+		if (input) {
+			this.item.name = input.name
+			this.item.description = input.description
 		}
 	}
 

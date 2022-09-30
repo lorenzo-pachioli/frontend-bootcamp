@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IUser } from 'src/app/modules/api-rest/services/interfaces/userInterface';
 import { UserService } from 'src/app/modules/api-rest/services/user/user.service';
+import { IUser } from 'src/app/modules/core/interfaces/userInterface';
 
 @Component({
 	selector: 'app-menu',

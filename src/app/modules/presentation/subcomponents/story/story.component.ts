@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
-import { ITasks } from 'src/app/modules/api-rest/services/interfaces/tasksInterface';
-import { IUrl } from 'src/app/modules/api-rest/services/interfaces/urlInterface';
-import { NavigationService } from 'src/app/modules/api-rest/services/navigation/navigation.service';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
 import { TasksService } from 'src/app/modules/api-rest/services/tasks/tasks.service';
+import { ITasks } from 'src/app/modules/core/interfaces/tasksInterface';
+import { IUrl } from 'src/app/modules/core/interfaces/urlInterface';
+import { NavigationService } from 'src/app/modules/core/services/navigation/navigation.service';
 import { AddTaskDialogComponent } from 'src/app/modules/shared/add-task-dialog/add-task-dialog.component';
 
 @Component({

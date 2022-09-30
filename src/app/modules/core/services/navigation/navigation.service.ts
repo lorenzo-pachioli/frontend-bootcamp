@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Location } from '@angular/common'
 import { Router, NavigationEnd } from '@angular/router'
-import { ProjectService } from '../projects/project.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { EpicService } from '../epics/epic.service';
-import { IUrl } from '../interfaces/urlInterface';
-import { StoriesService } from '../stories/stories.service';
+import { IUrl } from '../../interfaces/urlInterface';
+import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
+import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
+import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
 
 @Injectable({
 	providedIn: 'root'

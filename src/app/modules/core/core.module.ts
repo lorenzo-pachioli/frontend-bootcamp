@@ -9,10 +9,16 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PresentationModule } from '../presentation/presentation.module';
 import { ApiRestModule } from '../api-rest/api-rest.module';
+import { BackRouteDirective } from './directives/back-route/back-route.directive';
 
 
 @NgModule({
-	declarations: [HeaderComponent, FooterComponent, MainComponent],
+	declarations: [
+		HeaderComponent,
+		FooterComponent,
+		MainComponent,
+		BackRouteDirective
+	],
 	imports: [
 		CommonModule,
 		MaterialModule,
@@ -26,6 +32,11 @@ import { ApiRestModule } from '../api-rest/api-rest.module';
 		}),
 		PresentationModule
 	],
-	exports: [HeaderComponent, FooterComponent, MainComponent]
+	exports: [
+		HeaderComponent,
+		FooterComponent,
+		MainComponent,
+		BackRouteDirective
+	]
 })
 export class CoreModule { }

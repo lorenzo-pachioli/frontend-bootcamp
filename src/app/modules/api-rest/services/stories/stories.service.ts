@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IStory } from '../interfaces/storyInterface';
+import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
 
 @Injectable({
 	providedIn: 'root'

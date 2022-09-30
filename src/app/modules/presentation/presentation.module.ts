@@ -19,6 +19,7 @@ import { ProjectComponent } from './subcomponents/project/project.component';
 import { ProjectListComponent } from './subcomponents/project-list/project-list.component';
 import { EpicComponent } from './subcomponents/epic/epic.component';
 import { StoryComponent } from './subcomponents/story/story.component';
+import { NavigationService } from '../core/services/navigation/navigation.service';
 
 @NgModule({
 	declarations: [
@@ -58,7 +59,8 @@ import { StoryComponent } from './subcomponents/story/story.component';
 	providers: [
 		ProjectService,
 		StoriesService,
-		UserService
+		UserService,
+		NavigationService
 	]
 })
 export class PresentationModule {
