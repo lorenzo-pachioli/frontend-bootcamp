@@ -8,7 +8,7 @@ import { ProjectService } from '../../api-rest/services/projects/project.service
 import { EpicService } from '../../api-rest/services/epics/epic.service';
 import { StoriesService } from '../../api-rest/services/stories/stories.service';
 import { TasksService } from '../../api-rest/services/tasks/tasks.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
@@ -99,7 +99,6 @@ export class CardComponent implements OnInit {
 	}
 
 	deleteTask(): void {
-		console.log('task:', this.task);
 		this.taskList.deleteTask(this.task.id);
 	}
 

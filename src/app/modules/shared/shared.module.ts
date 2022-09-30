@@ -10,6 +10,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { InfoCardComponent } from './info-card/info-card.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { AddTaskDialogComponent } from './add-task-dialog/add-task-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
 	declarations: [
@@ -18,11 +24,17 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 		DoughnutChartComponent,
 		BarChartComponent,
 		InfoCardComponent,
-  ConfirmationDialogComponent
+		ConfirmationDialogComponent,
+		AddTaskDialogComponent
 	],
 	imports: [
 		CommonModule,
 		MaterialModule,
+		ReactiveFormsModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatNativeDateModule,
+		MatDatepickerModule,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,
@@ -36,7 +48,9 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 		CardComponent,
 		DoughnutChartComponent,
 		BarChartComponent,
-		InfoCardComponent
+		InfoCardComponent,
+		ConfirmationDialogComponent,
+		AddTaskDialogComponent
 	]
 })
 export class SharedModule { }

@@ -61,4 +61,9 @@ export class TasksService {
 		this.tasksMock = this.tasksMock.filter(task => task.id !== id);
 		return true;
 	}
+
+	addTask(task: ITasks): boolean {
+		this.tasksMock.push(task);
+		return true;
+	}
 }

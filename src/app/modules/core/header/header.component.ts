@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
 			this.url.project = sub.project
 			this.url.epic = sub.epic
 			this.url.story = sub.story
-			console.log(this.path);
 			this.setHeader();
 		});
 	}

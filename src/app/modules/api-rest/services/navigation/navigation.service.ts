@@ -54,6 +54,10 @@ export class NavigationService {
 		})
 	}
 
+	getUrl(): any {
+		return this.url;
+	}
+
 	back(): void {
 		this.history.pop()
 		if (this.history.length > 0) {

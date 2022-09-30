@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -8,7 +8,6 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class ConfirmationDialogComponent implements OnInit {
 
-	@Input() item: string;
 	constructor(public dialogRef: MatDialogRef<ConfirmationDialogComponent>) { }
 
 	ngOnInit(): void {

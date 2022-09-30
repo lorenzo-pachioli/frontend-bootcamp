@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MaterialModule } from '../../material/material.module';
-
+import { DatePipe } from '@angular/common';
 import { InfoCardComponent } from './info-card.component';
 
 describe('InfoCardComponent', () => {
@@ -12,7 +12,8 @@ describe('InfoCardComponent', () => {
 			imports: [
 				MaterialModule
 			],
-			declarations: [InfoCardComponent]
+			declarations: [InfoCardComponent],
+			providers: [DatePipe]
 		})
 			.compileComponents();
 

@@ -5,6 +5,7 @@ import { MyStoriesComponent } from './my-stories.component';
 import { TranslateServiceMock } from 'src/app/test/mocks/services/translate.service.mock';
 import { HttpClientServiceMock } from 'src/app/test/mocks/services/http-client.service.mock';
 import { HttpClient } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 describe('MyStoriesComponent', () => {
 	let component: MyStoriesComponent;
@@ -26,7 +27,8 @@ describe('MyStoriesComponent', () => {
 				{
 					provide: HttpClient,
 					useClass: HttpClientServiceMock
-				}
+				},
+				DatePipe
 			]
 		})
 			.compileComponents();
