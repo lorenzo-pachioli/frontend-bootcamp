@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -10,6 +9,7 @@ import { StoryComponent } from './components/story/story.component';
 import { EpicComponent } from './components/epic/epic.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectComponent } from './components/project/project.component';
+import { PresentationModule } from '../presentation/presentation.module';
 
 
 
@@ -22,7 +22,7 @@ import { ProjectComponent } from './components/project/project.component';
 	],
 	imports: [
 		CommonModule,
-		SharedModule,
+		PresentationModule,
 		AppRoutingModule,
 		MaterialModule,
 		TranslateModule.forRoot({

@@ -1,4 +1,4 @@
-@import '../../../../mixins';
+@import '../../../../../mixins';
 
 .chart-container {
   @include flex(flex, center, center, row);

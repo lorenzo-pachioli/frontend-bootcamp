@@ -1,4 +1,4 @@
-@import '../../../../mixins';
+@import '../../../../../mixins';
 
 .cardList-container {
     @include flex(flex, center, flex-start, column);

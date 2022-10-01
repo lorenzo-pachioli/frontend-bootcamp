@@ -28,7 +28,6 @@ export class EpicComponent implements OnInit {
 		public storyList: StoriesService
 	) {
 		this.navigation.url.subscribe(sub => {
-			console.log(sub.project, sub.epic)
 			this.url.path = sub.path
 			this.url.project = sub.project
 			this.url.epic = sub.epic
@@ -40,7 +39,6 @@ export class EpicComponent implements OnInit {
 		if (this.url.epic) {
 			this.item = this.url.epic;
 			const stories = this.storyList.getStoriesByEpicId(this.url.epic.id);
-			console.log(stories);
 			if (stories.length > 0) {
 				this.list = stories;
 			} else {

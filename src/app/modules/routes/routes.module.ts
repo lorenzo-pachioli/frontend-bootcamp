@@ -9,12 +9,12 @@ import { StoriesService } from '../api-rest/services/stories/stories.service';
 import { ProjectService } from '../api-rest/services/projects/project.service';
 import { MaterialModule } from '../material/material.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { SharedModule } from '../shared/shared.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SettingsComponent } from './components/settings/settings.component';
 import { ComponentsModule } from '../components/components.module';
+import { PresentationModule } from '../presentation/presentation.module';
 
 
 
@@ -27,7 +27,7 @@ import { ComponentsModule } from '../components/components.module';
 	],
 	imports: [
 		CommonModule,
-		SharedModule,
+		PresentationModule,
 		AppRoutingModule,
 		MaterialModule,
 		ComponentsModule,

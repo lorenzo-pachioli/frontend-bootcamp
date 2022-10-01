@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-import { IProjectNum } from '../../core/interfaces/projectInterface';
+import { IProjectNum } from 'src/app/modules/core/interfaces/projectInterface';
 
 Chart.register(...registerables);
 

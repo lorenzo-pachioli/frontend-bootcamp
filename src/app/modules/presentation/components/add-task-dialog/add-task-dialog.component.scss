@@ -1,4 +1,4 @@
-@import '../../../../mixins';
+@import '../../../../../mixins';
 
 h1 {
   border-radius: var(--radius1);
@@ -26,4 +26,8 @@ h1 {
     background-color: var(--color4);
     color: white;
   }
+}
+
+.date-picker {
+  color: var(--color4);
 }

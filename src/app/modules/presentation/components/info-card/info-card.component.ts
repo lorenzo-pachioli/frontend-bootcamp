@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { IProject } from '../../core/interfaces/projectInterface';
-import { IEpic } from '../../core/interfaces/epicInterface';
-import { IStory } from '../../core/interfaces/storyInterface';
+import { IProject } from 'src/app/modules/core/interfaces/projectInterface';
+import { IEpic } from 'src/app/modules/core/interfaces/epicInterface';
+import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
+
 
 @Component({
 	selector: 'app-info-card',

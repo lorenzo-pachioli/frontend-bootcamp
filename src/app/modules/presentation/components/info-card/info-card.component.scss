@@ -1,4 +1,4 @@
-@import '../../../../mixins';
+@import '../../../../../mixins';
 
 .mat-card {
   @include flex(flex, flex-start, flex-start, column);

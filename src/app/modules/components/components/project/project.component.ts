@@ -28,7 +28,6 @@ export class ProjectComponent implements OnInit {
 		public storyList: StoriesService
 	) {
 		this.navigation.url.subscribe(sub => {
-			console.log(sub.project, sub.epic)
 			this.url.path = sub.path
 			this.url.project = sub.project
 			this.url.epic = sub.epic
