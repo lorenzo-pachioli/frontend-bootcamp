@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EpicComponent } from './modules/presentation/subcomponents/epic/epic.component';
-import { ProjectListComponent } from './modules/presentation/subcomponents/project-list/project-list.component';
-import { ProjectComponent } from './modules/presentation/subcomponents/project/project.component';
-import { StoryComponent } from './modules/presentation/subcomponents/story/story.component';
+import { EpicComponent } from './modules/components/components/epic/epic.component';
+import { ProjectListComponent } from './modules/components/components/project-list/project-list.component';
+import { ProjectComponent } from './modules/components/components/project/project.component';
+import { StoryComponent } from './modules/components/components/story/story.component';
 import { HomeComponent } from './modules/routes/components/home/home.component';
 import { MyProjectsComponent } from './modules/routes/components/my-projects/my-projects.component';
 import { MyStoriesComponent } from './modules/routes/components/my-stories/my-stories.component';

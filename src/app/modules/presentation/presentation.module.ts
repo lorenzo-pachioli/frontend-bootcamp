@@ -11,20 +11,12 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserService } from '../api-rest/services/user/user.service';
-import { ProjectComponent } from './subcomponents/project/project.component';
-import { ProjectListComponent } from './subcomponents/project-list/project-list.component';
-import { EpicComponent } from './subcomponents/epic/epic.component';
-import { StoryComponent } from './subcomponents/story/story.component';
 import { NavigationService } from '../core/services/navigation/navigation.service';
 
 @NgModule({
 	declarations: [
 		LabelComponent,
-		MenuComponent,
-		ProjectComponent,
-		ProjectListComponent,
-		EpicComponent,
-		StoryComponent
+		MenuComponent
 	],
 	imports: [
 		CommonModule,
@@ -40,9 +32,7 @@ import { NavigationService } from '../core/services/navigation/navigation.servic
 		})
 	],
 	exports: [
-		MenuComponent,
-		EpicComponent,
-		StoryComponent
+		MenuComponent
 	],
 	providers: [
 		ProjectService,

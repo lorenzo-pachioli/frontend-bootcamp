@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SettingsComponent } from './components/settings/settings.component';
 import { MyProjectsComponent } from './components/my-projects/my-projects.component';
 import { MyStoriesComponent } from './components/my-stories/my-stories.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,6 +13,8 @@ import { SharedModule } from '../shared/shared.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SettingsComponent } from './components/settings/settings.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 
@@ -29,6 +30,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 		SharedModule,
 		AppRoutingModule,
 		MaterialModule,
+		ComponentsModule,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,
