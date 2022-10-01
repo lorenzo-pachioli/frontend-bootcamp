@@ -36,7 +36,7 @@ import { BackRouteDirective } from './directives/back-route/back-route.directive
 		HeaderComponent,
 		FooterComponent,
 		MainComponent,
-		BackRouteDirective
+		BackRouteDirective,
 	]
 })
 export class CoreModule { }

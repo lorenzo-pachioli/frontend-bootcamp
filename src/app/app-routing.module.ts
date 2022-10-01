@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './modules/presentation/components/home/home.component';
-import { MyProjectsComponent } from './modules/presentation/components/my-projects/my-projects.component';
-import { MyStoriesComponent } from './modules/presentation/components/my-stories/my-stories.component';
-import { SettingsComponent } from './modules/presentation/components/settings/settings.component';
 import { EpicComponent } from './modules/presentation/subcomponents/epic/epic.component';
 import { ProjectListComponent } from './modules/presentation/subcomponents/project-list/project-list.component';
 import { ProjectComponent } from './modules/presentation/subcomponents/project/project.component';
 import { StoryComponent } from './modules/presentation/subcomponents/story/story.component';
+import { HomeComponent } from './modules/routes/components/home/home.component';
+import { MyProjectsComponent } from './modules/routes/components/my-projects/my-projects.component';
+import { MyStoriesComponent } from './modules/routes/components/my-stories/my-stories.component';
+import { SettingsComponent } from './modules/routes/components/settings/settings.component';
 
 const routes: Routes = [
 	{ path: 'settings', component: SettingsComponent },

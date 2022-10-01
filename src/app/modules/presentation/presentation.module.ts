@@ -2,10 +2,6 @@ import { MaterialModule } from '../material/material.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { LabelComponent } from './components/label/label.component';
-import { HomeComponent } from './components/home/home.component';
-import { MyStoriesComponent } from './components/my-stories/my-stories.component';
-import { MyProjectsComponent } from './components/my-projects/my-projects.component';
-import { SettingsComponent } from './components/settings/settings.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../../app-routing.module';
@@ -24,10 +20,6 @@ import { NavigationService } from '../core/services/navigation/navigation.servic
 @NgModule({
 	declarations: [
 		LabelComponent,
-		HomeComponent,
-		MyStoriesComponent,
-		MyProjectsComponent,
-		SettingsComponent,
 		MenuComponent,
 		ProjectComponent,
 		ProjectListComponent,
@@ -48,10 +40,6 @@ import { NavigationService } from '../core/services/navigation/navigation.servic
 		})
 	],
 	exports: [
-		HomeComponent,
-		MyStoriesComponent,
-		MyProjectsComponent,
-		SettingsComponent,
 		MenuComponent,
 		EpicComponent,
 		StoryComponent

@@ -13,6 +13,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { PresentationModule } from './modules/presentation/presentation.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { DatePipe } from '@angular/common';
+import { RoutesModule } from './modules/routes/routes.module';
 
 
 registerLocaleData(localeEsAr, 'en-US');
@@ -36,6 +37,7 @@ registerLocaleData(localeEsAr, 'en-US');
 		}),
 		PresentationModule,
 		CoreModule,
+		RoutesModule,
 		SharedModule
 	],
 	providers: [
