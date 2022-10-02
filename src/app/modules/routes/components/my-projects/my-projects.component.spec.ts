@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MaterialModule } from 'src/app/modules/material/material.module';
-import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { MyProjectsComponent } from './my-projects.component';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateServiceMock } from 'src/app/test/mocks/services/translate.service.mock';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientServiceMock } from 'src/app/test/mocks/services/http-client.service.mock';
 import { RouterTestingModule } from '@angular/router/testing';
+import { PresentationModule } from 'src/app/modules/presentation/presentation.module';
+import { CoreModule } from 'src/app/modules/core/core.module';
 
 describe('MyProjectsComponent ', () => {
 	let component: MyProjectsComponent;
@@ -15,9 +15,9 @@ describe('MyProjectsComponent ', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [
-				SharedModule,
+				PresentationModule,
 				RouterTestingModule,
-				MaterialModule
+				CoreModule
 			],
 			declarations: [
 				MyProjectsComponent

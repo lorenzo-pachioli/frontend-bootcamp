@@ -1,4 +1,3 @@
-import { MaterialModule } from '../material/material.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { LabelComponent } from './components/label/label.component';
@@ -19,6 +18,7 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-chart.component';
 import { CardComponent } from './components/card/card.component';
 import { CardListComponent } from './components/card-list/card-list.component';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
 	declarations: [
@@ -35,7 +35,7 @@ import { CardListComponent } from './components/card-list/card-list.component';
 	imports: [
 		CommonModule,
 		AppRoutingModule,
-		MaterialModule,
+		CoreModule,
 		ReactiveFormsModule,
 		TranslateModule.forRoot({
 			loader: {

@@ -9,7 +9,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MaterialModule } from './modules/material/material.module';
 import { PresentationModule } from './modules/presentation/presentation.module';
 import { DatePipe } from '@angular/common';
 import { RoutesModule } from './modules/routes/routes.module';
@@ -26,7 +25,6 @@ registerLocaleData(localeEsAr, 'en-US');
 		BrowserModule,
 		BrowserAnimationsModule,
 		HttpClientModule,
-		MaterialModule,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,

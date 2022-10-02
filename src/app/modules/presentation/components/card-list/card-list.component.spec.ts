@@ -4,7 +4,7 @@ import { TranslateServiceMock } from 'src/app/test/mocks/services/translate.serv
 import { CardListComponent } from './card-list.component';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientServiceMock } from 'src/app/test/mocks/services/http-client.service.mock';
-import { MaterialModule } from '../../material/material.module';
+import { CoreModule } from 'src/app/modules/core/core.module';
 
 describe('CardListComponent', () => {
 	let component: CardListComponent;
@@ -13,7 +13,7 @@ describe('CardListComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [
-				MaterialModule
+				CoreModule
 			],
 			declarations: [CardListComponent],
 			providers: [

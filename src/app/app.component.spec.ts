@@ -4,11 +4,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { CoreModule } from './modules/core/core.module';
 import { PresentationModule } from './modules/presentation/presentation.module';
-import { SharedModule } from './modules/shared/shared.module';
 import { TranslatePipeMock } from './test/mocks/pipes/translate.pipe.mock';
 import { TranslateServiceMock } from './test/mocks/services/translate.service.mock';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientServiceMock } from './test/mocks/services/http-client.service.mock';
+import { RoutesModule } from './modules/routes/routes.module';
 
 describe('AppComponent', () => {
 	beforeEach(async () => {
@@ -17,7 +17,7 @@ describe('AppComponent', () => {
 				RouterTestingModule,
 				PresentationModule,
 				CoreModule,
-				SharedModule
+				RoutesModule
 			],
 			declarations: [
 				AppComponent,

@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { MaterialModule } from 'src/app/modules/material/material.module';
-import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { ActivatedRouteMock } from 'src/app/test/mocks/services/router.service.mock';
 import { TranslateServiceMock } from 'src/app/test/mocks/services/translate.service.mock';
 import { TranslateService } from '@ngx-translate/core';
 import { EpicComponent } from './epic.component';
 import { HttpClientServiceMock } from 'src/app/test/mocks/services/http-client.service.mock';
 import { HttpClient } from '@angular/common/http';
+import { PresentationModule } from 'src/app/modules/presentation/presentation.module';
+import { CoreModule } from 'src/app/modules/core/core.module';
 
 describe('EpicComponent', () => {
 	/* let component: EpicComponent;
@@ -16,8 +16,8 @@ describe('EpicComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [
-				SharedModule,
-				MaterialModule
+				PresentationModule,
+				CoreModule
 			],
 			declarations: [EpicComponent],
 			providers: [

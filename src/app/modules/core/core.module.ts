@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MainComponent } from './main/main.component';
 import { MaterialModule } from '../material/material.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -14,9 +11,6 @@ import { BackRouteDirective } from './directives/back-route/back-route.directive
 
 @NgModule({
 	declarations: [
-		HeaderComponent,
-		FooterComponent,
-		MainComponent,
 		BackRouteDirective
 	],
 	imports: [
@@ -29,14 +23,11 @@ import { BackRouteDirective } from './directives/back-route/back-route.directive
 				useFactory: (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json'),
 				deps: [HttpClient]
 			}
-		}),
-		PresentationModule
+		})
 	],
 	exports: [
-		HeaderComponent,
-		FooterComponent,
-		MainComponent,
 		BackRouteDirective,
+		MaterialModule
 	]
 })
 export class CoreModule { }

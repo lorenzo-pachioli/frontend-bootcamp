@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MaterialModule } from '../../material/material.module';
 import { DatePipe } from '@angular/common';
 import { CardComponent } from './card.component';
+import { CoreModule } from 'src/app/modules/core/core.module';
 
 describe('CardComponent', () => {
 	let component: CardComponent;
@@ -10,7 +10,7 @@ describe('CardComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [
-				MaterialModule
+				CoreModule
 			],
 			declarations: [CardComponent],
 			providers: [

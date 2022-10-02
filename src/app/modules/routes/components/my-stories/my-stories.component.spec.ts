@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { TranslateService } from '@ngx-translate/core';
 import { MyStoriesComponent } from './my-stories.component';
 import { TranslateServiceMock } from 'src/app/test/mocks/services/translate.service.mock';
 import { HttpClientServiceMock } from 'src/app/test/mocks/services/http-client.service.mock';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { PresentationModule } from 'src/app/modules/presentation/presentation.module';
 
 describe('MyStoriesComponent', () => {
 	let component: MyStoriesComponent;
@@ -14,7 +14,7 @@ describe('MyStoriesComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [
-				SharedModule
+				PresentationModule
 			],
 			declarations: [
 				MyStoriesComponent

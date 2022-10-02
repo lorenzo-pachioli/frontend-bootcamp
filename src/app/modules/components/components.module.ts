@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { MaterialModule } from '../material/material.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -10,6 +9,7 @@ import { EpicComponent } from './components/epic/epic.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectComponent } from './components/project/project.component';
 import { PresentationModule } from '../presentation/presentation.module';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -24,7 +24,7 @@ import { PresentationModule } from '../presentation/presentation.module';
 		CommonModule,
 		PresentationModule,
 		AppRoutingModule,
-		MaterialModule,
+		CoreModule,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,

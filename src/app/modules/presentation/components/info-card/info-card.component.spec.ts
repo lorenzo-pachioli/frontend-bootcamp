@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MaterialModule } from '../../material/material.module';
 import { DatePipe } from '@angular/common';
 import { InfoCardComponent } from './info-card.component';
+import { CoreModule } from 'src/app/modules/core/core.module';
 
 describe('InfoCardComponent', () => {
 	let component: InfoCardComponent;
@@ -10,7 +10,7 @@ describe('InfoCardComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [
-				MaterialModule
+				CoreModule
 			],
 			declarations: [InfoCardComponent],
 			providers: [DatePipe]

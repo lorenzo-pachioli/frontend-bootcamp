@@ -1,11 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateServiceMock } from 'src/app/test/mocks/services/translate.service.mock';
-import { PresentationModule } from '../../presentation/presentation.module';
 import { HeaderComponent } from './header.component';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientServiceMock } from 'src/app/test/mocks/services/http-client.service.mock';
-import { MaterialModule } from '../../material/material.module';
+import { CoreModule } from 'src/app/modules/core/core.module';
 
 describe('HeaderComponent', () => {
 	/* let component: HeaderComponent;
@@ -14,8 +13,7 @@ describe('HeaderComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [
-				PresentationModule,
-				MaterialModule
+				CoreModule
 			],
 			declarations: [
 				HeaderComponent
