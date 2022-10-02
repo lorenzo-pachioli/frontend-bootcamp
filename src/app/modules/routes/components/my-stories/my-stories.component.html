@@ -1,7 +1,5 @@
 <div class="myStories-container">
-    <p>my-stories works!</p>
-    <!-- <ng-content></ng-content> -->
-    <app-card-list [list]="stories">
+    <app-card-list class="list" [list]="stories" optional="app.NO-STORIES" [loading]="loading">
         <ng-template let-item #card>
             <app-card [story]='item'></app-card>
         </ng-template>

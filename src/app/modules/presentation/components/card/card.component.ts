@@ -39,25 +39,17 @@ export class CardComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		if (this.project) {
-			this.item.name = this.project.name;
-			this.item.description = this.project.description;
-			this.path = 'project';
-		}
-		if (this.epic) {
-			this.item.name = this.epic.name;
-			this.item.description = this.epic.description;
-			this.path = 'epic';
-		}
-		if (this.story) {
-			this.item.name = this.story.name;
-			this.item.description = this.story.description;
-			this.path = 'story';
-		}
-		if (this.task) {
-			this.item.name = this.task.name;
-			this.item.description = this.task.description;
-			this.path = 'task';
+		this.setItemValue(this.project, 'project');
+		this.setItemValue(this.epic, 'epic');
+		this.setItemValue(this.story, 'story');
+		this.setItemValue(this.task, 'task');
+	}
+
+	setItemValue(input: IProject | IEpic | IStory | ITasks, path: string): void {
+		if (input) {
+			this.item.name = input.name
+			this.item.description = input.description
+			this.path = path;
 		}
 	}
 
@@ -75,9 +67,16 @@ export class CardComponent implements OnInit {
 		}
 	}
 
-	taskCreated(): string {
-		const date = this.datepipe.transform(this.task.created, 'dd/MM/yyyy');
-		return `Created: ${date}`;
+	setCreated(): string {
+		let date;
+		if (this.task) {
+			date = this.datepipe.transform(this.task.created, 'dd/MM/yyyy');
+			return `Created: ${date}`;
+		}
+		if (this.story) {
+			date = this.datepipe.transform(this.story.created, 'dd/MM/yyyy');
+			return `Created: ${date}`;
+		}
 	}
 
 	taskDueDate(): string {
@@ -100,6 +99,10 @@ export class CardComponent implements OnInit {
 
 	deleteTask(): void {
 		this.taskList.deleteTask(this.task.id);
+	}
+
+	setStatus(): string {
+		return `Status: ${this.story.status}`
 	}
 
 }
