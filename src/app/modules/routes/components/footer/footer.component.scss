@@ -5,7 +5,6 @@ $radius1: var(--radius1);
 .footer-container {
     @include flex(flex, center, center, row);
     width: 100%;
-    min-width: 312px;
     height: 5vh;
     gap: var(--gap1);
     background-color: var(--color4);

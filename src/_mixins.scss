@@ -13,6 +13,6 @@
     width: min(95vw, 612px);
 }
 
-@mixin width-responsive {
+@mixin width-login {
     width: min((100% - 40px), 512px);
 }

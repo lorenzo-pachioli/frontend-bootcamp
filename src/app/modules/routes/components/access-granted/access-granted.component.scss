@@ -1,0 +1,20 @@
+@import '../../../../../mixins';
+
+.acces-container {
+  @include flex(flex, center, flex-start, column);
+  /* width: calc(100vw - 17px); */
+  width: 100vw;
+}
+
+.header {
+  width: 100%;
+}
+
+.main {
+  @include flex(flex, center, flex-start, column);
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+}

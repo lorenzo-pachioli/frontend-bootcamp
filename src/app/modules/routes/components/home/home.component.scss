@@ -5,7 +5,6 @@ $gap2: var(--gap2);
 .home-container {
     @include flex(flex, center, flex-start, column);
     width: 100%;
-    min-height: 100%;
     gap: $gap2;
 
     h2 {
