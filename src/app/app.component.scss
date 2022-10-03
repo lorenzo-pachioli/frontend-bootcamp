@@ -1,18 +1,5 @@
 @import '../mixins';
 
 .app {
-	@include flex(flex, center, flex-start, column);
-}
-
-.header {
-	width: 100%;
-}
-
-.main {
-	@include flex(flex, center, flex-start, column);
-	width: 100%;
-}
-
-.footer {
-	width: 100%;
+	@include flex(flex, center, center);
 }

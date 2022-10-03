@@ -12,3 +12,7 @@
 @mixin width-root-responsive {
     width: min(95vw, 612px);
 }
+
+@mixin width-responsive {
+    width: min((100% - 40px), 512px);
+}

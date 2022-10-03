@@ -18,6 +18,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CoreModule } from '../core/core.module';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AccessGrantedComponent } from './components/access-granted/access-granted.component';
 
 
 
@@ -29,12 +32,15 @@ import { CoreModule } from '../core/core.module';
 		SettingsComponent,
 		HeaderComponent,
 		MainComponent,
-		FooterComponent
+		FooterComponent,
+		LoginComponent,
+  AccessGrantedComponent
 	],
 	imports: [
 		CommonModule,
 		PresentationModule,
 		AppRoutingModule,
+		ReactiveFormsModule,
 		CoreModule,
 		ComponentsModule,
 		TranslateModule.forRoot({

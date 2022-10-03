@@ -1,0 +1,53 @@
+@import '../../../../../mixins';
+
+.login-container {
+  @include flex(flex, center, center);
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color2);
+}
+
+.mat-card {
+  @include width-responsive;
+  padding: 20px;
+}
+
+.mat-card-title {
+  @include flex(flex, center, center, column);
+  gap: var(--gap2);
+
+  h1 {
+    color: var(--color4);
+    padding: 10px;
+    font-size: 60px;
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.buttons {
+  @include flex(flex, center, space-around);
+  width: 100%;
+
+  button {
+    width: 100%;
+    border-radius: var(--radius1);
+    border: var(--border4);
+    background-color: var(--color2);
+  }
+
+  button:active {
+    background-color: var(--color4);
+    color: white;
+  }
+}
+
+.mat-card-footer {
+  padding: 10px;
+}
+
+.mat-hint {
+  color: red;
+}

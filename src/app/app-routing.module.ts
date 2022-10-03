@@ -5,6 +5,7 @@ import { ProjectListComponent } from './modules/components/components/project-li
 import { ProjectComponent } from './modules/components/components/project/project.component';
 import { StoryComponent } from './modules/components/components/story/story.component';
 import { HomeComponent } from './modules/routes/components/home/home.component';
+import { LoginComponent } from './modules/routes/components/login/login.component';
 import { MyProjectsComponent } from './modules/routes/components/my-projects/my-projects.component';
 import { MyStoriesComponent } from './modules/routes/components/my-stories/my-stories.component';
 import { SettingsComponent } from './modules/routes/components/settings/settings.component';
@@ -23,7 +24,8 @@ const routes: Routes = [
 	},
 	{ path: 'my-stories', component: MyStoriesComponent },
 	{ path: 'home', component: HomeComponent },
-	{ path: '', redirectTo: '/home', pathMatch: 'full' },
+	{ path: 'login', component: LoginComponent },
+	{ path: '', redirectTo: '/login', pathMatch: 'full' },
 	{ path: '**', redirectTo: '/home' }
 ];
 
