@@ -16,6 +16,7 @@ export class InfoCardComponent implements OnInit {
 		name: '',
 		description: ''
 	};
+	loading = true;
 	@Input() project?: IProject;
 	@Input() epic?: IEpic;
 	@Input() story?: IStory;
@@ -35,14 +36,12 @@ export class InfoCardComponent implements OnInit {
 		}
 	}
 
-	setMembers(): string {
+	setMembers(): Array<string> {
 		if (this.project && this.project.members.length > 0) {
-			return `Members:  ${this.project.members}`
+			return this.project.members;
 		}
-		if (this.project && this.project.members.length === 0) {
-			return `Members:  no members assign to this project`;
-		}
-		return '';
+		this.loading = false;
+		return [];
 	}
 
 	setColor(): any {

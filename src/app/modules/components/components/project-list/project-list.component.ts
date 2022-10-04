@@ -12,15 +12,17 @@ export class ProjectListComponent implements OnInit {
 	projects = [];
 	epics = [];
 	loading = true;
-	constructor(public projectList: ProjectService, public epicList: EpicService) { }
+	constructor(public projectList: ProjectService, public epicList: EpicService) {
+	}
 
 	ngOnInit(): void {
-		const data = this.projectList.getProjects();
-		if (data) {
-			this.projects = data;
-		} else {
-			this.loading = false;
-		}
+		this.projectList.projectsMock$.subscribe(data => {
+			if (data) {
+				this.projects = data;
+			} else {
+				this.loading = false;
+			}
+		});
 	}
 
 	setRoute(id: number): string {

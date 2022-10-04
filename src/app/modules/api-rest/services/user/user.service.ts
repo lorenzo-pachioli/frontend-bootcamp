@@ -25,7 +25,6 @@ export class UserService {
 	})
 	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/users/';
 	constructor(private readonly http: HttpClient) {
-		this.user$.next(this.user);
 	}
 
 	getUser(): IUser {

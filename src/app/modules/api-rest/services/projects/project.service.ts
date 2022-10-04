@@ -1,36 +1,23 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { IProject } from 'src/app/modules/core/interfaces/projectInterface';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class ProjectService {
 
-	projectsMock: Array<IProject> = [
-		{
-			members: [],
-			name: 'Project 1',
-			description: 'This is my first project',
-			icon: 'rgba(255, 99, 132, 1)',
-			id: 1
-		},
-		{
-			members: [],
-			name: 'Project 2',
-			description: 'This is my second project',
-			icon: 'rgba(255, 205, 86, 1)',
-			id: 2
-		},
-		{
-			members: [],
-			name: 'Project 3',
-			description: 'This is my third project',
-			icon: 'rgba(54, 162, 235, 1)',
-			id: 3
-		}
-	]
+	private projectsMock: Array<IProject>;
+	public projectsMock$: BehaviorSubject<Array<IProject>> = new BehaviorSubject([]);
+	public projecLoaded$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/projects';
 
-	constructor() { }
+	constructor(private readonly http: HttpClient) {
+		this.projectsMock$.subscribe(data => {
+			this.projectsMock = data;
+		});
+	}
 
 	getProjects(): any {
 		return this.projectsMock;
@@ -42,5 +29,15 @@ export class ProjectService {
 			return project;
 		}
 		return false;
+	}
+
+	fetchProjects(token: string): Observable<any> {
+		if (token) {
+			return this.http.get(this.url, {
+				headers: {
+					auth: token
+				}
+			})
+		}
 	}
 }

@@ -14,7 +14,8 @@
 		"MAIN": {
 			"HOME": {
 				"PROJECTBYEPICS": "Projects by amount of epics",
-				"PROJECTPROGRESS": "Projects by stories finished"
+				"PROJECTPROGRESS": "Projects by stories finished",
+				"NOPROJECTS": "There are no projects"
 			}
 		},
 		"FOOTER": "App footer",
@@ -22,6 +23,7 @@
 		"NO-STORIES": "There are no stories",
 		"NO-EPICS": "There are no epics",
 		"NO-PROJECTS": "There are no projects",
+		"NO-MEMBERS": "There are no members",
 		"DELETE": {
 			"TITLE": "Delete",
 			"QUESTION": {
@@ -30,6 +32,7 @@
 		},
 		"YES": "Yes",
 		"LOGIN": "Log in",
-		"LOGOUT": "Log out"
+		"LOGOUT": "Log out",
+		"MEMBERS": "Members"
 	}
 }

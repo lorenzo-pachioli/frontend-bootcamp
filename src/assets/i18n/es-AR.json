@@ -14,7 +14,8 @@
 		"MAIN": {
 			"HOME": {
 				"PROJECTBYEPICS": "Proyectos por cantidad de epicas",
-				"PROJECTPROGRESS": "Proyectos por historias terminadas"
+				"PROJECTPROGRESS": "Proyectos por historias terminadas",
+				"NOPROJECTS": "No hay proyectos"
 			}
 		},
 		"FOOTER": "Footer",
@@ -22,12 +23,14 @@
 		"NO-STORIES": "Todavía no hay historias",
 		"NO-EPICS": "Todavía no hay epicas",
 		"NO-PROJECTS": "Todavía no hay proyectos",
+		"NO-MEMBERS": "Todavía no hay miembros",
 		"DELETE": {
 			"TITLE": "Borrar",
 			"QUESTION": "Quieres borrar"
 		},
 		"YES": "Si",
 		"LOGIN": "Iniciar sesion",
-		"LOGOUT": "Cerrar sesion"
+		"LOGOUT": "Cerrar sesion",
+		"MEMBERS": "Miembros"
 	}
 }

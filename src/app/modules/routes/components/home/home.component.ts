@@ -14,7 +14,7 @@ import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
 export class HomeComponent implements OnInit {
 
 	projectNumbers: Array<IProjectNum> = [];
-	proyectList: Array<IProject> = [];
+	projectList: Array<IProject> = [];
 	epicList: Array<IEpic> = [];
 	storyList: Array<IStory> = [];
 	constructor(
@@ -24,12 +24,16 @@ export class HomeComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		this.proyectList = this.projectService.getProjects();
-		this.epicList = this.epicService.getEpics();
-		this.storyList = this.storyService.getStories();
-		if (this.proyectList.length > 0 && this.epicList.length > 0) {
-			this.setProjectsNumbers();
-		}
+		this.projectService.projectsMock$.subscribe(data => {
+			if (data) {
+				this.projectList = data;
+				this.epicList = this.epicService.getEpics();
+				this.storyList = this.storyService.getStories();
+				if (this.projectList.length > 0 && this.epicList.length > 0) {
+					this.setProjectsNumbers();
+				}
+			}
+		});
 	}
 
 	setProjectsNumbers(): void {
@@ -51,7 +55,7 @@ export class HomeComponent implements OnInit {
 				completed
 			});
 		});
-		this.proyectList.forEach(project => {
+		this.projectList.forEach(project => {
 			let total = 0;
 			let completed = 0;
 			epicsNumbers.forEach(epic => {
