@@ -8,16 +8,19 @@ import { UserService } from '../../api-rest/services/user/user.service';
 })
 export class UserExistGuard implements CanActivate {
 
-	constructor(private userService: UserService, private projectService: ProjectService, private router: Router) { }
+	constructor(
+		private userService: UserService,
+		private projectService: ProjectService,
+		private router: Router
+	) { }
 
 	OnDestroy(): void {
 		this.projectService.projecLoaded$.unsubscribe();
 	}
 	async canActivate(): Promise<boolean> {
-		const user = this.userService.getUser();
 		const token = sessionStorage.getItem('token');
 		const id = sessionStorage.getItem('_id');
-		if (!user && token && id) {
+		if (token && id) {
 			const data = await this.initData(id, token)
 			if (data) {
 				return true;
@@ -25,8 +28,6 @@ export class UserExistGuard implements CanActivate {
 				this.router.navigate(['/login']);
 				return false;
 			}
-		} else if (user && token && id) {
-			return true;
 		} else {
 			this.router.navigate(['/login']);
 			return false;

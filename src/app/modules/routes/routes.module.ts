@@ -18,6 +18,7 @@ import { CoreModule } from '../core/core.module';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AccessGrantedComponent } from './components/access-granted/access-granted.component';
+import { LoadingPageComponent } from './components/loading-page/loading-page.component';
 
 
 
@@ -28,7 +29,8 @@ import { AccessGrantedComponent } from './components/access-granted/access-grant
 		MyProjectsComponent,
 		SettingsComponent,
 		LoginComponent,
-		AccessGrantedComponent
+		AccessGrantedComponent,
+  LoadingPageComponent
 	],
 	imports: [
 		CommonModule,

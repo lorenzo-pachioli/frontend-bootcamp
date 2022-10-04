@@ -17,3 +17,14 @@
         padding: 20px;
     }
 }
+
+.spinner::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: var(--color5);
+    color: var(--color5);
+}
+
+.spinner {
+    @include flex(flex, center, center, column);
+    color: var(--color5);
+}

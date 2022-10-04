@@ -7,6 +7,7 @@ import { StoryComponent } from './modules/components/components/story/story.comp
 import { UserExistGuard } from './modules/core/guards/user-exist.guard';
 import { AccessGrantedComponent } from './modules/routes/components/access-granted/access-granted.component';
 import { HomeComponent } from './modules/routes/components/home/home.component';
+import { LoadingPageComponent } from './modules/routes/components/loading-page/loading-page.component';
 import { LoginComponent } from './modules/routes/components/login/login.component';
 import { MyProjectsComponent } from './modules/routes/components/my-projects/my-projects.component';
 import { MyStoriesComponent } from './modules/routes/components/my-stories/my-stories.component';
@@ -31,11 +32,12 @@ const routes: Routes = [
 				],
 			},
 			{ path: 'my-stories', component: MyStoriesComponent },
-			{ path: 'home', component: HomeComponent, pathMatch: 'full' },
-			{ path: '', redirectTo: '/home', pathMatch: 'full' }
+			{ path: 'home', component: HomeComponent },
+			{ path: '', redirectTo: '/loading', pathMatch: 'full' }
 		]
 	},
-	{ path: '**', redirectTo: '/home' }
+	{ path: 'loading', component: LoadingPageComponent, pathMatch: 'full' },
+	{ path: '**', redirectTo: '/loading' }
 ];
 
 @NgModule({

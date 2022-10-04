@@ -33,6 +33,7 @@
 		"YES": "Yes",
 		"LOGIN": "Log in",
 		"LOGOUT": "Log out",
-		"MEMBERS": "Members"
+		"MEMBERS": "Members",
+		"LOADING": "Loading..."
 	}
 }
