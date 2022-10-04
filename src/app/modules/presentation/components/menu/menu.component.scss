@@ -85,9 +85,8 @@ $radius2: var(--radius2);
     text-decoration: none;
     background-color: var(--color1);
     border-radius: 0px 0px $radius2 0;
-    color: var(--color5);
-    font-weight: 400;
-    font-size: 20px;
+    color: var(--color4);
+    font-size: 30px;
 }
 
 
@@ -95,7 +94,6 @@ $radius2: var(--radius2);
     .menu-logo {
         span {
             div {
-                /* display: none; */
                 font-size: 40px;
             }
 

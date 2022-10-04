@@ -1,4 +1,5 @@
 export interface IStory {
+	_id?: string,
 	id: number,
 	name: string,
 	description?: string,
@@ -10,6 +11,7 @@ export interface IStory {
 	due?: string,
 	started?: string,
 	finished?: string,
-	status?: 'todo'| 'running'| 'done',
-	icon?: string
+	status?: 'todo' | 'running' | 'done',
+	icon?: string,
+	_v?: number
 }

@@ -36,12 +36,20 @@ export class ProjectComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.item = this.url.project;
-		const epics = this.epicList.getEpicsByProyectId(this.url.project && this.url.project._id);
-		if (epics.length > 0) {
-			this.list = epics;
-		} else {
-			this.loading = false;
+		const token = sessionStorage.getItem('token');
+		if (this.url.project) {
+			this.item = this.url.project;
+			this.epicList.fetchEpics(token).subscribe(epicResponse => {
+				if (epicResponse.success) {
+					this.epicList.epicList$.next(epicResponse.data);
+				}
+				const epics = this.epicList.getEpicsByProyectId(this.url.project && this.url.project._id);
+				if (epics.length > 0) {
+					this.list = epics;
+				} else {
+					this.loading = false;
+				}
+			});
 		}
 	}
 

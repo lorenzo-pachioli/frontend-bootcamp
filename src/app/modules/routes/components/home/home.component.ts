@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
 			let total = 0;
 			let completed = 0;
 			this.storyList.forEach(story => {
-				if (story.epic === epic.id.toString()) {
+				if (story.epic === epic._id) {
 					total += 1;
 					if (story.status === 'done') {
 						completed += 1

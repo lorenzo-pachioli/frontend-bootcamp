@@ -13,11 +13,22 @@ export class MyStoriesComponent implements OnInit {
 	constructor(public storiesList: StoriesService) { }
 
 	ngOnInit(): void {
-		const data = this.storiesList.getStories()
-		if (data) {
-			this.stories = data;
-		} else {
-			this.loading = false;
-		}
+		const token = sessionStorage.getItem('token');
+		this.storiesList.fetchStories(token).subscribe(storyResponse => {
+			if (storyResponse.success) {
+				this.storiesList.storiesList$.next(storyResponse.data);
+			}
+		});
+		this.storiesList.storiesList$.subscribe(data => {
+			if (data) {
+				this.stories = data;
+			} else {
+				this.loading = false;
+			}
+		})
+	}
+
+	OnDestroy(): void {
+		this.storiesList.storiesList$.unsubscribe();
 	}
 }

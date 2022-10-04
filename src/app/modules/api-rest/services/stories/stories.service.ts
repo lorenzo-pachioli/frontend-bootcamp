@@ -1,90 +1,47 @@
 import { Injectable } from '@angular/core';
 import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class StoriesService {
 
-	storiesMock: Array<IStory> = [
-		{
-			assignedTo: [],
-			points: 5,
-			status: 'done',
-			id: 1,
-			name: 'US #1',
-			description: 'Lorem ipsum',
-			epic: '1',
-			created: '2022-02-07T21:44:26.346Z',
-		},
-		{
-			assignedTo: [],
-			points: 5,
-			status: 'done',
-			id: 2,
-			name: 'US #2',
-			description: 'Lorem ipsum',
-			epic: '2',
-			created: '2022-02-07T21:44:26.346Z',
-		},
-		{
-			assignedTo: [],
-			points: 5,
-			status: 'done',
-			id: 3,
-			name: 'US #3',
-			description: 'Lorem ipsum',
-			epic: '3',
-			created: '2022-02-07T21:44:26.346Z',
-		},
-		{
-			assignedTo: [],
-			points: 5,
-			status: 'done',
-			id: 1,
-			name: 'US #1',
-			description: 'Lorem ipsum',
-			epic: '1',
-			created: '2022-02-07T21:44:26.346Z',
-		},
-		{
-			assignedTo: [],
-			points: 5,
-			status: 'done',
-			id: 2,
-			name: 'US #2',
-			description: 'Lorem ipsum',
-			epic: '2',
-			created: '2022-02-07T21:44:26.346Z',
-		},
-		{
-			assignedTo: [],
-			points: 5,
-			status: 'done',
-			id: 3,
-			name: 'US #3',
-			description: 'Lorem ipsum',
-			epic: '3',
-			created: '2022-02-07T21:44:26.346Z',
-		}
-	]
+	storiesList: Array<IStory>;
+	public storiesList$: BehaviorSubject<Array<IStory>> = new BehaviorSubject([]);
+	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/stories';
 
-	constructor() { }
+	constructor(private readonly http: HttpClient) {
+		this.storiesList$.subscribe(data => {
+			this.storiesList = data;
+		});
+	}
 
 	getStories(): IStory[] {
-		return this.storiesMock;
+		return this.storiesList;
 	}
 
 	getOneStory(id: number): IStory | false {
-		const story = this.storiesMock.find(e => e.id === id);
+		const story = this.storiesList.find(e => e.id === id);
 		if (story) {
 			return story;
 		}
 		return false;
 	}
 
-	getStoriesByEpicId(id: number): any {
-		const list = this.storiesMock.filter(story => story.epic === id.toString());
+	getStoriesByEpicId(id: string): any {
+		const list = this.storiesList.filter(story => story.epic === id);
 		return list;
+	}
+
+	fetchStories(token: string): Observable<any> {
+		if (token) {
+			return this.http.get(this.url, {
+				headers: {
+					auth: token
+				}
+			})
+		}
 	}
 }

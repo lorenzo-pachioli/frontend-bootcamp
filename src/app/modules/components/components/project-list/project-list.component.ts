@@ -16,6 +16,12 @@ export class ProjectListComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		const token = sessionStorage.getItem('token');
+		this.projectService.fetchProjects(token).subscribe(res => {
+			if (res.success) {
+				this.projectService.projectsList$.next(res.data);
+			}
+		});
 		this.projectService.projectsList$.subscribe(data => {
 			if (data) {
 				this.projects = data;
@@ -23,6 +29,10 @@ export class ProjectListComponent implements OnInit {
 				this.loading = false;
 			}
 		});
+	}
+
+	OnDestroy(): void {
+		this.projectService.projectsList$.unsubscribe();
 	}
 
 	setRoute(id: number): string {

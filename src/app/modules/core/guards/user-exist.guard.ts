@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { EpicService } from '../../api-rest/services/epics/epic.service';
 import { ProjectService } from '../../api-rest/services/projects/project.service';
+import { StoriesService } from '../../api-rest/services/stories/stories.service';
 import { UserService } from '../../api-rest/services/user/user.service';
 
 @Injectable({
@@ -13,11 +14,14 @@ export class UserExistGuard implements CanActivate {
 		private userService: UserService,
 		private projectService: ProjectService,
 		private epicService: EpicService,
+		private storyService: StoriesService,
 		private router: Router
 	) { }
 
 	OnDestroy(): void {
 		this.projectService.projectsList$.unsubscribe();
+		this.epicService.epicList$.unsubscribe();
+		this.storyService.storiesList$.unsubscribe();
 	}
 	async canActivate(): Promise<boolean> {
 		const token = sessionStorage.getItem('token');
@@ -47,7 +51,14 @@ export class UserExistGuard implements CanActivate {
 							this.epicService.fetchEpics(token).subscribe(epicResponse => {
 								if (epicResponse.success) {
 									this.epicService.epicList$.next(epicResponse.data);
-									resolve(true);
+									this.storyService.fetchStories(token).subscribe(storyResponse => {
+										if (storyResponse.success) {
+											this.storyService.storiesList$.next(storyResponse.data);
+											resolve(true);
+										} else {
+											resolve(false);
+										}
+									})
 								} else {
 									resolve(false);
 								}

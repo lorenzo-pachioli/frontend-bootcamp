@@ -36,14 +36,20 @@ export class EpicComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		const token = sessionStorage.getItem('token');
 		if (this.url.epic) {
 			this.item = this.url.epic;
-			const stories = this.storyList.getStoriesByEpicId(this.url.epic.id);
-			if (stories.length > 0) {
-				this.list = stories;
-			} else {
-				this.loading = false;
-			}
+			this.storyList.fetchStories(token).subscribe(storyResponse => {
+				if (storyResponse.success) {
+					this.storyList.storiesList$.next(storyResponse.data);
+				}
+				const stories = this.storyList.getStoriesByEpicId(this.url.epic && this.url.epic._id);
+				if (stories.length > 0) {
+					this.list = stories;
+				} else {
+					this.loading = false;
+				}
+			});
 		}
 	}
 
