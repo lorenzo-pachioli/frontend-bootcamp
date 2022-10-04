@@ -14,9 +14,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SettingsComponent } from './components/settings/settings.component';
 import { ComponentsModule } from '../components/components.module';
 import { PresentationModule } from '../presentation/presentation.module';
-import { HeaderComponent } from './components/header/header.component';
-import { MainComponent } from './components/main/main.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { CoreModule } from '../core/core.module';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -30,11 +27,8 @@ import { AccessGrantedComponent } from './components/access-granted/access-grant
 		MyStoriesComponent,
 		MyProjectsComponent,
 		SettingsComponent,
-		HeaderComponent,
-		MainComponent,
-		FooterComponent,
 		LoginComponent,
-  AccessGrantedComponent
+		AccessGrantedComponent
 	],
 	imports: [
 		CommonModule,
@@ -56,9 +50,8 @@ import { AccessGrantedComponent } from './components/access-granted/access-grant
 		MyStoriesComponent,
 		MyProjectsComponent,
 		SettingsComponent,
-		HeaderComponent,
-		MainComponent,
-		FooterComponent
+		LoginComponent,
+		AccessGrantedComponent
 	],
 	providers: [
 		ProjectService,

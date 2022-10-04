@@ -28,6 +28,8 @@
 				"TASK": "Would you like to delete this task?"
 			}
 		},
-		"YES": "Yes"
+		"YES": "Yes",
+		"LOGIN": "Log in",
+		"LOGOUT": "Log out"
 	}
 }

@@ -1,0 +1,18 @@
+@import '../../../../../mixins';
+
+.settings-container {
+    @include flex(flex, center, flex-start, column);
+    width: 100%;
+    min-height: calc(85vh - 4px);
+    padding: 20px 0;
+
+    button {
+        text-align: center;
+        width: 90%;
+        background-color: red;
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: var(--radius1);
+    }
+}

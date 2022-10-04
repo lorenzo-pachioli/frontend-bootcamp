@@ -16,7 +16,7 @@
         </button>
     </div>
     <a class="menu-user" mat-button routerLink="/settings" (click)="setMenuState()">
-        {{userLogged.name.first}} {{userLogged.name.last}}
+        {{userLogged && userLogged.name.first}} {{userLogged && userLogged.name.last}}
     </a>
 </div>
 

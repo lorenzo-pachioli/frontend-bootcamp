@@ -1,5 +1,5 @@
 import { registerLocaleData } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import localeEsAr from '@angular/common/locales/es-AR';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { CoreModule } from './modules/core/core.module';
@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { PresentationModule } from './modules/presentation/presentation.module';
 import { DatePipe } from '@angular/common';
 import { RoutesModule } from './modules/routes/routes.module';
-
+import { ErrorHttpCatchInterceptor } from './modules/core/interceptors/error-http-catch.interceptor';
 
 registerLocaleData(localeEsAr, 'en-US');
 
@@ -38,6 +38,11 @@ registerLocaleData(localeEsAr, 'en-US');
 	],
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'en-US' },
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: ErrorHttpCatchInterceptor,
+			multi: true
+		},
 		DatePipe
 	],
 	bootstrap: [AppComponent]

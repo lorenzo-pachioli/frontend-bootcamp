@@ -19,6 +19,9 @@ import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-cha
 import { CardComponent } from './components/card/card.component';
 import { CardListComponent } from './components/card-list/card-list.component';
 import { CoreModule } from '../core/core.module';
+import { FooterComponent } from './components/footer/footer.component';
+import { MainComponent } from './components/main/main.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
 	declarations: [
@@ -30,7 +33,10 @@ import { CoreModule } from '../core/core.module';
 		BarChartComponent,
 		InfoCardComponent,
 		ConfirmationDialogComponent,
-		AddTaskDialogComponent
+		AddTaskDialogComponent,
+		HeaderComponent,
+		MainComponent,
+		FooterComponent
 	],
 	imports: [
 		CommonModule,
@@ -53,7 +59,10 @@ import { CoreModule } from '../core/core.module';
 		BarChartComponent,
 		InfoCardComponent,
 		ConfirmationDialogComponent,
-		AddTaskDialogComponent
+		AddTaskDialogComponent,
+		HeaderComponent,
+		MainComponent,
+		FooterComponent
 	],
 	providers: [
 		ProjectService,

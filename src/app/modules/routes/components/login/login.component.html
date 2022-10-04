@@ -2,7 +2,7 @@
   <mat-card>
     <mat-card-title >
       <img src="../../../../../assets/images/Logo.svg" alt="" />
-      <h1>Brainstorm</h1>
+      <h1>Brainstorming</h1>
     </mat-card-title>
     <mat-card-content>
       <form novalidate [formGroup]="login">
@@ -17,7 +17,7 @@
           <mat-label>Password</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
           <mat-error align="end">Min 4 characters</mat-error>
         </mat-form-field>
@@ -25,8 +25,10 @@
       </form>
     </mat-card-content>
     <mat-card-content>
-      <div class="buttons">
-        <button mat-button [disabled]="!login.valid" (click)='logIn()'>Login</button>
+      <div class="buttons spinner">
+        <button mat-button [disabled]="!login.valid" (click)='logIn()' translate="app.LOGIN">
+          <mat-spinner [diameter]="20" *ngIf="loading" ></mat-spinner>
+        </button>
       </div>
       <mat-hint *ngIf='!validUser'>Invalid username or password</mat-hint>
     </mat-card-content>

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IUser } from 'src/app/modules/core/interfaces/userInterface';
+import { HttpClient } from '@angular/common/http';
 
 interface IUserLogIn {
 	username: string,
@@ -10,25 +12,37 @@ interface IUserLogIn {
 })
 export class UserService {
 
-	user: IUser;
-
-	constructor() { }
+	public user: IUser;
+	public user$: BehaviorSubject<IUser> = new BehaviorSubject({
+		id: 1,
+		email: '',
+		username: '',
+		password: '',
+		name: {
+			first: '',
+			last: ''
+		}
+	})
+	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/users/';
+	constructor(private readonly http: HttpClient) {
+		this.user$.next(this.user);
+	}
 
 	getUser(): IUser {
 		return this.user;
 	}
 
-	setLogIn(user: IUserLogIn): boolean {
-		this.user = {
-			id: 1,
-			email: 'someEmail@gamil.com',
-			username: user.username,
-			password: user.password,
-			name: {
-				first: 'firstName',
-				last: 'lastName'
+	setUser(user: any): boolean {
+		this.user$.next(user);
+		this.user = user;
+		return true;
+	}
+
+	fetchUser(id: string, token: string): Observable<any> {
+		return this.http.get(this.url + id, {
+			headers: {
+				auth: token
 			}
-		};
-		return this.user ? true : false;
+		})
 	}
 }

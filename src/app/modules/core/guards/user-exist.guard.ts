@@ -12,13 +12,25 @@ export class UserExistGuard implements CanActivate {
 
 	canActivate(): boolean {
 		const user = this.userService.getUser();
-		console.log(user);
-		if (!user) {
+		const token = sessionStorage.getItem('token');
+		const id = sessionStorage.getItem('_id');
+		if (!user && token && id) {
+			this.userService.fetchUser(id, token).subscribe(response => {
+				console.log('id', response._id);
+				if (response._id) {
+					const d = this.userService.setUser(response);
+					console.log('d', d);
+					return d
+				}
+				this.router.navigate(['/login']);
+				return false;
+			})
+		} else if (user && token && id) {
+			console.log('t', true);
+			return true;
+		} else {
 			this.router.navigate(['/login']);
 			return false;
 		}
-
-		return true;
 	}
-
 }

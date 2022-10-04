@@ -26,6 +26,8 @@
 			"TITLE": "Borrar",
 			"QUESTION": "Quieres borrar"
 		},
-		"YES": "Si"
+		"YES": "Si",
+		"LOGIN": "Iniciar sesion",
+		"LOGOUT": "Cerrar sesion"
 	}
 }

@@ -28,20 +28,29 @@
 }
 
 .buttons {
-  @include flex(flex, center, space-around);
+  @include flex(flex, center, center);
   width: 100%;
 
   button {
+    @include flex(flex, center, center, row);
     width: 100%;
     border-radius: var(--radius1);
     border: var(--border4);
     background-color: var(--color2);
+    font-size: 20px;
+    gap: var(--gap1);
   }
 
   button:active {
     background-color: var(--color4);
     color: white;
   }
+}
+
+.spinner::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--color4);
+  color: var(--color4);
 }
 
 .mat-card-footer {

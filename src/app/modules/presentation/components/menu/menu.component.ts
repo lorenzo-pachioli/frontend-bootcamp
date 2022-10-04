@@ -13,7 +13,11 @@ export class MenuComponent implements OnInit {
 	@Input() menuState = false;
 	@Output() menuStateChange: EventEmitter<boolean> = new EventEmitter();
 
-	constructor(public user: UserService) { }
+	constructor(public user: UserService) {
+		this.user.user$.subscribe(u => {
+			this.userLogged = u;
+		})
+	}
 
 	ngOnInit(): void {
 		this.userLogged = this.user.getUser();
