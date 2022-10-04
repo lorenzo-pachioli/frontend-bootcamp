@@ -8,23 +8,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProjectService {
 
-	private projectsMock: Array<IProject>;
-	public projectsMock$: BehaviorSubject<Array<IProject>> = new BehaviorSubject([]);
-	public projecLoaded$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+	private projectsList: Array<IProject>;
+	public projectsList$: BehaviorSubject<Array<IProject>> = new BehaviorSubject([]);
 	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/projects';
 
 	constructor(private readonly http: HttpClient) {
-		this.projectsMock$.subscribe(data => {
-			this.projectsMock = data;
+		this.projectsList$.subscribe(data => {
+			this.projectsList = data;
 		});
 	}
 
 	getProjects(): any {
-		return this.projectsMock;
+		return this.projectsList;
 	}
 
 	getOneProject(id: number): IProject | false {
-		const project = this.projectsMock.find(p => p.id === id);
+		const project = this.projectsList.find(p => p.id === id);
 		if (project) {
 			return project;
 		}

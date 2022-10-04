@@ -1,9 +1,9 @@
 <div class="home-container">
     <h2 translate="app.MAIN.HOME.PROJECTBYEPICS"></h2>
-    <app-doughnut-chart class="donutChart" *ngIf="projectList.length > 0; else noProjects" [items]="projectList" [subItems]="epicList"></app-doughnut-chart>
+    <app-doughnut-chart class="donutChart" *ngIf="projectList.length > 0 && epicList.length > 0; else noProjects" [items]="projectList" [subItems]="epicList"></app-doughnut-chart>
     <ng-template #noProjects><span class="donutChart" translate="app.MAIN.HOME.NOPROJECTS"></span></ng-template>
     <hr />
     <h2 translate="app.MAIN.HOME.PROJECTPROGRESS"></h2>
-    <app-bar-chart class="barChart" *ngIf="projectList.length > 0; else noProjects" [projectNumbers]="projectNumbers"></app-bar-chart>
+    <app-bar-chart class="barChart" *ngIf="projectNumbers.length > 0; else noProjects" [projectNumbers]="projectNumbers"></app-bar-chart>
     <ng-template #noProjects><span class="barChart" translate="app.MAIN.HOME.NOPROJECTS"></span></ng-template>
 </div>

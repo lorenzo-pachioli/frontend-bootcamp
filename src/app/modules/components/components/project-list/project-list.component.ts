@@ -12,11 +12,11 @@ export class ProjectListComponent implements OnInit {
 	projects = [];
 	epics = [];
 	loading = true;
-	constructor(public projectList: ProjectService, public epicList: EpicService) {
+	constructor(public projectService: ProjectService) {
 	}
 
 	ngOnInit(): void {
-		this.projectList.projectsMock$.subscribe(data => {
+		this.projectService.projectsList$.subscribe(data => {
 			if (data) {
 				this.projects = data;
 			} else {

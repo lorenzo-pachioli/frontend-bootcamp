@@ -37,7 +37,7 @@ export class ProjectComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.item = this.url.project;
-		const epics = this.epicList.getEpicsByProyectId(this.url.project && this.url.project.id);
+		const epics = this.epicList.getEpicsByProyectId(this.url.project && this.url.project._id);
 		if (epics.length > 0) {
 			this.list = epics;
 		} else {

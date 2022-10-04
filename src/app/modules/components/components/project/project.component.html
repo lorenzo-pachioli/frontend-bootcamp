@@ -1,6 +1,6 @@
 <div class="project-container">
   <app-info-card [project]="item"></app-info-card>
-	<app-card-list class="list" [list]="list" optional="app.NO-PROJECTS" [loading]="loading">
+	<app-card-list class="list" [list]="list" optional="app.NO-EPICS" [loading]="loading">
 		<ng-template let-item #card>
 			<a [routerLink]="setRoute(item.id)">
 				<app-card [epic]='item'></app-card>

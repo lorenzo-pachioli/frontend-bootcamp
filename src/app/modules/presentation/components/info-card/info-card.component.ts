@@ -44,12 +44,6 @@ export class InfoCardComponent implements OnInit {
 		return [];
 	}
 
-	setColor(): any {
-		if (this.project) {
-			return { 'background-color': this.project.icon }
-		}
-	}
-
 	setOwner(): string {
 		if (this.story && this.story.owner) {
 			return `Owner: ${this.story.owner}`

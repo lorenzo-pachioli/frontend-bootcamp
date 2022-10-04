@@ -1,9 +1,11 @@
 export interface IEpic {
+	_id?: string,
 	id: number,
 	project: string,   // object id
 	name: string,
 	description?: string,
-	icon?: string
+	icon?: string,
+	_v?: number
 }
 
 export interface IEpicNum {

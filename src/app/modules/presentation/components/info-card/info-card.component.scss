@@ -30,3 +30,7 @@
     width: 20px;
   }
 }
+
+.members {
+  @include flex(flex, flex-start, flex-start, row);
+}

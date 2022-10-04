@@ -1,35 +1,22 @@
 import { Injectable } from '@angular/core';
 import { IEpic } from 'src/app/modules/core/interfaces/epicInterface';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 @Injectable({
 	providedIn: 'root'
 })
 export class EpicService {
 
-	epicList = [
-		{
-			id: 1,
-			project: '3',
-			name: 'Epic 1',
-			description: 'This is the first Epic for Project 3',
-			icon: '🥁'
-		},
-		{
-			id: 2,
-			project: '3',
-			name: 'Epic 2',
-			description: 'This is the second Epic for Project 2',
-			icon: '🥁'
-		},
-		{
-			id: 3,
-			project: '1',
-			name: 'Epic 3',
-			description: 'This is the third Epic for Project 1',
-			icon: '🥁'
-		}
-	];
+	private epicList: Array<IEpic>;
+	public epicList$: BehaviorSubject<Array<IEpic>> = new BehaviorSubject([]);
+	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/epics';
 
-	constructor() { }
+	constructor(private readonly http: HttpClient) {
+		this.epicList$.subscribe(data => {
+			this.epicList = data;
+		});
+	}
 
 	getEpics(): any {
 		return this.epicList;
@@ -43,8 +30,18 @@ export class EpicService {
 		return false;
 	}
 
-	getEpicsByProyectId(id: number): any {
-		const list = this.epicList.filter(epic => epic.project === id.toString());
+	getEpicsByProyectId(id: string): any {
+		const list = this.epicList.filter(epic => epic.project === id);
 		return list;
+	}
+
+	fetchEpics(token: string): Observable<any> {
+		if (token) {
+			return this.http.get(this.url, {
+				headers: {
+					auth: token
+				}
+			})
+		}
 	}
 }

@@ -20,15 +20,10 @@ export class DoughnutChartComponent implements OnInit {
 	ngOnInit(): void {
 		this.labels = this.items.map(item => item.name);
 		this.data = this.items.map(item => {
-			return this.subItems.filter(subitem => subitem.project === item.id.toString()).length;
+			return this.subItems.filter(subitem => subitem.project === item._id).length;
 		});
-
 		this.createChart();
 	}
-
-	/* labelClicked(event, legendItem, legend): void {
-		console.log('event:', event, 'legendItem:', legendItem, 'legend:', legend)
-	} */
 
 	createChart(): any {
 		this.chart = new Chart('MyChart', {
@@ -66,7 +61,6 @@ export class DoughnutChartComponent implements OnInit {
 						display: true,
 						position: 'bottom',
 						maxWidth: 150,
-						/* onClick: (event, legendItem, legend) => this.labelClicked(event, legendItem, legend), */
 						labels: {
 							usePointStyle: true,
 							pointStyle: 'rectRounded',

@@ -32,7 +32,7 @@ export class BarChartComponent implements OnInit {
 	itemBar = (project: IProjectNum) => {
 		const color = this.colors[this.projectNumbers.indexOf(project)];
 		return {
-			label: `${project.name}: ${(project.completed / project.total) * 100}%`,
+			label: `${project.name}: ${project.total === 0 ? 0 : ((project.completed / project.total) * 100)}%`,
 			data: [project.completed, project.total],
 			backgroundColor: [
 				color

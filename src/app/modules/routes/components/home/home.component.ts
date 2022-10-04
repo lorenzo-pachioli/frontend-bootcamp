@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		this.projectService.projectsMock$.subscribe(data => {
+		this.projectService.projectsList$.subscribe(data => {
 			if (data) {
 				this.projectList = data;
 				this.epicList = this.epicService.getEpics();
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
 			let total = 0;
 			let completed = 0;
 			epicsNumbers.forEach(epic => {
-				if (epic.project === project.id.toString()) {
+				if (epic.project === project._id) {
 					total = total + epic.total;
 					completed = completed + epic.completed;
 				}
