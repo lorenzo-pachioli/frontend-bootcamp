@@ -3,6 +3,7 @@ import { CanActivate, Router } from '@angular/router';
 import { EpicService } from '../../api-rest/services/epics/epic.service';
 import { ProjectService } from '../../api-rest/services/projects/project.service';
 import { StoriesService } from '../../api-rest/services/stories/stories.service';
+import { TasksService } from '../../api-rest/services/tasks/tasks.service';
 import { UserService } from '../../api-rest/services/user/user.service';
 
 @Injectable({
@@ -15,6 +16,7 @@ export class UserExistGuard implements CanActivate {
 		private projectService: ProjectService,
 		private epicService: EpicService,
 		private storyService: StoriesService,
+		private taskService: TasksService,
 		private router: Router
 	) { }
 
@@ -22,7 +24,9 @@ export class UserExistGuard implements CanActivate {
 		this.projectService.projectsList$.unsubscribe();
 		this.epicService.epicList$.unsubscribe();
 		this.storyService.storiesList$.unsubscribe();
+		this.taskService.tasksList$.unsubscribe();
 	}
+
 	async canActivate(): Promise<boolean> {
 		const token = sessionStorage.getItem('token');
 		const id = sessionStorage.getItem('_id');
@@ -54,15 +58,23 @@ export class UserExistGuard implements CanActivate {
 									this.storyService.fetchStories(token).subscribe(storyResponse => {
 										if (storyResponse.success) {
 											this.storyService.storiesList$.next(storyResponse.data);
-											resolve(true);
+											this.taskService.fetchTasks(token).subscribe(taskResponse => {
+												console.log(taskResponse);
+												if (taskResponse.success) {
+													this.taskService.tasksList$.next(taskResponse.data);
+													resolve(true);
+												} else {
+													resolve(false);
+												}
+											});
 										} else {
 											resolve(false);
 										}
-									})
+									});
 								} else {
 									resolve(false);
 								}
-							})
+							});
 						} else {
 							resolve(false);
 						}

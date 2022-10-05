@@ -26,7 +26,9 @@
 		"NO-MEMBERS": "Todavía no hay miembros",
 		"DELETE": {
 			"TITLE": "Borrar",
-			"QUESTION": "Quieres borrar"
+			"QUESTION": "Quieres borrar la tarea?",
+			"DELETING": "Borrando tarea...",
+			"FAIL": "No se pudo borrar la tarea"
 		},
 		"YES": "Si",
 		"LOGIN": "Iniciar sesion",

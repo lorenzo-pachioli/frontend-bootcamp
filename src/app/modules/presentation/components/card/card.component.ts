@@ -25,10 +25,13 @@ export class CardComponent implements OnInit {
 		description: ''
 	};
 	path = '';
+	deletedStatus = false;
 	@Input() project?: IProject;
 	@Input() epic?: IEpic;
 	@Input() story?: IStory;
 	@Input() task?: ITasks;
+	@Input() deleteTask?: Promise<boolean>;
+
 	constructor(
 		public datepipe: DatePipe,
 		public projectList: ProjectService,
@@ -54,8 +57,16 @@ export class CardComponent implements OnInit {
 	}
 
 	changeState(event: boolean): void {
+		const token = sessionStorage.getItem('token');
 		this.task.done = event;
-		this.taskList.updateTask(this.task);
+		console.log(this.task, event);
+		this.taskList.updateTask(token, this.task.id, this.task)
+			.then(response => {
+				if (!response) {
+					this.task.done = response;
+					console.error('fail update');
+				}
+			})
 	}
 
 	itemColor(): any {
@@ -89,16 +100,10 @@ export class CardComponent implements OnInit {
 			width: '250px',
 			enterAnimationDuration,
 			exitAnimationDuration,
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			if (result) {
-				this.deleteTask()
+			data: {
+				id: this.task.id
 			}
 		});
-	}
-
-	deleteTask(): void {
-		this.taskList.deleteTask(this.task.id);
 	}
 
 	setStatus(): string {

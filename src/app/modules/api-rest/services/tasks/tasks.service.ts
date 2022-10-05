@@ -1,69 +1,106 @@
 import { Injectable } from '@angular/core';
-import { ITasks } from 'src/app/modules/core/interfaces/tasksInterface';
+import { ITasks, INewTasks } from 'src/app/modules/core/interfaces/tasksInterface';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class TasksService {
 
-	tasksMock: Array<ITasks> = [
-		{
-			done: false,
-			id: 1,
-			name: 'Task 1',
-			description: 'This is task #1',
-			story: '1',
-			created: '2022-04-10T21:59:24.063Z',
-			dueDate: '2022-02-07T21:44:50.568Z'
-		},
-		{
-			done: true,
-			id: 2,
-			name: 'Task 2',
-			description: 'This is task #2',
-			story: '2',
-			created: '2022-04-10T21:59:24.063Z',
-			dueDate: '2022-02-07T21:44:50.568Z'
-		},
-		{
-			done: false,
-			id: 3,
-			name: 'Task 3',
-			description: 'This is task #3',
-			story: '3',
-			created: '2022-04-10T21:59:24.063Z',
-			dueDate: '2022-02-07T21:44:50.568Z'
-		}
-	]
+	tasksList: Array<ITasks>;
+	public tasksList$: BehaviorSubject<Array<ITasks>> = new BehaviorSubject([]);
+	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/tasks';
 
-	constructor() { }
-
-	getTasks(): ITasks[] {
-		return this.tasksMock;
+	constructor(private readonly http: HttpClient) {
+		this.tasksList$.subscribe(data => {
+			this.tasksList = data;
+		});
 	}
 
-	getTasksByStoryId(id: number): ITasks[] {
-		const list = this.tasksMock.filter(task => task.story === id.toString());
+	getTasks(): ITasks[] {
+		return this.tasksList;
+	}
+
+	getTasksByStoryId(id: string): ITasks[] {
+		const list = this.tasksList.filter(task => task.story === id);
 		return list;
 	}
 
-	updateTask(task: ITasks): boolean {
-		this.tasksMock = this.tasksMock.map(t => {
-			if (t.id === task.id) {
-				return task;
-			}
-			return t;
+	private updateHttp(token: string, id: number, task: ITasks): Observable<any> {
+		if (token) {
+			return this.http.patch(this.url + '/' + id, task, {
+				headers: {
+					auth: token
+				}
+			});
+		}
+	}
+
+	updateTask(token: string, id: number, task: ITasks): Promise<boolean> {
+		return new Promise((resolve) => {
+			this.updateHttp(token, id, task).subscribe(taskResult => {
+				console.log('update task:', taskResult)
+				if (taskResult.success) {
+					const current = this.tasksList.map(t => {
+						if (t.id === taskResult.data.id) {
+							return taskResult.data;
+						}
+						return t;
+					})
+					console.log(current);
+					this.tasksList$.next(current);
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
 		});
-		return true;
 	}
 
-	deleteTask(id: number): boolean {
-		this.tasksMock = this.tasksMock.filter(task => task.id !== id);
-		return true;
+	private deleteHttp(token: string, id: number): Observable<any> {
+		if (token) {
+			return this.http.delete(this.url + '/' + id, {
+				headers: {
+					auth: token
+				}
+			});
+		}
 	}
 
-	addTask(task: ITasks): boolean {
-		this.tasksMock.push(task);
-		return true;
+	deleteTask(token: string, id: number): Promise<boolean> {
+		return new Promise((resolve) => {
+			this.deleteHttp(token, id).subscribe(taskResult => {
+				console.log('delete task:', taskResult)
+				if (taskResult.success) {
+					const current = this.tasksList.filter(task => task.id !== taskResult.data.id)
+					console.log(current);
+					this.tasksList$.next(current);
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
+		});
+	}
+
+	addTask(token: string, task: INewTasks): Observable<any> {
+		if (token) {
+			return this.http.post(this.url, task, {
+				headers: {
+					auth: token
+				}
+			});
+		}
+	}
+
+	fetchTasks(token: string): Observable<any> {
+		if (token) {
+			return this.http.get(this.url, {
+				headers: {
+					auth: token
+				}
+			});
+		}
 	}
 }

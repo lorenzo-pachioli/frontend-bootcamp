@@ -27,7 +27,9 @@
 		"DELETE": {
 			"TITLE": "Delete",
 			"QUESTION": {
-				"TASK": "Would you like to delete this task?"
+				"TASK": "Would you like to delete this task?",
+				"DELETING": "Deleting task...",
+				"FAIL": "Couldn't delete task"
 			}
 		},
 		"YES": "Yes",

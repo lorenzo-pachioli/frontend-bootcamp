@@ -11,7 +11,7 @@
 }
 
 .mat-card-title {
-    @include flex(flex, center, flex-start, row);
+    @include flex(flex, center, flex-start);
     width: 100%;
     color: white;
     background-color: var(--color3);
@@ -62,15 +62,21 @@
     }
 }
 
-.checkbox {
+.task-title {
     @include flex(flex, center, flex-start, row);
+    height: 100%;
+    gap: var(--gap1);
+}
+
+.checkbox {
+    height: 100%;
     transform: scale(1.4);
-    margin-left: 15px;
 }
 
 .checkbox-label {
+    height: 100%;
     line-height: 20px;
-    font-size: 15px;
+    font-size: 20px;
     margin: 0;
 }
 

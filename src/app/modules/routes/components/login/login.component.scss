@@ -9,6 +9,7 @@
 
 .mat-card {
   @include width-login;
+  min-width: 312px;
   padding: 20px;
 }
 
@@ -20,6 +21,10 @@
     color: var(--color4);
     padding: 10px;
     font-size: 60px;
+  }
+
+  img {
+    width: 70%;
   }
 }
 
@@ -59,4 +64,30 @@
 
 .mat-hint {
   color: red;
+}
+
+@media screen and (max-width:540px) and (min-width:440px) {
+  .mat-card-title {
+    h1 {
+      color: var(--color4);
+      padding: 10px;
+      font-size: 50px;
+    }
+
+    img {
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (max-width:439px) {
+  .mat-card-title {
+    h1 {
+      font-size: 40px;
+    }
+
+    img {
+      width: 90%;
+    }
+  }
 }

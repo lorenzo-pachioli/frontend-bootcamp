@@ -16,6 +16,8 @@ h1 {
   width: 100%;
 
   button {
+    @include flex(flex, center, center);
+    height: 40px;
     width: 40%;
     border-radius: var(--radius1);
     border: var(--border4);
@@ -29,5 +31,11 @@ h1 {
 }
 
 .date-picker {
+  color: var(--color4);
+}
+
+.spinner::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--color4);
   color: var(--color4);
 }

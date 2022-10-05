@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Subject } from 'rxjs';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
@@ -25,6 +26,7 @@ export class StoryComponent implements OnInit {
 		story: false
 	};
 	loading = true;
+	init = true;
 	constructor(
 		private navigation: NavigationService,
 		public projectList: ProjectService,
@@ -39,17 +41,38 @@ export class StoryComponent implements OnInit {
 			this.url.epic = sub.epic
 			this.url.story = sub.story
 		});
+		console.log('init')
+		this.taskList.tasksList$.subscribe(() => {
+
+			if (!this.init) {
+				console.log('no init')
+				const task = this.taskList.getTasksByStoryId(this.url.story && this.url.story._id);
+				if (task.length > 0) {
+					this.list = task;
+				} else {
+					this.loading = false;
+				}
+			}
+		})
 	}
 
 	ngOnInit(): void {
-		if (this.url.story) {
+		const token = sessionStorage.getItem('token');
+		if (this.url.story && this.init) {
+			console.log('init')
+			this.init = false;
 			this.item = this.url.story;
-			const task = this.taskList.getTasksByStoryId(this.url.story.id);
-			if (task.length > 0) {
-				this.list = task;
-			} else {
-				this.loading = false;
-			}
+			this.taskList.fetchTasks(token).subscribe(taskResponse => {
+				if (taskResponse.success) {
+					this.taskList.tasksList$.next(taskResponse.data);
+				}
+				const task = this.taskList.getTasksByStoryId(this.url.story && this.url.story._id);
+				if (task.length > 0) {
+					this.list = task;
+				} else {
+					this.loading = false;
+				}
+			});
 		}
 	}
 
@@ -58,16 +81,7 @@ export class StoryComponent implements OnInit {
 			width: '400px',
 			enterAnimationDuration,
 			exitAnimationDuration,
+			disableClose: true
 		});
-		dialogRef.afterClosed().subscribe(result => {
-			this.addtask(result);
-		});
-	}
-
-	addtask(task: ITasks): void {
-		const result = this.taskList.addTask(task);
-		if (!result) {
-			console.error('couldnt add task');
-		}
 	}
 }
