@@ -49,7 +49,6 @@ export class StoriesService {
 		const token = sessionStorage.getItem('token');
 		return new Promise((resolve) => {
 			this.fetchHttp(token).subscribe(storyResult => {
-				console.log(storyResult)
 				if (storyResult.success) {
 					this.storiesList$.next(storyResult.data);
 					resolve(true);

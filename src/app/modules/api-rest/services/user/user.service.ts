@@ -49,7 +49,6 @@ export class UserService {
 		const token = sessionStorage.getItem('token');
 		return new Promise((resolve) => {
 			this.fetchHttp(id, token).subscribe(userResult => {
-				console.log(userResult)
 				if (userResult.id) {
 					this.user$.next(userResult);
 					resolve(true);

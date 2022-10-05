@@ -49,7 +49,6 @@ export class EpicService {
 		const token = sessionStorage.getItem('token');
 		return new Promise((resolve) => {
 			this.fetchHttp(token).subscribe(epicResult => {
-				console.log(epicResult)
 				if (epicResult.success) {
 					this.epicList$.next(epicResult.data);
 					resolve(true);

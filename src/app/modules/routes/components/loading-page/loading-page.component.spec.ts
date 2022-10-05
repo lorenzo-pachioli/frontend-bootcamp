@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CoreModule } from 'src/app/modules/core/core.module';
 
 import { LoadingPageComponent } from './loading-page.component';
 
@@ -8,6 +9,7 @@ describe('LoadingPageComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
+			imports: [CoreModule],
 			declarations: [LoadingPageComponent]
 		})
 			.compileComponents();

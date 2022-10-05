@@ -30,7 +30,7 @@ import { LoadingPageComponent } from './components/loading-page/loading-page.com
 		SettingsComponent,
 		LoginComponent,
 		AccessGrantedComponent,
-  LoadingPageComponent
+		LoadingPageComponent
 	],
 	imports: [
 		CommonModule,

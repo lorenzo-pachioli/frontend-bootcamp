@@ -44,7 +44,6 @@ export class ProjectService {
 		const token = sessionStorage.getItem('token');
 		return new Promise((resolve) => {
 			this.fetchHttp(token).subscribe(projectResult => {
-				console.log(projectResult)
 				if (projectResult.success) {
 					this.projectsList$.next(projectResult.data);
 					resolve(true);
