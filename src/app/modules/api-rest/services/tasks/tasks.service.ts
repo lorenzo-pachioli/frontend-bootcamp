@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class TasksService {
 
 	tasksList: Array<ITasks>;
+	token = sessionStorage.getItem('token');
 	public tasksList$: BehaviorSubject<Array<ITasks>> = new BehaviorSubject([]);
 	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/tasks';
 
@@ -40,15 +41,13 @@ export class TasksService {
 	updateTask(token: string, id: number, task: ITasks): Promise<boolean> {
 		return new Promise((resolve) => {
 			this.updateHttp(token, id, task).subscribe(taskResult => {
-				console.log('update task:', taskResult)
 				if (taskResult.success) {
 					const current = this.tasksList.map(t => {
 						if (t.id === taskResult.data.id) {
 							return taskResult.data;
 						}
 						return t;
-					})
-					console.log(current);
+					});
 					this.tasksList$.next(current);
 					resolve(true);
 				} else {
@@ -71,10 +70,8 @@ export class TasksService {
 	deleteTask(token: string, id: number): Promise<boolean> {
 		return new Promise((resolve) => {
 			this.deleteHttp(token, id).subscribe(taskResult => {
-				console.log('delete task:', taskResult)
 				if (taskResult.success) {
-					const current = this.tasksList.filter(task => task.id !== taskResult.data.id)
-					console.log(current);
+					const current = this.tasksList.filter(task => task.id !== taskResult.data.id);
 					this.tasksList$.next(current);
 					resolve(true);
 				} else {
@@ -94,13 +91,26 @@ export class TasksService {
 		}
 	}
 
-	fetchTasks(token: string): Observable<any> {
-		if (token) {
+	private fetchHttp(): Observable<any> {
+		if (this.token) {
 			return this.http.get(this.url, {
 				headers: {
-					auth: token
+					auth: this.token
 				}
 			});
 		}
+	}
+
+	fetchTasks(): Promise<any> {
+		return new Promise((resolve) => {
+			this.fetchHttp().subscribe(taskResult => {
+				if (taskResult.success) {
+					this.tasksList$.next(taskResult.data);
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
+		});
 	}
 }

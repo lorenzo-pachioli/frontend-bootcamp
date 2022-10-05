@@ -30,7 +30,7 @@ export class ProjectService {
 		return false;
 	}
 
-	fetchProjects(token: string): Observable<any> {
+	private fetchHttp(token: string): Observable<any> {
 		if (token) {
 			return this.http.get(this.url, {
 				headers: {
@@ -38,5 +38,20 @@ export class ProjectService {
 				}
 			})
 		}
+	}
+
+	fetchProjects(): Promise<any> {
+		const token = sessionStorage.getItem('token');
+		return new Promise((resolve) => {
+			this.fetchHttp(token).subscribe(projectResult => {
+				console.log(projectResult)
+				if (projectResult.success) {
+					this.projectsList$.next(projectResult.data);
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
+		});
 	}
 }

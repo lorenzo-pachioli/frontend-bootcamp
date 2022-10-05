@@ -35,7 +35,7 @@ export class EpicService {
 		return list;
 	}
 
-	fetchEpics(token: string): Observable<any> {
+	private fetchHttp(token: string): Observable<any> {
 		if (token) {
 			return this.http.get(this.url, {
 				headers: {
@@ -43,5 +43,20 @@ export class EpicService {
 				}
 			})
 		}
+	}
+
+	fetchEpics(): Promise<any> {
+		const token = sessionStorage.getItem('token');
+		return new Promise((resolve) => {
+			this.fetchHttp(token).subscribe(epicResult => {
+				console.log(epicResult)
+				if (epicResult.success) {
+					this.epicList$.next(epicResult.data);
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
+		});
 	}
 }

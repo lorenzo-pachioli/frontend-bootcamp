@@ -6,6 +6,7 @@ $gap2: var(--gap2);
     @include flex(flex, center, flex-start, column);
     width: 100%;
     gap: $gap2;
+    padding: $gap2 0;
 
     h2 {
         width: 100%;

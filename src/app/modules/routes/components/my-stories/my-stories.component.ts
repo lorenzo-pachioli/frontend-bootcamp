@@ -10,15 +10,7 @@ export class MyStoriesComponent implements OnInit {
 
 	stories = [];
 	loading = true;
-	constructor(public storiesList: StoriesService) { }
-
-	ngOnInit(): void {
-		const token = sessionStorage.getItem('token');
-		this.storiesList.fetchStories(token).subscribe(storyResponse => {
-			if (storyResponse.success) {
-				this.storiesList.storiesList$.next(storyResponse.data);
-			}
-		});
+	constructor(public storiesList: StoriesService) {
 		this.storiesList.storiesList$.subscribe(data => {
 			if (data) {
 				this.stories = data;
@@ -26,6 +18,9 @@ export class MyStoriesComponent implements OnInit {
 				this.loading = false;
 			}
 		})
+	}
+
+	ngOnInit(): void {
 	}
 
 	OnDestroy(): void {

@@ -37,11 +37,26 @@ export class UserService {
 		return true;
 	}
 
-	fetchUser(id: string, token: string): Observable<any> {
+	private fetchHttp(id: string, token: string): Observable<any> {
 		return this.http.get(this.url + id, {
 			headers: {
 				auth: token
 			}
 		})
+	}
+
+	fetchUser(id: string): Promise<any> {
+		const token = sessionStorage.getItem('token');
+		return new Promise((resolve) => {
+			this.fetchHttp(id, token).subscribe(userResult => {
+				console.log(userResult)
+				if (userResult.id) {
+					this.user$.next(userResult);
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
+		});
 	}
 }

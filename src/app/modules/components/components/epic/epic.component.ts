@@ -33,23 +33,26 @@ export class EpicComponent implements OnInit {
 			this.url.epic = sub.epic
 			this.url.story = sub.story
 		});
+		this.storyList.storiesList$.subscribe(() => {
+			const task = this.storyList.getStoriesByEpicId(this.url.epic && this.url.epic._id);
+			if (task.length > 0) {
+				this.list = task;
+			} else {
+				this.loading = false;
+			}
+		})
 	}
 
 	ngOnInit(): void {
 		const token = sessionStorage.getItem('token');
 		if (this.url.epic) {
 			this.item = this.url.epic;
-			this.storyList.fetchStories(token).subscribe(storyResponse => {
-				if (storyResponse.success) {
-					this.storyList.storiesList$.next(storyResponse.data);
-				}
-				const stories = this.storyList.getStoriesByEpicId(this.url.epic && this.url.epic._id);
-				if (stories.length > 0) {
-					this.list = stories;
-				} else {
-					this.loading = false;
-				}
-			});
+			const stories = this.storyList.getStoriesByEpicId(this.url.epic && this.url.epic._id);
+			if (stories.length > 0) {
+				this.list = stories;
+			} else {
+				this.loading = false;
+			}
 		}
 	}
 

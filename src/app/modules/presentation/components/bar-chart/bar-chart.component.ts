@@ -46,6 +46,10 @@ export class BarChartComponent implements OnInit {
 		}
 	};
 
+	someCompleted(): boolean {
+		return this.projectNumbers.some(project => project.completed !== 0);
+	}
+
 	createChart(): any {
 		this.chart = new Chart('barChart', {
 			type: 'bar',

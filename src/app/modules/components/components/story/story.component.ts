@@ -26,7 +26,6 @@ export class StoryComponent implements OnInit {
 		story: false
 	};
 	loading = true;
-	init = true;
 	constructor(
 		private navigation: NavigationService,
 		public projectList: ProjectService,
@@ -41,38 +40,27 @@ export class StoryComponent implements OnInit {
 			this.url.epic = sub.epic
 			this.url.story = sub.story
 		});
-		console.log('init')
-		this.taskList.tasksList$.subscribe(() => {
 
-			if (!this.init) {
-				console.log('no init')
-				const task = this.taskList.getTasksByStoryId(this.url.story && this.url.story._id);
-				if (task.length > 0) {
-					this.list = task;
-				} else {
-					this.loading = false;
-				}
+		this.taskList.tasksList$.subscribe(() => {
+			const task = this.taskList.getTasksByStoryId(this.url.story && this.url.story._id);
+			if (task.length > 0) {
+				this.list = task;
+			} else {
+				this.loading = false;
 			}
 		})
 	}
 
 	ngOnInit(): void {
 		const token = sessionStorage.getItem('token');
-		if (this.url.story && this.init) {
-			console.log('init')
-			this.init = false;
+		if (this.url.story) {
 			this.item = this.url.story;
-			this.taskList.fetchTasks(token).subscribe(taskResponse => {
-				if (taskResponse.success) {
-					this.taskList.tasksList$.next(taskResponse.data);
-				}
-				const task = this.taskList.getTasksByStoryId(this.url.story && this.url.story._id);
-				if (task.length > 0) {
-					this.list = task;
-				} else {
-					this.loading = false;
-				}
-			});
+			const task = this.taskList.getTasksByStoryId(this.url.story && this.url.story._id);
+			if (task.length > 0) {
+				this.list = task;
+			} else {
+				this.loading = false;
+			}
 		}
 	}
 

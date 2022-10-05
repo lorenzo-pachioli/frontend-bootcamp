@@ -1,5 +1,8 @@
-<div class="chart-container">
-  <div class="chart-subcontainer">
+<div class="chart-container" [ngSwitch]="someCompleted()">
+  <div class="chart-subcontainer" *ngSwitchCase="false">
+    <h2 translate="app.NO-STORIES-COMPLETED"></h2>
+  </div>
+  <div class="chart-subcontainer" *ngSwitchDefault>
     <canvas id="barChart"></canvas>
   </div>
 </div>

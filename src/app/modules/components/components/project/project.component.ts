@@ -33,23 +33,26 @@ export class ProjectComponent implements OnInit {
 			this.url.epic = sub.epic
 			this.url.story = sub.story
 		});
+		this.epicList.epicList$.subscribe(() => {
+			const task = this.epicList.getEpicsByProyectId(this.url.project && this.url.project._id);
+			if (task.length > 0) {
+				this.list = task;
+			} else {
+				this.loading = false;
+			}
+		})
 	}
 
 	ngOnInit(): void {
 		const token = sessionStorage.getItem('token');
 		if (this.url.project) {
 			this.item = this.url.project;
-			this.epicList.fetchEpics(token).subscribe(epicResponse => {
-				if (epicResponse.success) {
-					this.epicList.epicList$.next(epicResponse.data);
-				}
-				const epics = this.epicList.getEpicsByProyectId(this.url.project && this.url.project._id);
-				if (epics.length > 0) {
-					this.list = epics;
-				} else {
-					this.loading = false;
-				}
-			});
+			const epics = this.epicList.getEpicsByProyectId(this.url.project && this.url.project._id);
+			if (epics.length > 0) {
+				this.list = epics;
+			} else {
+				this.loading = false;
+			}
 		}
 	}
 

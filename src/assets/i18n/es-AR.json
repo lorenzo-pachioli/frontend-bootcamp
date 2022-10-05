@@ -23,6 +23,7 @@
 		"NO-STORIES": "Todavía no hay historias",
 		"NO-EPICS": "Todavía no hay epicas",
 		"NO-PROJECTS": "Todavía no hay proyectos",
+		"NO-STORIES-COMPLETED": "No hay historias completadas",
 		"NO-MEMBERS": "Todavía no hay miembros",
 		"DELETE": {
 			"TITLE": "Borrar",

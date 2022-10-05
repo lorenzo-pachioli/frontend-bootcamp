@@ -10,18 +10,8 @@ import { ProjectService } from 'src/app/modules/api-rest/services/projects/proje
 export class ProjectListComponent implements OnInit {
 
 	projects = [];
-	epics = [];
 	loading = true;
 	constructor(public projectService: ProjectService) {
-	}
-
-	ngOnInit(): void {
-		const token = sessionStorage.getItem('token');
-		this.projectService.fetchProjects(token).subscribe(res => {
-			if (res.success) {
-				this.projectService.projectsList$.next(res.data);
-			}
-		});
 		this.projectService.projectsList$.subscribe(data => {
 			if (data) {
 				this.projects = data;
@@ -29,6 +19,10 @@ export class ProjectListComponent implements OnInit {
 				this.loading = false;
 			}
 		});
+	}
+
+	ngOnInit(): void {
+
 	}
 
 	OnDestroy(): void {
