@@ -20,7 +20,7 @@ pages:
     paths:
     - node_modules/
 
-  stage: deploy
+  stage: .post
   script:
   - npm install -g @angular/cli@6.2.1
   - npm install
