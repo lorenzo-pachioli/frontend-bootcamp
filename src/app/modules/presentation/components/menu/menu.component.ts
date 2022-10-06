@@ -20,7 +20,6 @@ export class MenuComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.userLogged = this.user.getUser();
 	}
 
 	setMenuState(): void {

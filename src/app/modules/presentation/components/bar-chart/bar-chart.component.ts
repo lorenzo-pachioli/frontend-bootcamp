@@ -26,7 +26,9 @@ export class BarChartComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit(): void {
-		this.createChart();
+		if (this.someCompleted()) {
+			this.createChart();
+		}
 	}
 
 	itemBar = (project: IProjectNum) => {

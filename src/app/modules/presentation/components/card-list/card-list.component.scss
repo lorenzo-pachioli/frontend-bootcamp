@@ -1,7 +1,7 @@
 @import '../../../../../mixins';
 
 .cardList-container {
-    @include flex(flex, center, flex-start, column);
+    @include flex(flex, center, flex-start, column-reverse);
 
     ul {
         width: 100%;

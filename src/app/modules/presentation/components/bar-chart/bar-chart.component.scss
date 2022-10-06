@@ -9,10 +9,13 @@
 }
 
 .chart-subcontainer {
+  @include flex(flex, center, center);
   width: 100%;
+  min-height: 80px;
 
-  h2 {
+  h3 {
     color: var(--color4);
+    margin: 0;
   }
 }
 

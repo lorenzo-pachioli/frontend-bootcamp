@@ -13,7 +13,7 @@ export class ProjectListComponent implements OnInit {
 	loading = true;
 	constructor(public projectService: ProjectService) {
 		this.projectService.projectsList$.subscribe(data => {
-			if (data) {
+			if (data.length > 0) {
 				this.projects = data;
 			} else {
 				this.loading = false;

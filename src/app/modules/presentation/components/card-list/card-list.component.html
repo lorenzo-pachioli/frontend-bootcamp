@@ -1,6 +1,6 @@
 <div  class="cardList-container">
     <ul *ngIf="list && list.length > 0; else emptyList">
-        <li *ngFor="let item of list" >
+        <li *ngFor="let item of list.reverse()" >
             <div>
                 <ng-container
                 [ngTemplateOutlet]="cardTemplateRef"

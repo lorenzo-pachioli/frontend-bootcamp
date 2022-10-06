@@ -1,6 +1,6 @@
 <div class="chart-container" [ngSwitch]="someCompleted()">
   <div class="chart-subcontainer" *ngSwitchCase="false">
-    <h2 translate="app.NO-STORIES-COMPLETED"></h2>
+    <h3 translate="app.NO-STORIES-COMPLETED"></h3>
   </div>
   <div class="chart-subcontainer" *ngSwitchDefault>
     <canvas id="barChart"></canvas>

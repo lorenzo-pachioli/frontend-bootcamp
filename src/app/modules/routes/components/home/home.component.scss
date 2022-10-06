@@ -25,6 +25,16 @@ $gap2: var(--gap2);
     }
 }
 
+.no-projects {
+    @include flex(flex, center, center);
+    width: 80%;
+    height: 80px;
+    background-color: var(--color2);
+    border-radius: var(--radius1);
+    border: var(--border3);
+    color: var(--color4);
+}
+
 .donutChart {
     width: 60%;
 }

@@ -15,9 +15,6 @@ export class CardListComponent implements OnInit {
 	constructor(public translate: TranslateService) { }
 
 	ngOnInit(): void {
-		/* setTimeout(() => {
-			this.loading = false;
-		}, 5000); */
 	}
 
 }

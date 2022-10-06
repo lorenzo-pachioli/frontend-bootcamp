@@ -59,7 +59,6 @@ export class CardComponent implements OnInit {
 	changeState(event: boolean): void {
 		const token = sessionStorage.getItem('token');
 		this.task.done = event;
-		console.log(this.task, event);
 		this.taskList.updateTask(token, this.task.id, this.task)
 			.then(response => {
 				if (!response) {

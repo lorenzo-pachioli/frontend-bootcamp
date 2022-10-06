@@ -30,9 +30,7 @@ export class UserExistGuard implements CanActivate {
 	async canActivate(): Promise<boolean> {
 		const token = sessionStorage.getItem('token');
 		const id = sessionStorage.getItem('_id');
-		console.log('init');
 		if (token && id) {
-			/* const data = await this.initData(id, token) */
 			const result = await Promise.all([
 				this.userService.fetchUser(id),
 				this.projectService.fetchProjects(),
@@ -40,7 +38,6 @@ export class UserExistGuard implements CanActivate {
 				this.storyService.fetchStories(),
 				this.taskService.fetchTasks()
 			])
-			console.log(result);
 			const data = result.some(value => value === false);
 			if (!data) {
 				return true;
@@ -53,8 +50,4 @@ export class UserExistGuard implements CanActivate {
 			return false;
 		}
 	}
-
-	/* initData(id: string, token: string): Promise<any> {
-		return new Promise((resolve) => {})
-	} */
 }

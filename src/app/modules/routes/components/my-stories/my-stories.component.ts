@@ -12,7 +12,7 @@ export class MyStoriesComponent implements OnInit {
 	loading = true;
 	constructor(public storiesList: StoriesService) {
 		this.storiesList.storiesList$.subscribe(data => {
-			if (data) {
+			if (data.length > 0) {
 				this.stories = data;
 			} else {
 				this.loading = false;
