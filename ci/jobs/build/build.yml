@@ -22,9 +22,13 @@ pages:
 
   stage: .post
   script:
-  - ./ci/jobs/build/deploy.sh
-  - (echo "el built-commit es $(git rev-parse HEAD)" > git-sha)
-  - cat git-sha
+  - set -o errexit
+  - BASEDIR=$(dirname "$0")"/.."
+  - cd "$BASEDIR"
+  - export NPM_VERSION=$(npm -version)
+  - echo "NPM version=$NPM_VERSION"
+  - npm install
+  - npm run build:prod
   - mkdir -p public
   - mv dist/fossilizer/* public/
   artifacts:
