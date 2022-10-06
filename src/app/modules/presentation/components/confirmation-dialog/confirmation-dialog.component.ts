@@ -26,7 +26,6 @@ export class ConfirmationDialogComponent implements OnInit {
 	deleteTask(): void {
 		this.deleting = true;
 		const token = sessionStorage.getItem('token');
-		console.log('before delete', this.data.id);
 		this.taskList.deleteTask(token, this.data.id)
 			.then(response => {
 				if (response) {

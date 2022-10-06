@@ -24,6 +24,7 @@
 		"NO-EPICS": "There are no epics",
 		"NO-PROJECTS": "There are no projects",
 		"NO-MEMBERS": "There are no members",
+		"NO-ASSIGNED": "There are no users assign to this task",
 		"NO-STORIES-COMPLETED": "There are no stories completed",
 		"DELETE": {
 			"TITLE": "Delete",

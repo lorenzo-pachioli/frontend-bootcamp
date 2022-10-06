@@ -25,6 +25,7 @@
 		"NO-PROJECTS": "Todavía no hay proyectos",
 		"NO-STORIES-COMPLETED": "No hay historias completadas",
 		"NO-MEMBERS": "Todavía no hay miembros",
+		"NO-ASSIGNED": "Todavía no hay usuarios asignados a esta tara",
 		"DELETE": {
 			"TITLE": "Borrar",
 			"QUESTION": "Quieres borrar la tarea?",

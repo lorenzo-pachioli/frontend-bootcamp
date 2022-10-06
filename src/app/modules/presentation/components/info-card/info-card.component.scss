@@ -33,4 +33,14 @@
 
 .members {
   @include flex(flex, flex-start, flex-start, row);
+
+  p {
+    text-align: left;
+    margin: 0;
+  }
+}
+
+.list {
+  border-left: var(--border5);
+  padding-left: 10px;
 }

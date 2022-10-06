@@ -3,14 +3,23 @@
   <mat-card-content >Description:  {{item && item.description}}</mat-card-content>
   <mat-card-content *ngIf="project" class="members">
     Members:
-    <app-card-list class="list" [list]="setMembers()" optional="app.MEMBERS" [loading]="loading">
+    <app-card-list class="list" *ngIf="setMembers().length > 0; else noMembers" [list]="setMembers()" [loading]="loading">
       <ng-template let-item #card>
-        <p>->{{item}}</p>
+        <p>{{setMemberUsername(item)}}</p>
       </ng-template>
     </app-card-list>
+    <ng-template #noMembers><p translate="app.NO-MEMBERS"></p></ng-template>
   </mat-card-content>
   <mat-card-content >{{setOwner()}}</mat-card-content>
-  <mat-card-content >{{setAssignedTo()}}</mat-card-content>
+  <mat-card-content *ngIf="story" class="members">
+    Assigned to:
+    <app-card-list class="list" *ngIf="setAssignedTo().length > 0; else noAssign" [list]="setAssignedTo()"  [loading]="false">
+      <ng-template let-item #card>
+        <p>{{setMemberUsername(item)}}</p>
+      </ng-template>
+    </app-card-list>
+    <ng-template #noAssign><p translate="app.NO-ASSIGNED"></p></ng-template>
+  </mat-card-content>
   <mat-card-content >{{setPoints()}}</mat-card-content>
   <mat-card-content >{{setCreated()}}</mat-card-content>
   <mat-card-content >{{setDue()}}</mat-card-content>

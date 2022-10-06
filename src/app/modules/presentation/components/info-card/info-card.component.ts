@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 import { IProject } from 'src/app/modules/core/interfaces/projectInterface';
 import { IEpic } from 'src/app/modules/core/interfaces/epicInterface';
 import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
+import { UserService } from 'src/app/modules/api-rest/services/user/user.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class InfoCardComponent implements OnInit {
 	@Input() epic?: IEpic;
 	@Input() story?: IStory;
 
-	constructor(public datepipe: DatePipe) { }
+	constructor(public datepipe: DatePipe, private userService: UserService) { }
 
 	ngOnInit(): void {
 		this.setItemValue(this.project);
@@ -44,20 +45,25 @@ export class InfoCardComponent implements OnInit {
 		return [];
 	}
 
+	setMemberUsername(id: string): string {
+		const user = this.userService.getUserById(id);
+		if (user) {
+			return `-> ${user.username}`
+		}
+		return '';
+	}
+
 	setOwner(): string {
 		if (this.story && this.story.owner) {
-			return `Owner: ${this.story.owner}`
+			return `Owner: ${this.setMemberUsername(this.story.owner)}`
 		}
 	}
 
-	setAssignedTo(): string {
+	setAssignedTo(): Array<any> {
 		if (this.story && this.story.assignedTo.length > 0) {
-			return `AssignedTo: ${this.story.assignedTo}`
+			return this.story.assignedTo;
 		}
-		if (this.story && this.story.assignedTo.length === 0) {
-			return `AssignedTo:  no members assign to this task`;
-		}
-		return '';
+		return [];
 	}
 
 	setPoints(): string {

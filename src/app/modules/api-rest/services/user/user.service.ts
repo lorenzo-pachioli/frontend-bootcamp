@@ -23,6 +23,7 @@ export class UserService {
 			last: ''
 		}
 	})
+	public usersList = [];
 	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/users/';
 	constructor(private readonly http: HttpClient) {
 	}
@@ -57,5 +58,34 @@ export class UserService {
 				}
 			});
 		});
+	}
+
+	private fetchAllUsersHttp(): Observable<any> {
+		const token = sessionStorage.getItem('token');
+		return this.http.get(this.url, {
+			headers: {
+				auth: token
+			}
+		})
+	}
+
+	fetchAllUsers(): Promise<any> {
+		return new Promise((resolve) => {
+			this.fetchAllUsersHttp().subscribe(usersResult => {
+				if (usersResult.length > 0) {
+					this.usersList = usersResult;
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
+		});
+	}
+
+	getUserById(id: string): IUser | false {
+		if (this.usersList.length > 0) {
+			return this.usersList.find(user => user._id === id)
+		}
+		return false;
 	}
 }

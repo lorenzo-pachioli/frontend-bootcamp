@@ -33,6 +33,7 @@ export class UserExistGuard implements CanActivate {
 		if (token && id) {
 			const result = await Promise.all([
 				this.userService.fetchUser(id),
+				this.userService.fetchAllUsers(),
 				this.projectService.fetchProjects(),
 				this.epicService.fetchEpics(),
 				this.storyService.fetchStories(),
