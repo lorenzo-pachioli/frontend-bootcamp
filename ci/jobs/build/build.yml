@@ -16,7 +16,7 @@ build-app:
     expire_in: 1 hour
 
 pages:
-  stage: deploy
+  stage: .post
   script:
     - bundle exec jekyll build -d public
   artifacts:
