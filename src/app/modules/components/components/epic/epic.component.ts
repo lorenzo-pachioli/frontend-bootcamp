@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
@@ -25,7 +26,8 @@ export class EpicComponent implements OnInit {
 		private navigation: NavigationService,
 		public projectList: ProjectService,
 		public epicList: EpicService,
-		public storyList: StoriesService
+		public storyList: StoriesService,
+		private router: Router
 	) {
 		this.navigation.url.subscribe(sub => {
 			this.url.path = sub.path
@@ -53,6 +55,8 @@ export class EpicComponent implements OnInit {
 			} else {
 				this.loading = false;
 			}
+		} else {
+			this.router.navigate(['/not-found']);
 		}
 	}
 

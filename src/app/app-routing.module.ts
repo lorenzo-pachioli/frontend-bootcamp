@@ -11,6 +11,7 @@ import { LoadingPageComponent } from './modules/routes/components/loading-page/l
 import { LoginComponent } from './modules/routes/components/login/login.component';
 import { MyProjectsComponent } from './modules/routes/components/my-projects/my-projects.component';
 import { MyStoriesComponent } from './modules/routes/components/my-stories/my-stories.component';
+import { NotFoundComponent } from './modules/routes/components/not-found/not-found.component';
 import { SettingsComponent } from './modules/routes/components/settings/settings.component';
 
 const routes: Routes = [
@@ -37,7 +38,8 @@ const routes: Routes = [
 		]
 	},
 	{ path: 'loading', component: LoadingPageComponent, pathMatch: 'full' },
-	{ path: '**', redirectTo: '/loading' }
+	{ path: 'not-found', component: NotFoundComponent, pathMatch: 'full' },
+	{ path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({

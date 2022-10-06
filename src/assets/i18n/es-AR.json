@@ -42,6 +42,8 @@
 			"USERNAME": "Username:",
 			"EMAIL": "Correo electronico:",
 			"ID": "Id del usuario:"
-		}
+		},
+		"NOT-FOUND": "Páguina no encontrada 404",
+		"BACK": "Volver"
 	}
 }

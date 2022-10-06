@@ -44,6 +44,8 @@
 			"USERNAME": "Username:",
 			"EMAIL": "Email:",
 			"ID": "User id:"
-		}
+		},
+		"NOT-FOUND": "Page not found 404",
+		"BACK": "Go back"
 	}
 }

@@ -1,0 +1,78 @@
+@import '../../../../../mixins';
+
+.loading-container {
+  @include flex(flex, center, center);
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color2);
+}
+
+.mat-card {
+  @include flex(flex, center, center, column);
+  min-width: 312px;
+  padding: 20px;
+  gap: var(--gap2);
+}
+
+.mat-card-title {
+  @include flex(flex, center, center, row);
+  width: fit-content;
+  gap: var(--gap2);
+
+  img {
+    width: 50px;
+  }
+
+  h1 {
+    color: var(--color4);
+    padding: 10px;
+    font-size: 50px;
+    line-height: 60px;
+  }
+}
+
+.spinner::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--color5);
+  color: var(--color5);
+}
+
+.spinner {
+  @include flex(flex, center, center, column);
+  color: var(--color5);
+}
+
+.buttons {
+  @include flex(flex, center, center);
+  width: 100%;
+
+  button {
+    @include flex(flex, center, center, row);
+    width: 100%;
+    border-radius: var(--radius1);
+    border: var(--border4);
+    background-color: var(--color2);
+    font-size: 20px;
+    gap: var(--gap1);
+  }
+
+  button:active {
+    background-color: var(--color4);
+    color: white;
+  }
+}
+
+@media screen and (max-width:540px) {
+  .mat-card-title {
+    img {
+      width: 40px;
+    }
+
+    h1 {
+      color: var(--color4);
+      padding: 10px;
+      font-size: 40px;
+      line-height: 50px;
+    }
+  }
+}

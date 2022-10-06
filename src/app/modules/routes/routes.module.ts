@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AccessGrantedComponent } from './components/access-granted/access-granted.component';
 import { LoadingPageComponent } from './components/loading-page/loading-page.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
@@ -30,7 +31,8 @@ import { LoadingPageComponent } from './components/loading-page/loading-page.com
 		SettingsComponent,
 		LoginComponent,
 		AccessGrantedComponent,
-		LoadingPageComponent
+		LoadingPageComponent,
+		NotFoundComponent
 	],
 	imports: [
 		CommonModule,
@@ -53,7 +55,8 @@ import { LoadingPageComponent } from './components/loading-page/loading-page.com
 		MyProjectsComponent,
 		SettingsComponent,
 		LoginComponent,
-		AccessGrantedComponent
+		AccessGrantedComponent,
+		NotFoundComponent
 	],
 	providers: [
 		ProjectService,

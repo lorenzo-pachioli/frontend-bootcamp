@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
@@ -32,7 +33,8 @@ export class StoryComponent implements OnInit {
 		public epicList: EpicService,
 		public storyList: StoriesService,
 		public taskList: TasksService,
-		public dialog: MatDialog
+		public dialog: MatDialog,
+		private router: Router
 	) {
 		this.navigation.url.subscribe(sub => {
 			this.url.path = sub.path
@@ -61,6 +63,8 @@ export class StoryComponent implements OnInit {
 			} else {
 				this.loading = false;
 			}
+		} else {
+			this.router.navigate(['/not-found']);
 		}
 	}
 
