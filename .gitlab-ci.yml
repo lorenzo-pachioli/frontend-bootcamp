@@ -11,9 +11,8 @@ pages:
     paths:
     - node_modules/
   script:
-  - npm install -g @angular/cli@14.2.2
   - npm install
-  - ng build --prod --base-href /frontend-bootcamp/
+  - npm run build:prod
   - mkdir -p public
   - mv dist/frontend-bootcamp/* public/
   artifacts:
