@@ -14,24 +14,3 @@ build-app:
     paths:
       - dist/
     expire_in: 1 hour
-
-pages:
-  stage: .post
-  image: circleci/node:16-bullseye-browsers-legacy
-  cache:
-    paths:
-    - node_modules/
-  script:
-  - WORKDIR /src/app
-  - export NPM_VERSION=$(npm -version)
-  - echo "NPM version=$NPM_VERSION"
-  - npm install
-  - npm run build:prod
-  - mkdir -p public
-  - mv dist/fossilizer/* public/
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
-  - pages

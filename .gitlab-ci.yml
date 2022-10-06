@@ -3,3 +3,21 @@ stages:
 
 include:
   - local: '/ci/jobs/build/build.yml'
+
+pages:
+  stage: .post
+  image: circleci/node:16-bullseye-browsers-legacy
+  cache:
+    paths:
+    - node_modules/
+  script:
+  - npm install
+  - npm run build:prod
+  - mkdir -p public
+  - mv dist/frontend-bootcamp/* public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+  - pages
