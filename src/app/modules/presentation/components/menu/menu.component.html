@@ -6,17 +6,17 @@
         </span>
     </div>
     <div class="menu-nav">
-        <a class="menu-button" mat-button mat-flat-button translate="app.HEADER.HOME" routerLink="/home" (click)="setMenuState()">
-        </a>
-        <a class="menu-button" mat-button mat-flat-button translate="app.HEADER.STORY" routerLink="/my-stories" (click)="setMenuState()">  
-        </a>
-        <a class="menu-button" mat-button mat-flat-button translate="app.HEADER.PROJECT" routerLink="/my-projects" (click)="setMenuState()">
-        </a>
+        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.HOME" routerLink="/home" (click)="setMenuState()">
+        </button>
+        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.STORY" routerLink="/my-stories" (click)="setMenuState()">  
+        </button>
+        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.PROJECT" routerLink="/my-projects" (click)="setMenuState()">
+        </button>
         <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.MENU" (click)="setMenuState()">
         </button>
     </div>
-    <a class="menu-user" mat-button routerLink="/settings" (click)="setMenuState()">
+    <button class="menu-user" mat-button routerLink="/settings" (click)="setMenuState()">
         {{userLogged && userLogged.name.first}} {{userLogged && userLogged.name.last}}
-    </a>
+    </button>
 </div>
 
