@@ -5,6 +5,33 @@
     width: 100%;
     min-height: calc(85vh - 4px);
     padding: var(--gap2) 0;
+    gap: var(--gap2);
+
+
+    h2 {
+        width: 90%;
+        color: var(--color4);
+        font-size: 30px;
+        font-weight: 600;
+        padding-left: 10px;
+    }
+
+    div {
+        @include flex(flex, center, center);
+        width: 90%;
+        height: 50px;
+        background-color: var(--color2);
+        border-radius: var(--radius1);
+        font-size: 20px;
+    }
+
+    hr {
+        width: 90%;
+        height: 2px;
+        color: var(--color3);
+        margin: 10px;
+        border: 1px solid var(--color3);
+    }
 
     button {
         text-align: center;
@@ -14,5 +41,47 @@
         font-size: 20px;
         font-weight: 600;
         border-radius: var(--radius1);
+    }
+}
+
+@media screen and (max-width:540px) and (min-width:440px) {
+
+    .settings-container {
+
+        h2 {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        button {
+            text-align: center;
+            width: 90%;
+            background-color: red;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: var(--radius1);
+        }
+    }
+}
+
+@media screen and (max-width:439px) {
+
+    .settings-container {
+
+        h2 {
+            font-size: 25px;
+            text-align: center;
+        }
+
+        button {
+            text-align: center;
+            width: 90%;
+            background-color: red;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: var(--radius1);
+        }
     }
 }

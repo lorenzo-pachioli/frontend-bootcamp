@@ -35,6 +35,12 @@
 		"LOGIN": "Iniciar sesion",
 		"LOGOUT": "Cerrar sesion",
 		"MEMBERS": "Miembros",
-		"LOADING": "Cargando..."
+		"LOADING": "Cargando...",
+		"SETTINGS": {
+			"NAME": "Nombre:",
+			"USERNAME": "Username:",
+			"EMAIL": "Correo electronico:",
+			"ID": "Id del usuario:"
+		}
 	}
 }

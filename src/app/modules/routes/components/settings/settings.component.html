@@ -1,4 +1,24 @@
 <div class="settings-container">
-    <button mat-button (click)="logOut()" translate="app.LOGOUT"></button>
+    <h2 translate="app.SETTINGS.NAME"></h2>
+    <div>
+        {{user && user.name.first}} {{user && user.name.last}}
+    </div>
+    <hr />
+    <h2 translate="app.SETTINGS.USERNAME"></h2>
+    <div>
+        {{user && user.username}}
+    </div>
+    <hr />
+    <h2 translate="app.SETTINGS.EMAIL"></h2>
+    <div>
+        {{user && user.email}}
+    </div>
+    <hr />
+    <h2 translate="app.SETTINGS.ID"></h2>
+    <div>
+        {{user && user.id}}
+    </div>
+    <hr />
+    <button mat-raised-button (click)="logOut()" translate="app.LOGOUT"></button>
 </div>
 

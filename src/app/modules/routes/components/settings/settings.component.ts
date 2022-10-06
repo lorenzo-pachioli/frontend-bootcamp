@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/modules/api-rest/services/user/user.service';
+import { IUser } from 'src/app/modules/core/interfaces/userInterface';
 
 @Component({
 	selector: 'app-settings',
@@ -8,7 +10,10 @@ import { Router } from '@angular/router';
 })
 export class SettingsComponent implements OnInit {
 
-	constructor(private router: Router) { }
+	user: IUser;
+	constructor(private router: Router, private userService: UserService) {
+		this.userService.user$.subscribe(u => this.user = u)
+	}
 
 	ngOnInit(): void {
 	}

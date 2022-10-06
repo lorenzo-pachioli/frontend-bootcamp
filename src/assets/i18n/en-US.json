@@ -37,6 +37,12 @@
 		"LOGIN": "Log in",
 		"LOGOUT": "Log out",
 		"MEMBERS": "Members",
-		"LOADING": "Loading..."
+		"LOADING": "Loading...",
+		"SETTINGS": {
+			"NAME": "Name:",
+			"USERNAME": "Username:",
+			"EMAIL": "Email:",
+			"ID": "User id:"
+		}
 	}
 }
