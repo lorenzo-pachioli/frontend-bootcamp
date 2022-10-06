@@ -22,9 +22,9 @@ pages:
 
   stage: .post
   script:
-  - npm install -g @angular/cli@6.2.1
-  - npm install
-  - ng build
+  - ./ci/jobs/build/deploy.sh
+  - (echo "el built-commit es $(git rev-parse HEAD)" > git-sha)
+  - cat git-sha
   - mkdir -p public
   - mv dist/fossilizer/* public/
   artifacts:
