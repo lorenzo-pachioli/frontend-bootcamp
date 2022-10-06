@@ -32,7 +32,6 @@ export class UserExistGuard implements CanActivate {
 		const id = sessionStorage.getItem('_id');
 		if (token && id) {
 			const result = await Promise.all([
-				this.userService.fetchUser(id),
 				this.userService.fetchAllUsers(),
 				this.projectService.fetchProjects(),
 				this.epicService.fetchEpics(),
@@ -41,6 +40,8 @@ export class UserExistGuard implements CanActivate {
 			])
 			const data = result.some(value => value === false);
 			if (!data) {
+				const user = this.userService.getUserById(id);
+				this.userService.setUser(user);
 				return true;
 			} else {
 				this.router.navigate(['/login']);
