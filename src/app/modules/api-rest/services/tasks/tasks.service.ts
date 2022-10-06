@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class TasksService {
 
 	tasksList: Array<ITasks>;
-	token = sessionStorage.getItem('token');
 	public tasksList$: BehaviorSubject<Array<ITasks>> = new BehaviorSubject([]);
 	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/tasks';
 
@@ -92,10 +91,11 @@ export class TasksService {
 	}
 
 	private fetchHttp(): Observable<any> {
-		if (this.token) {
+		const token = sessionStorage.getItem('token');
+		if (token) {
 			return this.http.get(this.url, {
 				headers: {
-					auth: this.token
+					auth: token
 				}
 			});
 		}

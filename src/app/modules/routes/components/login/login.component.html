@@ -31,6 +31,7 @@
         </button>
       </div>
       <mat-hint *ngIf='!validUser'>Invalid username or password</mat-hint>
+      <mat-hint *ngIf='error'>Something went wrong during authentication</mat-hint>
     </mat-card-content>
   </mat-card>
 </div>

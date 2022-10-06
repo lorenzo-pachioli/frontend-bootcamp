@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 	hide = true;
 	loading = false;
 	validUser = true;
+	error = false;
 	username = new FormControl('', Validators.minLength(4));
 	password = new FormControl('', Validators.minLength(4));
 	login = new FormGroup({
@@ -33,15 +34,18 @@ export class LoginComponent implements OnInit {
 			username: this.login.value.username,
 			password: this.login.value.password
 		}
-		this.authService.setLogIn(data).subscribe(response => {
-			if (response.success) {
-				sessionStorage.setItem('token', response.token);
-				sessionStorage.setItem('_id', response.user._id);
-				this.router.navigate(['/loading']);
-			} else {
-				this.validUser = false;
-			}
-		});
+		this.authService.setLogIn(data)
+			.then(response => {
+				if (response.success) {
+					this.userService.setUser(response.user);
+					this.router.navigate(['/loading']);
+				} else {
+					this.validUser = false;
+				}
+			})
+			.catch(() => {
+				this.error = true;
+			})
 	}
 
 }
