@@ -14,3 +14,14 @@ build-app:
     paths:
       - dist/
     expire_in: 1 hour
+
+pages:
+  stage: deploy
+  script:
+    - bundle exec jekyll build -d public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+
