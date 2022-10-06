@@ -16,7 +16,6 @@ build-app:
     expire_in: 1 hour
 
 before_script:
-  - gem install bundler
   - bundle install --path vendor
 
 pages:
