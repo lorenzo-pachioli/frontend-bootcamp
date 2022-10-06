@@ -14,9 +14,7 @@ pages:
   - npm install
   - npm run build:prod
   - mkdir -p public
-  - cp -r * .public
-  - mv .public public
-
+  - mv dist/frontend-bootcamp/* public/
   artifacts:
     paths:
     - public
