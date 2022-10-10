@@ -12,8 +12,7 @@ pages:
     paths:
     - node_modules/
   script:
-  - export BASEDIR=$(dirname "$0")"/.."
-  - cd "$BASEDIR"
+  - npm install -g @angular/cli@14.2.3
   - npm install
   - npm run build:prod
   - mkdir -p public
