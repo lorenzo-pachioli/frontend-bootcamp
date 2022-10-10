@@ -1,16 +1,19 @@
 stages:
   - build
+  - publish
 
 include:
   - local: '/ci/jobs/build/build.yml'
 
 pages:
-  stage: .post
+  stage: publish
   image: circleci/node:16-bullseye-browsers-legacy
   cache:
     paths:
     - node_modules/
   script:
+  - export BASEDIR=$(dirname "$0")"/.."
+  - cd "$BASEDIR"
   - npm install
   - npm run build:prod
   - mkdir -p public
