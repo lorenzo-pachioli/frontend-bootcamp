@@ -8,13 +8,13 @@
       <form novalidate [formGroup]="login">
   
         <mat-form-field appearance="fill">
-          <mat-label>Username</mat-label>
+          <mat-label translate="app.USERNAME"></mat-label>
           <input matInput [formControl]="username" required>
           <mat-error align="end">Min 4 characters</mat-error>
         </mat-form-field>
         
         <mat-form-field appearance="fill">
-          <mat-label>Password</mat-label>
+          <mat-label translate="app.PASSWORD"></mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

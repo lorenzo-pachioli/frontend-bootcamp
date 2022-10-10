@@ -81,17 +81,26 @@ export class CardComponent implements OnInit {
 		let date;
 		if (this.task) {
 			date = this.datepipe.transform(this.task.created, 'dd/MM/yyyy');
-			return `Created: ${date}`;
+			if (date) {
+				return `${date}`;
+			}
+			return '';
 		}
 		if (this.story) {
 			date = this.datepipe.transform(this.story.created, 'dd/MM/yyyy');
-			return `Created: ${date}`;
+			if (date) {
+				return `${date}`;
+			}
+			return '';
 		}
 	}
 
 	taskDueDate(): string {
 		const date = this.datepipe.transform(this.task.dueDate, 'dd/MM/yyyy');
-		return `DueDate: ${date}`;
+		if (date) {
+			return `${date}`;
+		}
+		return '';
 	}
 
 	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
@@ -106,7 +115,7 @@ export class CardComponent implements OnInit {
 	}
 
 	setStatus(): string {
-		return `Status: ${this.story.status}`
+		return `${this.story.status}`
 	}
 
 }

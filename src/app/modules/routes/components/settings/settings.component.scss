@@ -44,6 +44,29 @@
     }
 }
 
+.settings-container::ng-deep .mat-button-toggle-group {
+    @include flex(flex, center, center);
+    border: none;
+    height: 70%;
+
+    hr {
+        height: 40px;
+        width: 2px;
+    }
+}
+
+.settings-container::ng-deep .mat-button-toggle {
+    border: none;
+    background-color: transparent;
+    color: var(--color4);
+}
+
+.settings-container::ng-deep .mat-button-toggle-checked {
+    border-radius: var(--radius1);
+    background-color: var(--color4);
+    color: white;
+}
+
 @media screen and (max-width:540px) and (min-width:440px) {
 
     .settings-container {

@@ -24,7 +24,7 @@
 		"NO-EPICS": "There are no epics",
 		"NO-PROJECTS": "There are no projects",
 		"NO-MEMBERS": "There are no members",
-		"NO-ASSIGNED": "There are no users assign to this task",
+		"NO-ASSIGNED": "No users assign to this task",
 		"NO-STORIES-COMPLETED": "There are no stories completed",
 		"DELETE": {
 			"TITLE": "Delete",
@@ -39,13 +39,25 @@
 		"LOGOUT": "Log out",
 		"MEMBERS": "Members",
 		"LOADING": "Loading...",
-		"SETTINGS": {
-			"NAME": "Name:",
-			"USERNAME": "Username:",
-			"EMAIL": "Email:",
-			"ID": "User id:"
-		},
+		"NAME:": "Name:",
+		"NAME": "Name",
+		"EMAIL": "Email:",
+		"ID": "User id:",
+		"LANG": "Language:",
 		"NOT-FOUND": "Page not found 404",
-		"BACK": "Go back"
+		"BACK": "Go back",
+		"USERNAME": "Username",
+		"PASSWORD": "Password",
+		"DESCRIPTION:": "Description:",
+		"DESCRIPTION": "Description",
+		"CREATED": "Created:",
+		"DUE": "Due to:",
+		"STATUS": "Status:",
+		"OWNER": "Owner:",
+		"ASSIGNED": "Assigned to:",
+		"POINTS": "Points:",
+		"CANCEL": "Cancel",
+		"CREATE": "Create",
+		"CREATE-TASK": "Create task"
 	}
 }

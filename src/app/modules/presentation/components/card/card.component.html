@@ -16,14 +16,29 @@
             <h2>
                 {{item && item.name}}
             </h2>
-            <span>points: {{story && story.points}}</span>
+            <span>
+                <p translate="app.POINTS"></p> 
+                {{story && story.points}}
+            </span>
         </div>
         <div *ngSwitchDefault class="title">{{item && item.name}}</div>
     </mat-card-title>
-    <mat-card-content >{{item && item.description}}</mat-card-content>
-    <mat-card-content *ngIf="task || story">{{setCreated()}}</mat-card-content>
-    <mat-card-content *ngIf="task">{{taskDueDate()}}</mat-card-content>
-    <mat-card-content *ngIf="story">{{setStatus()}}</mat-card-content>
+    <mat-card-content *ngIf="item && item.description">
+        <p translate="app.DESCRIPTION:"></p> 
+        {{item && item.description}}
+    </mat-card-content>
+    <mat-card-content *ngIf="task && task.created || story && story.created">
+        <p translate="app.CREATED"></p>
+        {{setCreated()}}
+    </mat-card-content>
+    <mat-card-content *ngIf="task && task.dueDate">
+        <p translate="app.DUE"></p>
+        {{taskDueDate()}}
+    </mat-card-content>
+    <mat-card-content *ngIf="story && story.status">
+        <p translate="app.STATUS"></p>
+        {{setStatus()}}
+    </mat-card-content>
     <mat-card-footer>
         <hr [ngStyle]="itemColor()" />
     </mat-card-footer>

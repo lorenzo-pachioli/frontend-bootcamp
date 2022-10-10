@@ -55,7 +55,7 @@ export class InfoCardComponent implements OnInit {
 
 	setOwner(): string {
 		if (this.story && this.story.owner) {
-			return `Owner: ${this.setMemberUsername(this.story.owner)}`
+			return `${this.setMemberUsername(this.story.owner)}`
 		}
 	}
 
@@ -68,39 +68,27 @@ export class InfoCardComponent implements OnInit {
 
 	setPoints(): string {
 		if (this.story && this.story.points) {
-			return `Points: ${this.story.points}`
+			return `${this.story.points}`
 		}
 	}
 
 	setCreated(): string {
 		if (this.story && this.story.created) {
 			const date = this.datepipe.transform(this.story.created, 'dd/MM/yyyy');
-			return `Created: ${date}`;
+			return `${date}`;
 		}
 	}
 
 	setDue(): string {
 		if (this.story && this.story.due) {
 			const date = this.datepipe.transform(this.story.due, 'dd/MM/yyyy');
-			return `Due: ${date}`;
-		}
-	}
-
-	setStarted(): string {
-		if (this.story && this.story.started) {
-			return `Started: ${this.story.started}`
-		}
-	}
-
-	setFinished(): string {
-		if (this.story && this.story.finished) {
-			return `Finished: ${this.story.finished}`
+			return `${date}`;
 		}
 	}
 
 	setStatus(): string {
 		if (this.story && this.story.status) {
-			return `Status: ${this.story.status}`
+			return `${this.story.status}`
 		}
 	}
 

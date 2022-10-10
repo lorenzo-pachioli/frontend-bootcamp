@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-
-const DEFAULT_LANG = 'en-US';
+import { LanguageService } from './modules/core/services/language/language.service';
 
 @Component({
 	selector: 'app-root',
@@ -10,7 +9,8 @@ const DEFAULT_LANG = 'en-US';
 })
 export class AppComponent {
 
-	constructor(public translate: TranslateService) {
-		this.translate.setDefaultLang(DEFAULT_LANG)
+	constructor(public translate: TranslateService, private langService: LanguageService) {
+		const DEFAULT_LANG = this.langService.initLang();
+		this.translate.setDefaultLang(DEFAULT_LANG);
 	}
 }

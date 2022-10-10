@@ -1,24 +1,24 @@
-<h1 mat-dialog-title>Create task</h1>
+<h1 mat-dialog-title translate="app.CREATE-TASK"></h1>
 <form mat-dialog-content novalidate [formGroup]="newTask">
 
-  <p>Name:</p>
+  <p translate="app.NAME:"></p>
   <mat-form-field appearance="fill">
-    <mat-label>Name</mat-label>
+    <mat-label translate="app.NAME"></mat-label>
     <input matInput [formControl]="name" required>
   </mat-form-field>
 
-  <p>Description:</p>
+  <p translate="app.DESCRIPTION:" ></p>
   <mat-form-field appearance="fill" >
-    <mat-label>Description</mat-label>
+    <mat-label translate="app.DESCRIPTION"></mat-label>
     <input matInput [formControl]="description">
   </mat-form-field>
 </form>
 
 <div class="buttons spinner" mat-dialog-actions>
-  <button mat-button (click)="onClose()">Cancel</button>
+  <button mat-button (click)="onClose()" translate="app.CANCEL"></button>
   <button mat-button [disabled]="!newTask.valid" (click)="addtask()">
     <mat-spinner [diameter]="30" *ngIf="loading; else create" ></mat-spinner>
-    <ng-template #create>Create</ng-template>
+    <ng-template #create ><p translate="app.CREATE"></p></ng-template>
   </button>
 </div>
 

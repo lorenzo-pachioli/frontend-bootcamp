@@ -25,25 +25,39 @@
 		"NO-PROJECTS": "Todavía no hay proyectos",
 		"NO-STORIES-COMPLETED": "No hay historias completadas",
 		"NO-MEMBERS": "Todavía no hay miembros",
-		"NO-ASSIGNED": "Todavía no hay usuarios asignados a esta tara",
+		"NO-ASSIGNED": "No hay usuarios asignados",
 		"DELETE": {
 			"TITLE": "Borrar",
-			"QUESTION": "Quieres borrar la tarea?",
-			"DELETING": "Borrando tarea...",
-			"FAIL": "No se pudo borrar la tarea"
+			"QUESTION": {
+				"TASK": "Quieres borrar la tarea?",
+				"DELETING": "Borrando tarea...",
+				"FAIL": "No se pudo borrar la tarea"
+			}
 		},
 		"YES": "Si",
 		"LOGIN": "Iniciar sesion",
 		"LOGOUT": "Cerrar sesion",
 		"MEMBERS": "Miembros",
 		"LOADING": "Cargando...",
-		"SETTINGS": {
-			"NAME": "Nombre:",
-			"USERNAME": "Username:",
-			"EMAIL": "Correo electronico:",
-			"ID": "Id del usuario:"
-		},
+		"NAME:": "Nombre:",
+		"NAME": "Nombre",
+		"EMAIL": "Correo electronico:",
+		"ID": "Id del usuario:",
+		"LANG": "Lenguage:",
 		"NOT-FOUND": "Páguina no encontrada 404",
-		"BACK": "Volver"
+		"BACK": "Volver",
+		"USERNAME": "Usuario",
+		"PASSWORD": "Contraseña",
+		"DESCRIPTION:": "Descripción:",
+		"DESCRIPTION": "Descripción",
+		"CREATED": "Creado:",
+		"DUE": "Para:",
+		"STATUS": "Estado:",
+		"OWNER": "Propietarios:",
+		"ASSIGNED": "Asignado a:",
+		"POINTS": "Puntos:",
+		"CANCEL": "Cancelar",
+		"CREATE": "Crear",
+		"CREATE-TASK": "Crear tarea"
 	}
 }
