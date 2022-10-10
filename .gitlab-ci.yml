@@ -12,7 +12,6 @@ pages:
     paths:
     - node_modules/
   script:
-  - npm install -g @angular/cli@14.2.3
   - npm install
   - npm run build:prod
   - mkdir -p public
@@ -22,4 +21,3 @@ pages:
     - public
   only:
   - master
-  - pages
