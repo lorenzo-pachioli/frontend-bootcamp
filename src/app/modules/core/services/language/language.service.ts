@@ -20,7 +20,6 @@ export class LanguageService {
 	initLang(): string {
 		const lang = localStorage.getItem('lang');
 		const DEFAULT_LANG = this.setDefaultLang();
-		console.log(DEFAULT_LANG, lang);
 		if (lang) {
 			return lang;
 		} else {

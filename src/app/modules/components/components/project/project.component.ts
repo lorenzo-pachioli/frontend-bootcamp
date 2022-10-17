@@ -34,7 +34,6 @@ export class ProjectComponent implements OnInit {
 			this.url.project = sub.project
 			this.url.epic = sub.epic
 			this.url.story = sub.story
-			console.log(sub)
 		});
 		this.epicList.epicList$.subscribe(() => {
 			const task = this.epicList.getEpicsByProyectId(this.url.project && this.url.project._id);
