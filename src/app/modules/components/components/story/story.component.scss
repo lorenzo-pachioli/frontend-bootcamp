@@ -8,7 +8,7 @@
   flex-direction: column;
   gap: var(--gap1);
 
-  app-info-card {
+  app-story-info-card {
     width: 90%;
   }
 
@@ -20,6 +20,7 @@
     text-decoration: none;
   }
 }
+
 
 .add-task {
   @include flex(flex, center, center, row);

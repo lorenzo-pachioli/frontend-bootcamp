@@ -1,0 +1,20 @@
+<mat-card class="card-container">
+  
+  <mat-card-title>{{project && project.icon}} {{project && project.name}}</mat-card-title>
+  
+  <mat-card-content >
+    <p translate="app.DESCRIPTION:"></p>  
+    {{project && project.description}}
+  </mat-card-content>
+
+  <mat-card-content *ngIf="project" class="members">
+    <p translate="app.MEMBERS"></p>
+    <app-card-list class="list" *ngIf="setMembers().length > 0; else noMembers" [list]="setMembers()" [loading]="loading">
+      <ng-template let-item #card>
+        <p>{{setMemberUsername(item)}}</p>
+      </ng-template>
+    </app-card-list>
+    <ng-template #noMembers><p translate="app.NO-MEMBERS"></p></ng-template>
+  </mat-card-content>
+
+</mat-card>

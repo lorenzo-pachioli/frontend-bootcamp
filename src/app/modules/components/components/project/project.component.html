@@ -1,5 +1,5 @@
 <div class="project-container">
-  <app-info-card [project]="item"></app-info-card>
+  <app-project-info-card [project]="item"></app-project-info-card>
 	<app-card-list class="list" [list]="list" optional="app.NO-EPICS" [loading]="loading">
 		<ng-template let-item #card>
 			<a [routerLink]="setRoute(item.id)">

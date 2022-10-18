@@ -1,40 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { IProject } from 'src/app/modules/core/interfaces/projectInterface';
-import { IEpic } from 'src/app/modules/core/interfaces/epicInterface';
-import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/modules/api-rest/services/user/user.service';
-
+import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
+import { DatePipe } from '@angular/common';
 
 @Component({
-	selector: 'app-info-card',
-	templateUrl: './info-card.component.html',
-	styleUrls: ['./info-card.component.scss']
+	selector: 'app-story-info-card',
+	templateUrl: './story-info-card.component.html',
+	styleUrls: ['./story-info-card.component.scss']
 })
-export class InfoCardComponent implements OnInit {
+export class StoryInfoCardComponent implements OnInit {
 
-	item = {
-		name: '',
-		description: ''
-	};
 	loading = true;
-	@Input() project?: IProject;
-	@Input() epic?: IEpic;
-	@Input() story?: IStory;
+	@Input() story: IStory;
 
 	constructor(public datepipe: DatePipe, private userService: UserService) { }
 
 	ngOnInit(): void {
-		this.setItemValue(this.project);
-		this.setItemValue(this.epic);
-		this.setItemValue(this.story);
-	}
-
-	setItemValue(input: IProject | IEpic | IStory): void {
-		if (input) {
-			this.item.name = input.name
-			this.item.description = input.description
-		}
 	}
 
 	setMemberUsername(id: string): string {
