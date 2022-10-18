@@ -4,7 +4,7 @@ import { IStory } from './storyInterface';
 
 export interface IUrl {
 	path: string,
-	project: IProject | false,
-	epic: IEpic | false,
-	story: IStory | false
+	project?: IProject,
+	epic?: IEpic,
+	story?: IStory
 }

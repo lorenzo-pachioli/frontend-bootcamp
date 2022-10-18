@@ -21,10 +21,7 @@ export class StoryComponent implements OnInit {
 	item;
 	list = [];
 	url: IUrl = {
-		path: '',
-		project: false,
-		epic: false,
-		story: false
+		path: ''
 	};
 	loading = true;
 	constructor(

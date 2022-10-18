@@ -12,10 +12,7 @@ export class HeaderComponent implements OnInit {
 	headerTitle2 = '';
 	path = '';
 	url: IUrl = {
-		path: '',
-		project: false,
-		epic: false,
-		story: false
+		path: ''
 	}
 
 	@Input() menuState = false;

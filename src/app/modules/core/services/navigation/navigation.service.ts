@@ -17,10 +17,7 @@ export class NavigationService {
 	private urlTemp: IUrl;
 
 	public url: BehaviorSubject<IUrl> = new BehaviorSubject({
-		path: '',
-		project: false,
-		epic: false,
-		story: false
+		path: ''
 	});
 
 	private pathValue = {
@@ -41,10 +38,7 @@ export class NavigationService {
 			if (event instanceof NavigationEnd) {
 				this.pathValue = event
 				this.urlTemp = {
-					path: '',
-					project: false,
-					epic: false,
-					story: false
+					path: ''
 				};
 				this.history.push(event.urlAfterRedirects)
 				const separeted = this.pathValue.urlAfterRedirects.split(/\//);
@@ -71,15 +65,21 @@ export class NavigationService {
 		this.urlTemp.path = array[1];
 		if (array[2]) {
 			const project = this.projectService.getOneProject(Number(array[2]));
-			this.urlTemp.project = project ? project : false;
+			if (project) {
+				this.urlTemp.project = project;
+			}
 		}
 		if (array[3]) {
 			const epic = this.epicService.getOneEpic(Number(array[3]));
-			this.urlTemp.epic = epic ? epic : false;
+			if (epic) {
+				this.urlTemp.epic = epic;
+			}
 		}
 		if (array[4]) {
 			const story = this.storyList.getOneStory(Number(array[4]));
-			this.urlTemp.story = story ? story : false;
+			if (story) {
+				this.urlTemp.story = story;
+			}
 		}
 	}
 }
