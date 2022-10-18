@@ -3,7 +3,7 @@
 	<app-card-list class="list" [list]="list" optional="app.NO-EPICS" [loading]="loading">
 		<ng-template let-item #card>
 			<a [routerLink]="setRoute(item.id)">
-				<app-card [story]='item'></app-card>
+				<app-story-card [story]='item'></app-story-card>
 			</a>
 		</ng-template>
 	</app-card-list>

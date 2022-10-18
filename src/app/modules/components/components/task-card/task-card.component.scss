@@ -1,0 +1,72 @@
+@import '../../../../../mixins';
+
+.mat-card {
+  width: 100%;
+  min-width: 312px;
+  height: fit-content;
+  margin-bottom: 10px;
+  z-index: 1;
+  border-radius: var(--radius1);
+  padding: 15px;
+}
+
+.mat-card-title {
+  @include flex(flex, center, flex-start);
+  width: 100%;
+  color: white;
+  background-color: var(--color3);
+  padding: 10px;
+  border-radius: var(--radius1);
+  font-size: 20px;
+
+  div {
+    @include flex(flex, center, space-between, row);
+    width: 100%;
+  }
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.mat-card-content {
+  @include flex(flex, center, flex-start, row);
+  color: var(--color5);
+  margin: 0;
+  padding-left: 10px;
+
+  p {
+    margin-right: 10px;
+  }
+}
+
+.task-title {
+  @include flex(flex, center, flex-start, row);
+  height: 100%;
+  gap: var(--gap1);
+}
+
+.checkbox {
+  height: 100%;
+  transform: scale(1.4);
+}
+
+.checkbox-label {
+  height: 100%;
+  line-height: 20px;
+  font-size: 20px;
+  margin: 0;
+}
+
+.delete {
+  width: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  .mat-icon {
+    color: var(--color1);
+    transform: scale(1.2);
+  }
+}

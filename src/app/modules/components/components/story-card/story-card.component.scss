@@ -1,0 +1,62 @@
+@import '../../../../../mixins';
+
+.mat-card {
+  width: 100%;
+  min-width: 312px;
+  height: fit-content;
+  margin-bottom: 10px;
+  z-index: 1;
+  border-radius: var(--radius1);
+  padding: 15px;
+}
+
+.mat-card-title {
+  @include flex(flex, center, flex-start);
+  width: 100%;
+  color: white;
+  background-color: var(--color3);
+  padding: 10px;
+  border-radius: var(--radius1);
+  font-size: 20px;
+
+  div {
+    @include flex(flex, center, space-between, row);
+    width: 100%;
+  }
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.story-title {
+  h2 {
+    margin: 0;
+  }
+
+  span {
+    @include flex(flex, center, center);
+    height: 30px;
+    background-color: white;
+    color: var(--color3);
+    border-radius: var(--radius1);
+    padding: 10px;
+  }
+
+  p {
+    margin: 0;
+    padding-right: 10px;
+  }
+}
+
+.mat-card-content {
+  @include flex(flex, center, flex-start, row);
+  color: var(--color5);
+  margin: 0;
+  padding-left: 10px;
+
+  p {
+    margin-right: 10px;
+  }
+}

@@ -6,7 +6,7 @@
 	</button>
 	<app-card-list class="list" [list]="list" optional="app.NO-TASK" [loading]="loading">
 		<ng-template let-item #card>
-			<app-card [task]='item'></app-card>
+			<app-task-card [task]='item'></app-task-card>
 		</ng-template>
 	</app-card-list>
 </div>

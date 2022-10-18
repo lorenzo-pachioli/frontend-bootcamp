@@ -10,6 +10,8 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { ProjectComponent } from './components/project/project.component';
 import { PresentationModule } from '../presentation/presentation.module';
 import { CoreModule } from '../core/core.module';
+import { TaskCardComponent } from './components/task-card/task-card.component';
+import { StoryCardComponent } from './components/story-card/story-card.component';
 
 
 
@@ -18,7 +20,9 @@ import { CoreModule } from '../core/core.module';
 		ProjectComponent,
 		ProjectListComponent,
 		EpicComponent,
-		StoryComponent
+		StoryComponent,
+		StoryCardComponent,
+		TaskCardComponent
 	],
 	imports: [
 		CommonModule,
@@ -37,7 +41,9 @@ import { CoreModule } from '../core/core.module';
 		ProjectComponent,
 		ProjectListComponent,
 		EpicComponent,
-		StoryComponent
+		StoryComponent,
+		StoryCardComponent,
+		TaskCardComponent
 	]
 })
 export class ComponentsModule { }

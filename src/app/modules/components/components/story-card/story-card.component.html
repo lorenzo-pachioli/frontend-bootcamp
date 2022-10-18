@@ -1,0 +1,25 @@
+<mat-card class="card-container">
+  <mat-card-title >
+      <div class="story-title">
+          <h2>
+              {{story && story.name}}
+          </h2>
+          <span>
+              <p translate="app.POINTS"></p> 
+              {{story && story.points}}
+          </span>
+      </div>
+  </mat-card-title>
+  <mat-card-content *ngIf="story && story.description">
+      <p translate="app.DESCRIPTION:"></p> 
+      {{story && story.description}}
+  </mat-card-content>
+  <mat-card-content *ngIf="story && story.created">
+      <p translate="app.CREATED"></p>
+      {{setCreated()}}
+  </mat-card-content>
+  <mat-card-content *ngIf="story && story.status">
+      <p translate="app.STATUS"></p>
+      {{setStatus()}}
+  </mat-card-content>
+</mat-card>

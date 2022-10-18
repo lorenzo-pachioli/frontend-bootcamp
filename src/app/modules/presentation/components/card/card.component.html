@@ -1,46 +1,9 @@
 <mat-card class="card-container">
-    <mat-card-title [ngSwitch]="path">
-        <div *ngSwitchCase="'task'">
-            <span class="task-title">
-                <mat-checkbox class="checkbox" (change)="changeState($event.checked)" [checked]="task.done" color="white">
-                </mat-checkbox>
-                <h2 class="checkbox-label" [ngStyle]="{'text-decoration': task.done ? 'line-through':'none'}">
-                    {{item && item.name}}
-                </h2>
-            </span>
-            <button class="delete" [disabled]="!task.done" (click)="openDialog('0ms', '0ms')">
-                <mat-icon *ngIf="task.done">delete</mat-icon>
-            </button>
-        </div>
-        <div *ngSwitchCase="'story'" class="story-title">
-            <h2>
-                {{item && item.name}}
-            </h2>
-            <span>
-                <p translate="app.POINTS"></p> 
-                {{story && story.points}}
-            </span>
-        </div>
-        <div *ngSwitchDefault class="title">{{item && item.name}}</div>
+    <mat-card-title>
+        <div class="title">{{item && item.name}}</div>
     </mat-card-title>
     <mat-card-content *ngIf="item && item.description">
         <p translate="app.DESCRIPTION:"></p> 
         {{item && item.description}}
     </mat-card-content>
-    <mat-card-content *ngIf="task && task.created || story && story.created">
-        <p translate="app.CREATED"></p>
-        {{setCreated()}}
-    </mat-card-content>
-    <mat-card-content *ngIf="task && task.dueDate">
-        <p translate="app.DUE"></p>
-        {{taskDueDate()}}
-    </mat-card-content>
-    <mat-card-content *ngIf="story && story.status">
-        <p translate="app.STATUS"></p>
-        {{setStatus()}}
-    </mat-card-content>
-    <mat-card-footer>
-        <hr [ngStyle]="itemColor()" />
-    </mat-card-footer>
 </mat-card>
-

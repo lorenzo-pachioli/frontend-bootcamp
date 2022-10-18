@@ -1,0 +1,28 @@
+<mat-card class="card-container">
+  <mat-card-title>
+      <div>
+          <span class="task-title">
+              <mat-checkbox class="checkbox" (change)="changeState($event.checked)" [checked]="task.done" color="white">
+              </mat-checkbox>
+              <h2 class="checkbox-label" [ngStyle]="{'text-decoration': task.done ? 'line-through':'none'}">
+                  {{task && task.name}}
+              </h2>
+          </span>
+          <button class="delete" [disabled]="!task.done" (click)="openDialog('0ms', '0ms')">
+              <mat-icon *ngIf="task.done">delete</mat-icon>
+          </button>
+      </div>
+  </mat-card-title>
+  <mat-card-content *ngIf="task && task.description">
+      <p translate="app.DESCRIPTION:"></p> 
+      {{task && task.description}}
+  </mat-card-content>
+  <mat-card-content *ngIf="task && task.created">
+      <p translate="app.CREATED"></p>
+      {{setCreated()}}
+  </mat-card-content>
+  <mat-card-content *ngIf="task && task.dueDate">
+      <p translate="app.DUE"></p>
+      {{taskDueDate()}}
+  </mat-card-content>
+</mat-card>

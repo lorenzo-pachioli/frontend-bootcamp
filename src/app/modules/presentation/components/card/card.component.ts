@@ -18,104 +18,16 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
 })
 export class CardComponent implements OnInit {
 
-	withColor = '';
-	withoutColor = 'none';
-	item = {
-		name: '',
-		description: ''
-	};
-	path = '';
-	deletedStatus = false;
-	@Input() project?: IProject;
-	@Input() epic?: IEpic;
-	@Input() story?: IStory;
-	@Input() task?: ITasks;
-	@Input() deleteTask?: Promise<boolean>;
+	@Input() item: any;
 
 	constructor(
 		public datepipe: DatePipe,
 		public projectList: ProjectService,
 		public epicList: EpicService,
-		public storyList: StoriesService,
-		public taskList: TasksService,
 		public dialog: MatDialog
 	) { }
 
 	ngOnInit(): void {
-		this.setItemValue(this.project, 'project');
-		this.setItemValue(this.epic, 'epic');
-		this.setItemValue(this.story, 'story');
-		this.setItemValue(this.task, 'task');
-	}
-
-	setItemValue(input: IProject | IEpic | IStory | ITasks, path: string): void {
-		if (input) {
-			this.item.name = input.name
-			this.item.description = input.description
-			this.path = path;
-		}
-	}
-
-	changeState(event: boolean): void {
-		const token = sessionStorage.getItem('token');
-		this.task.done = event;
-		this.taskList.updateTask(token, this.task.id, this.task)
-			.then(response => {
-				if (!response) {
-					this.task.done = response;
-					console.error('fail update');
-				}
-			})
-	}
-
-	itemColor(): any {
-		if (this.project && this.project.icon) {
-			return {
-				color: `${this.project.icon}`,
-				border: `2px solid ${this.project.icon}`
-			}
-		}
-	}
-
-	setCreated(): string {
-		let date;
-		if (this.task) {
-			date = this.datepipe.transform(this.task.created, 'dd/MM/yyyy');
-			if (date) {
-				return `${date}`;
-			}
-			return '';
-		}
-		if (this.story) {
-			date = this.datepipe.transform(this.story.created, 'dd/MM/yyyy');
-			if (date) {
-				return `${date}`;
-			}
-			return '';
-		}
-	}
-
-	taskDueDate(): string {
-		const date = this.datepipe.transform(this.task.dueDate, 'dd/MM/yyyy');
-		if (date) {
-			return `${date}`;
-		}
-		return '';
-	}
-
-	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-		const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-			width: '250px',
-			enterAnimationDuration,
-			exitAnimationDuration,
-			data: {
-				id: this.task.id
-			}
-		});
-	}
-
-	setStatus(): string {
-		return `${this.story.status}`
 	}
 
 }
