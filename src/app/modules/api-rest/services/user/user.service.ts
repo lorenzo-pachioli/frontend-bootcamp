@@ -28,10 +28,6 @@ export class UserService {
 	constructor(private readonly http: HttpClient) {
 	}
 
-	getUser(): IUser {
-		return this.user;
-	}
-
 	setUser(user: any): boolean {
 		this.user$.next(user);
 		this.user = user;

@@ -21,19 +21,32 @@ export class HomeComponent implements OnInit {
 		public projectService: ProjectService,
 		public epicService: EpicService,
 		public storyService: StoriesService
-	) { }
-
-	ngOnInit(): void {
+	) {
 		this.projectService.projectsList$.subscribe(data => {
 			if (data) {
 				this.projectList = data;
-				this.epicList = this.epicService.getEpics();
-				this.storyList = this.storyService.getStories();
 				if (this.projectList.length > 0 && this.epicList.length > 0) {
 					this.setProjectsNumbers();
 				}
 			}
 		});
+
+		this.epicService.epicList$.subscribe(data => {
+			this.epicList = data;
+			if (this.epicList.length > 0) {
+				this.setProjectsNumbers();
+			}
+		});
+
+		this.storyService.storiesList$.subscribe(data => {
+			this.storyList = data;
+			if (this.storyList.length > 0) {
+				this.setProjectsNumbers();
+			}
+		})
+	}
+
+	ngOnInit(): void {
 	}
 
 	setProjectsNumbers(): void {

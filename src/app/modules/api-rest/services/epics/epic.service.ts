@@ -18,10 +18,6 @@ export class EpicService {
 		});
 	}
 
-	getEpics(): any {
-		return this.epicList;
-	}
-
 	getOneEpic(id: number): IEpic | false {
 		const epic = this.epicList.find(e => e.id === id);
 		if (epic) {

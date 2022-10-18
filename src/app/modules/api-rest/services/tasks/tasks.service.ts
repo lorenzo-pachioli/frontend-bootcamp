@@ -18,10 +18,6 @@ export class TasksService {
 		});
 	}
 
-	getTasks(): ITasks[] {
-		return this.tasksList;
-	}
-
 	getTasksByStoryId(id: string): ITasks[] {
 		const list = this.tasksList.filter(task => task.story === id);
 		return list;

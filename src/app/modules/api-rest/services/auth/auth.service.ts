@@ -18,10 +18,6 @@ export class AuthService {
 		private readonly http: HttpClient
 	) { }
 
-	getToken(): string {
-		return this.token;
-	}
-
 	setLogIn(user: IUserLogIn): Promise<any> {
 		return new Promise((resolve) => {
 			this.http.post(this.url, user).subscribe((logInResult: any) => {

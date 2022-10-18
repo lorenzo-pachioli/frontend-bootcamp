@@ -45,6 +45,7 @@ export class ProjectComponent implements OnInit {
 	ngOnInit(): void {
 		const token = sessionStorage.getItem('token');
 		if (this.url.project) {
+			this.epicList.fetchEpics();
 			this.item = this.url.project;
 			const epics = this.epicList.getEpicsByProyectId(this.url.project && this.url.project._id);
 			if (epics.length > 0) {

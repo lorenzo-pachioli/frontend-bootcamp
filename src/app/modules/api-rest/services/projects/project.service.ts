@@ -18,10 +18,6 @@ export class ProjectService {
 		});
 	}
 
-	getProjects(): any {
-		return this.projectsList;
-	}
-
 	getOneProject(id: number): IProject | false {
 		const project = this.projectsList.find(p => p.id === id);
 		if (project) {

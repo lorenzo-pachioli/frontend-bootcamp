@@ -53,6 +53,7 @@ export class StoryComponent implements OnInit {
 	ngOnInit(): void {
 		const token = sessionStorage.getItem('token');
 		if (this.url.story) {
+			this.taskList.fetchTasks();
 			this.item = this.url.story;
 			const task = this.taskList.getTasksByStoryId(this.url.story && this.url.story._id);
 			if (task.length > 0) {

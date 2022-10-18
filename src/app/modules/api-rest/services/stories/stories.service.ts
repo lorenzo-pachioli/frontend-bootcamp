@@ -18,10 +18,6 @@ export class StoriesService {
 		});
 	}
 
-	getStories(): IStory[] {
-		return this.storiesList;
-	}
-
 	getOneStory(id: number): IStory | false {
 		const story = this.storiesList.find(e => e.id === id);
 		if (story) {

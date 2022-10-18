@@ -45,6 +45,7 @@ export class EpicComponent implements OnInit {
 	ngOnInit(): void {
 		const token = sessionStorage.getItem('token');
 		if (this.url.epic) {
+			this.storyList.fetchStories();
 			this.item = this.url.epic;
 			const stories = this.storyList.getStoriesByEpicId(this.url.epic && this.url.epic._id);
 			if (stories.length > 0) {

@@ -22,7 +22,7 @@ export class ProjectListComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-
+		this.projectService.fetchProjects();
 	}
 
 	OnDestroy(): void {
