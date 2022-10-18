@@ -11,7 +11,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserService } from '../api-rest/services/user/user.service';
 import { NavigationService } from '../core/services/navigation/navigation.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AddTaskDialogComponent } from './components/add-task-dialog/add-task-dialog.component';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { InfoCardComponent } from './components/info-card/info-card.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
@@ -21,7 +20,6 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { CoreModule } from '../core/core.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
-import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
 	declarations: [
@@ -33,8 +31,6 @@ import { HeaderComponent } from './components/header/header.component';
 		BarChartComponent,
 		InfoCardComponent,
 		ConfirmationDialogComponent,
-		AddTaskDialogComponent,
-		HeaderComponent,
 		MainComponent,
 		FooterComponent
 	],
@@ -59,8 +55,6 @@ import { HeaderComponent } from './components/header/header.component';
 		BarChartComponent,
 		InfoCardComponent,
 		ConfirmationDialogComponent,
-		AddTaskDialogComponent,
-		HeaderComponent,
 		MainComponent,
 		FooterComponent
 	],

@@ -9,7 +9,7 @@ import { TasksService } from 'src/app/modules/api-rest/services/tasks/tasks.serv
 import { ITasks } from 'src/app/modules/core/interfaces/tasksInterface';
 import { IUrl } from 'src/app/modules/core/interfaces/urlInterface';
 import { NavigationService } from 'src/app/modules/core/services/navigation/navigation.service';
-import { AddTaskDialogComponent } from 'src/app/modules/presentation/components/add-task-dialog/add-task-dialog.component';
+import { AddTaskDialogComponent } from 'src/app/modules/components/components/add-task-dialog/add-task-dialog.component';
 
 @Component({
 	selector: 'app-story',

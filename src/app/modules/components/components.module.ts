@@ -12,6 +12,9 @@ import { PresentationModule } from '../presentation/presentation.module';
 import { CoreModule } from '../core/core.module';
 import { TaskCardComponent } from './components/task-card/task-card.component';
 import { StoryCardComponent } from './components/story-card/story-card.component';
+import { AddTaskDialogComponent } from './components/add-task-dialog/add-task-dialog.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,13 +25,16 @@ import { StoryCardComponent } from './components/story-card/story-card.component
 		EpicComponent,
 		StoryComponent,
 		StoryCardComponent,
-		TaskCardComponent
+		TaskCardComponent,
+		AddTaskDialogComponent,
+		HeaderComponent
 	],
 	imports: [
 		CommonModule,
 		PresentationModule,
 		AppRoutingModule,
 		CoreModule,
+		ReactiveFormsModule,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,
@@ -43,7 +49,9 @@ import { StoryCardComponent } from './components/story-card/story-card.component
 		EpicComponent,
 		StoryComponent,
 		StoryCardComponent,
-		TaskCardComponent
+		TaskCardComponent,
+		AddTaskDialogComponent,
+		HeaderComponent
 	]
 })
 export class ComponentsModule { }
