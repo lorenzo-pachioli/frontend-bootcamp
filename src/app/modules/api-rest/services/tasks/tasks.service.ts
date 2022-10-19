@@ -25,11 +25,7 @@ export class TasksService {
 
 	private updateHttp(token: string, id: number, task: ITasks): Observable<any> {
 		if (token) {
-			return this.http.patch(this.url + '/' + id, task, {
-				headers: {
-					auth: token
-				}
-			});
+			return this.http.patch(this.url + '/' + id, task);
 		}
 	}
 
@@ -54,11 +50,7 @@ export class TasksService {
 
 	private deleteHttp(token: string, id: number): Observable<any> {
 		if (token) {
-			return this.http.delete(this.url + '/' + id, {
-				headers: {
-					auth: token
-				}
-			});
+			return this.http.delete(this.url + '/' + id);
 		}
 	}
 
@@ -78,22 +70,14 @@ export class TasksService {
 
 	addTask(token: string, task: INewTasks): Observable<any> {
 		if (token) {
-			return this.http.post(this.url, task, {
-				headers: {
-					auth: token
-				}
-			});
+			return this.http.post(this.url, task);
 		}
 	}
 
 	private fetchHttp(): Observable<any> {
 		const token = sessionStorage.getItem('token');
 		if (token) {
-			return this.http.get(this.url, {
-				headers: {
-					auth: token
-				}
-			});
+			return this.http.get(this.url);
 		}
 	}
 

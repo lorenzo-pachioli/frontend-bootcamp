@@ -33,11 +33,7 @@ export class EpicService {
 
 	private fetchHttp(token: string): Observable<any> {
 		if (token) {
-			return this.http.get(this.url, {
-				headers: {
-					auth: token
-				}
-			})
+			return this.http.get(this.url)
 		}
 	}
 

@@ -37,9 +37,8 @@ export class TaskCardComponent implements OnInit {
 	}
 
 	setCreated(): string {
-		let date;
-		if (this.task) {
-			date = this.datepipe.transform(this.task.created, 'dd/MM/yyyy');
+		if (this.task && this.task.created) {
+			const date = this.datepipe.transform(this.task.created, 'dd/MM/yyyy');
 			if (date) {
 				return `${date}`;
 			}
@@ -48,11 +47,13 @@ export class TaskCardComponent implements OnInit {
 	}
 
 	taskDueDate(): string {
-		const date = this.datepipe.transform(this.task.dueDate, 'dd/MM/yyyy');
-		if (date) {
-			return `${date}`;
+		if (this.task && this.task.dueDate) {
+			const date = this.datepipe.transform(this.task.dueDate, 'dd/MM/yyyy');
+			if (date) {
+				return `${date}`;
+			}
+			return '';
 		}
-		return '';
 	}
 
 	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {

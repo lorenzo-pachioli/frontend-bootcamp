@@ -13,6 +13,7 @@ import { PresentationModule } from './modules/presentation/presentation.module';
 import { DatePipe } from '@angular/common';
 import { RoutesModule } from './modules/routes/routes.module';
 import { ErrorHttpCatchInterceptor } from './modules/core/interceptors/error-http-catch.interceptor';
+import { TokenInyectorInterceptor } from './modules/core/interceptors/token-inyector.interceptor';
 
 registerLocaleData(localeEsAr, 'en-US');
 
@@ -41,6 +42,11 @@ registerLocaleData(localeEsAr, 'en-US');
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: ErrorHttpCatchInterceptor,
+			multi: true
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenInyectorInterceptor,
 			multi: true
 		},
 		DatePipe
