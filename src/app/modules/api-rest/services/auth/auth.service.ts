@@ -13,7 +13,7 @@ interface IUserLogIn {
 export class AuthService {
 
 	private token = sessionStorage.getItem('token');
-	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/login';
+	private url = 'https://api-brainstorming.up.railway.app/login';
 	constructor(
 		private readonly http: HttpClient
 	) { }

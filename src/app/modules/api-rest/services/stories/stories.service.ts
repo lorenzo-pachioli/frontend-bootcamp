@@ -10,8 +10,7 @@ export class StoriesService {
 
 	storiesList: Array<IStory>;
 	public storiesList$: BehaviorSubject<Array<IStory>> = new BehaviorSubject([]);
-	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/stories';
-
+	private url = 'https://api-brainstorming.up.railway.app/stories';
 	constructor(private readonly http: HttpClient) {
 		this.storiesList$.subscribe(data => {
 			this.storiesList = data;

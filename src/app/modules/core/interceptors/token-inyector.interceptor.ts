@@ -18,7 +18,7 @@ export class TokenInyectorInterceptor implements HttpInterceptor {
 		if (token) {
 			request = request.clone({
 				setHeaders: {
-					auth: token
+					token
 				}
 			});
 		}

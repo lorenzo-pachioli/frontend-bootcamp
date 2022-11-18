@@ -10,8 +10,7 @@ export class TasksService {
 
 	tasksList: Array<ITasks>;
 	public tasksList$: BehaviorSubject<Array<ITasks>> = new BehaviorSubject([]);
-	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/tasks';
-
+	private url = 'https://api-brainstorming.up.railway.app/tasks';
 	constructor(private readonly http: HttpClient) {
 		this.tasksList$.subscribe(data => {
 			this.tasksList = data;
@@ -25,7 +24,7 @@ export class TasksService {
 
 	private updateHttp(token: string, id: number, task: ITasks): Observable<any> {
 		if (token) {
-			return this.http.patch(this.url + '/' + id, task);
+			return this.http.put(this.url, task);
 		}
 	}
 

@@ -10,8 +10,7 @@ export class ProjectService {
 
 	private projectsList: Array<IProject>;
 	public projectsList$: BehaviorSubject<Array<IProject>> = new BehaviorSubject([]);
-	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/projects';
-
+	private url = 'https://api-brainstorming.up.railway.app/projects';
 	constructor(private readonly http: HttpClient) {
 		this.projectsList$.subscribe(data => {
 			this.projectsList = data;

@@ -24,7 +24,7 @@ export class UserService {
 		}
 	})
 	public usersList = [];
-	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/users/';
+	private url = 'https://api-brainstorming.up.railway.app/users/';
 	constructor(private readonly http: HttpClient) {
 	}
 

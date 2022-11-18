@@ -10,8 +10,7 @@ export class EpicService {
 
 	private epicList: Array<IEpic>;
 	public epicList$: BehaviorSubject<Array<IEpic>> = new BehaviorSubject([]);
-	private url = 'https://lamansys-tasks-fake-api.herokuapp.com/api/epics';
-
+	private url = 'https://api-brainstorming.up.railway.app/epics/';
 	constructor(private readonly http: HttpClient) {
 		this.epicList$.subscribe(data => {
 			this.epicList = data;

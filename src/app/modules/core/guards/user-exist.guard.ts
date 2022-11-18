@@ -38,7 +38,7 @@ export class UserExistGuard implements CanActivate {
 				this.storyService.fetchStories(),
 				this.taskService.fetchTasks()
 			])
-			const data = result.some(value => value === false);
+			const data = result.some(value => value.success === false);
 			if (!data) {
 				const user = this.userService.getUserById(id);
 				this.userService.setUser(user);
