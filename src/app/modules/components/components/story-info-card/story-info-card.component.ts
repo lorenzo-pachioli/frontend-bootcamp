@@ -40,7 +40,7 @@ export class StoryInfoCardComponent implements OnInit {
 	}
 
 	setPoints(): string {
-		if (this.story && this.story.points) {
+		if (this.story && this.story.points >= 0) {
 			return `${this.story.points}`
 		}
 	}

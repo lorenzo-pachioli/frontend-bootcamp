@@ -51,7 +51,6 @@ export class StoryComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		const token = sessionStorage.getItem('token');
 		if (this.url.story) {
 			this.taskList.fetchTasks();
 			this.item = this.url.story;
@@ -67,7 +66,7 @@ export class StoryComponent implements OnInit {
 	}
 
 	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-		const dialogRef = this.dialog.open(AddTaskDialogComponent, {
+		this.dialog.open(AddTaskDialogComponent, {
 			width: '400px',
 			enterAnimationDuration,
 			exitAnimationDuration,

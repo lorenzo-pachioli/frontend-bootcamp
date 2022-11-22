@@ -46,8 +46,8 @@ export class UserService {
 		const token = sessionStorage.getItem('token');
 		return new Promise((resolve) => {
 			this.fetchHttp(id, token).subscribe(userResult => {
-				if (userResult.id) {
-					this.user$.next(userResult);
+				if (userResult.success) {
+					this.user$.next(userResult.data);
 					resolve(true);
 				} else {
 					resolve(false);
@@ -68,8 +68,8 @@ export class UserService {
 	fetchAllUsers(): Promise<any> {
 		return new Promise((resolve) => {
 			this.fetchAllUsersHttp().subscribe(usersResult => {
-				if (usersResult.length > 0) {
-					this.usersList = usersResult;
+				if (usersResult.success) {
+					this.usersList = usersResult.data;
 					resolve(true);
 				} else {
 					resolve(false);
