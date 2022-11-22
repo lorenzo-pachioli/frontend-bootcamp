@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
+import { INewStory, IStory } from 'src/app/modules/core/interfaces/storyInterface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -48,5 +48,11 @@ export class StoriesService {
 				}
 			});
 		});
+	}
+
+	addStory(token: string, story: INewStory): Observable<any> {
+		if (token) {
+			return this.http.post(this.url, story);
+		}
 	}
 }

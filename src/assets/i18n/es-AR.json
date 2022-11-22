@@ -58,6 +58,7 @@
 		"POINTS": "Puntos:",
 		"CANCEL": "Cancelar",
 		"CREATE": "Crear",
-		"CREATE-TASK": "Crear tarea"
+		"CREATE-TASK": "Crear tarea",
+		"CREATE-STORY": "Crear story"
 	}
 }

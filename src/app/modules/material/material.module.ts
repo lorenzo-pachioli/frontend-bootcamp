@@ -14,6 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
 	declarations: [],
@@ -34,7 +35,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 		MatNativeDateModule,
 		MatDatepickerModule,
 		MatProgressSpinnerModule,
-		MatButtonToggleModule
+		MatButtonToggleModule,
+		MatSelectModule
 	],
 	exports: [
 		MatSnackBarModule,
@@ -52,7 +54,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 		MatNativeDateModule,
 		MatDatepickerModule,
 		MatProgressSpinnerModule,
-		MatButtonToggleModule
+		MatButtonToggleModule,
+		MatSelectModule
 	]
 })
 export class MaterialModule {

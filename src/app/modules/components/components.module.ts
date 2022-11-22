@@ -17,6 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectInfoCardComponent } from './components/project-info-card/project-info-card.component';
 import { StoryInfoCardComponent } from './components/story-info-card/story-info-card.component';
+import { AddStoryDialogComponent } from './components/add-story-dialog/add-story-dialog.component';
 
 
 
@@ -31,7 +32,8 @@ import { StoryInfoCardComponent } from './components/story-info-card/story-info-
 		AddTaskDialogComponent,
 		HeaderComponent,
 		ProjectInfoCardComponent,
-		StoryInfoCardComponent
+		StoryInfoCardComponent,
+		AddStoryDialogComponent
 	],
 	imports: [
 		CommonModule,
@@ -57,7 +59,8 @@ import { StoryInfoCardComponent } from './components/story-info-card/story-info-
 		AddTaskDialogComponent,
 		HeaderComponent,
 		ProjectInfoCardComponent,
-		StoryInfoCardComponent
+		StoryInfoCardComponent,
+		AddStoryDialogComponent
 	]
 })
 export class ComponentsModule { }

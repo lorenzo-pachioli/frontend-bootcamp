@@ -15,3 +15,11 @@ export interface IStory {
 	icon?: string,
 	_v?: number
 }
+
+export interface INewStory {
+	name: string,
+	description: string,
+	owner: string,
+	assignedTo: string[],
+	epic: string
+}
