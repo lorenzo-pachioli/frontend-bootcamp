@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
 import { UserService } from 'src/app/modules/api-rest/services/user/user.service';
+import { IProject } from 'src/app/modules/core/interfaces/projectInterface';
 import { IUser } from 'src/app/modules/core/interfaces/userInterface';
 import { NavigationService } from 'src/app/modules/core/services/navigation/navigation.service';
 
@@ -17,7 +18,8 @@ export class AddStoryDialogComponent implements OnInit {
 	today = new Date();
 	minDate = this.today.getDay();
 	maxDate = new Date(this.today.getFullYear() + 1);
-	toppingList: IUser[] = this.user.usersList;
+	currentProject: IProject;
+	toppingList: IUser[];
 	name = new FormControl('', Validators.minLength(2));
 	description = new FormControl('', Validators.minLength(10));
 	assignedTo = new FormControl([], Validators.required);
@@ -32,7 +34,11 @@ export class AddStoryDialogComponent implements OnInit {
 		public route: NavigationService,
 		public user: UserService,
 		public storyList: StoriesService
-	) { }
+	) {
+		const url = this.route.getUrl();
+		this.currentProject = url._value.project;
+		this.toppingList = this.user.usersList.filter(u => this.currentProject.members.some(id => id === u._id));
+	}
 
 	ngOnInit(): void {
 	}
