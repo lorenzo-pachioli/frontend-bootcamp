@@ -4,10 +4,19 @@
           <h2>
               {{story && story.name}}
           </h2>
-          <span>
-              <p translate="app.POINTS"></p> 
-              {{story && story.points}}
-          </span>
+          <div>
+            <span>
+                <p translate="app.POINTS"></p>
+                {{story && story.points}}
+            </span>
+            <button class="delete" (click)="openDialog('0ms', '0ms')">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <hr />
+            <a class="arrow-left" [routerLink]="route">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </a>
+          </div>
       </div>
   </mat-card-title>
   <mat-card-content *ngIf="story && story.description">

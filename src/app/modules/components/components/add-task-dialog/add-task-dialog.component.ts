@@ -47,6 +47,7 @@ export class AddTaskDialogComponent implements OnInit {
 			story: story._value.story && story._value.story._id
 		};
 		this.taskList.addTask(token, task).subscribe(taskResult => {
+			console.log(taskResult);
 			if (taskResult.success) {
 				this.loading = false;
 				this.dialogRef.close();

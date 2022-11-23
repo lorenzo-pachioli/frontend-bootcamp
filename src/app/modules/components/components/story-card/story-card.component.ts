@@ -3,6 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
 import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
 import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
+import { StoryDeleteConfirmationComponent } from '../story-delete-confirmation/story-delete-confirmation.component';
+import { Router } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-story-card',
@@ -12,10 +15,13 @@ import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
 export class StoryCardComponent implements OnInit {
 
 	@Input() story?: IStory;
+	@Input() route: any;
+
 	constructor(
 		public storyList: StoriesService,
 		public datepipe: DatePipe,
-		public dialog: MatDialog
+		public dialog: MatDialog,
+		private router: Router
 	) { }
 
 	ngOnInit(): void {
@@ -36,4 +42,14 @@ export class StoryCardComponent implements OnInit {
 		return `${this.story.status}`
 	}
 
+	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+		this.dialog.open(StoryDeleteConfirmationComponent, {
+			width: '250px',
+			enterAnimationDuration,
+			exitAnimationDuration,
+			data: {
+				id: this.story.id
+			}
+		});
+	}
 }

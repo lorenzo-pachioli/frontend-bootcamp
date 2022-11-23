@@ -32,6 +32,11 @@
 				"TASK": "Quieres borrar la tarea?",
 				"DELETING": "Borrando tarea...",
 				"FAIL": "No se pudo borrar la tarea"
+			},
+			"QUESTION-STORY": {
+				"STORY": "Quieres borrar la story?",
+				"DELETING": "Borrando story...",
+				"FAIL": "No se pudo borrar la story"
 			}
 		},
 		"YES": "Si",

@@ -32,6 +32,11 @@
 				"TASK": "Would you like to delete this task?",
 				"DELETING": "Deleting task...",
 				"FAIL": "Couldn't delete task"
+			},
+			"QUESTION-STORY": {
+				"STORY": "Would you like to delete this story?",
+				"DELETING": "Deleting story...",
+				"FAIL": "Couldn't delete story"
 			}
 		},
 		"YES": "Yes",

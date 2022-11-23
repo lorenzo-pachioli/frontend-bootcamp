@@ -55,4 +55,24 @@ export class StoriesService {
 			return this.http.post(this.url, story);
 		}
 	}
+
+	private deleteHttp(token: string, id: number): Observable<any> {
+		if (token) {
+			return this.http.delete(this.url + '/' + id);
+		}
+	}
+
+	deleteStory(token: string, id: number): Promise<boolean> {
+		return new Promise((resolve) => {
+			this.deleteHttp(token, id).subscribe(storyResult => {
+				if (storyResult.success) {
+					const current = this.storiesList.filter(story => story.id !== storyResult.data.id);
+					this.storiesList$.next(current);
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
+		});
+	}
 }

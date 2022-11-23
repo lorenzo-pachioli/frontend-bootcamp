@@ -31,8 +31,16 @@
 }
 
 .story-title {
+  @include flex(flex, center, space-between, row);
+
   h2 {
     margin: 0;
+  }
+
+  div {
+    width: fit-content;
+    gap: 5px;
+    z-index: 10;
   }
 
   span {
@@ -42,12 +50,78 @@
     color: var(--color3);
     border-radius: var(--radius1);
     padding: 10px;
+
+    .select-points {
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border: none;
+      font-size: 20px;
+      color: var(--color3);
+    }
+
+    .select-points:focus {
+      outline: 0;
+      border: none;
+    }
+
   }
 
   p {
     margin: 0;
     padding-right: 10px;
   }
+
+  hr {
+    height: 30px;
+    width: 2px;
+    background-color: var(--color1);
+    border: none;
+  }
+}
+
+.delete {
+  @include flex(flex, center, center);
+  width: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  .mat-icon {
+    @include flex(flex, center, center);
+    color: var(--color1);
+    transform: scale(1.2);
+  }
+
+  .mat-icon:hover {
+    color: var(--color2);
+  }
+}
+
+.delete:hover {
+  filter: opacity(50%);
+}
+
+.arrow-left {
+  width: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  .mat-icon {
+    @include flex(flex, center, center);
+    color: var(--color1);
+    transform: scale(1.2);
+    font-size: 30px;
+  }
+
+  .mat-icon:hover {
+    color: var(--color2);
+  }
+}
+
+.arrow-left:hover {
+  filter: opacity(50%);
 }
 
 .mat-card-content {
