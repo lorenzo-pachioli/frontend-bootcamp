@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IEpic } from 'src/app/modules/core/interfaces/epicInterface';
+import { IEpic, INewEpic } from 'src/app/modules/core/interfaces/epicInterface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EpicService {
 
-	private epicList: Array<IEpic>;
+	public epicList: Array<IEpic>;
 	public epicList$: BehaviorSubject<Array<IEpic>> = new BehaviorSubject([]);
 	private url = 'https://api-brainstorming.up.railway.app/epics/';
 	constructor(private readonly http: HttpClient) {
@@ -48,6 +48,12 @@ export class EpicService {
 				}
 			});
 		});
+	}
+
+	addEpic(token: string, epic: INewEpic): Observable<any> {
+		if (token) {
+			return this.http.post(this.url, epic);
+		}
 	}
 
 	private deleteHttp(token: string, id: number): Observable<any> {

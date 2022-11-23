@@ -1,5 +1,9 @@
 <div class="project-container">
   <app-project-info-card [project]="item"></app-project-info-card>
+	<button class="add-task" (click)="openDialog('0ms', '0ms')">
+		<mat-icon>add</mat-icon>
+		<p translate="app.CREATE-EPIC" ></p>
+	</button>
 	<app-card-list class="list" [list]="list" optional="app.NO-EPICS" [loading]="loading">
 		<ng-template let-item #card>
 				<app-card [item]='item' [route]="setRoute(item.id)"></app-card>

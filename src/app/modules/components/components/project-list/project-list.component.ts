@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
+import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component';
 
 @Component({
 	selector: 'app-project-list',
@@ -11,7 +13,7 @@ export class ProjectListComponent implements OnInit {
 
 	projects = [];
 	loading = true;
-	constructor(public projectService: ProjectService) {
+	constructor(public projectService: ProjectService, public dialog: MatDialog) {
 		this.projectService.projectsList$.subscribe(data => {
 			if (data.length > 0) {
 				this.projects = data;
@@ -33,4 +35,12 @@ export class ProjectListComponent implements OnInit {
 		return `/my-projects/${id}`;
 	}
 
+	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+		this.dialog.open(AddProjectDialogComponent, {
+			width: '600px',
+			enterAnimationDuration,
+			exitAnimationDuration,
+			disableClose: true
+		});
+	}
 }

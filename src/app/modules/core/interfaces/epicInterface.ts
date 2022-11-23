@@ -13,3 +13,9 @@ export interface IEpicNum {
 	total: number,
 	completed: number
 }
+
+export interface INewEpic {
+	name: string,
+	description: string,
+	project: string
+}

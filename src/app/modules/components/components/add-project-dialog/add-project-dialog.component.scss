@@ -1,0 +1,50 @@
+@import '../../../../../mixins';
+
+h1 {
+  border-radius: var(--radius1);
+  background-color: var(--color4);
+  color: var(--color1);
+  padding: 10px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.buttons {
+  @include flex(flex, center, space-around);
+  width: 100%;
+
+  button {
+    @include flex(flex, center, center);
+    height: 40px;
+    width: 40%;
+    border-radius: var(--radius1);
+    border: var(--border4);
+    background-color: var(--color2);
+  }
+
+  button:active {
+    background-color: var(--color4);
+    color: white;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.date-picker {
+  color: var(--color4);
+}
+
+.spinner::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--color4);
+  color: var(--color4);
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}

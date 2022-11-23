@@ -13,3 +13,9 @@ export interface IProjectNum {
 	total: number,
 	completed: number
 }
+
+export interface INewProject {
+	name: string,
+	description: string,
+	members: string[]
+}

@@ -53,6 +53,8 @@
 		"LOGIN": "Log in",
 		"LOGOUT": "Log out",
 		"MEMBERS": "Members",
+		"MEMBERS:": "Members:",
+		"SELECT-MEMBERS": "Select the members of the project",
 		"LOADING": "Loading...",
 		"NAME:": "Name:",
 		"NAME": "Name",
@@ -74,6 +76,8 @@
 		"CANCEL": "Cancel",
 		"CREATE": "Create",
 		"CREATE-TASK": "Create task",
-		"CREATE-STORY": "Create story"
+		"CREATE-STORY": "Create story",
+		"CREATE-PROJECT": "Create project",
+		"CREATE-EPIC": "Create epic"
 	}
 }

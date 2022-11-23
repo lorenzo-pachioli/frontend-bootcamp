@@ -20,3 +20,23 @@
     text-decoration: none;
   }
 }
+
+.add-task {
+  @include flex(flex, center, center, row);
+  width: 90%;
+  border-radius: var(--radius1);
+  background-color: white;
+  border: var(--border4);
+  color: var(--color4);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+
+  .mat-icon {
+    transform: scale(1.2);
+  }
+
+  p {
+    margin: 0;
+  }
+}

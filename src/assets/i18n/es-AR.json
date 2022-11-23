@@ -53,6 +53,8 @@
 		"LOGIN": "Iniciar sesion",
 		"LOGOUT": "Cerrar sesion",
 		"MEMBERS": "Miembros",
+		"MEMBERS:": "Miembros:",
+		"SELECT-MEMBERS": "Selecionar los miembros del projecto",
 		"LOADING": "Cargando...",
 		"NAME:": "Nombre:",
 		"NAME": "Nombre",
@@ -74,6 +76,8 @@
 		"CANCEL": "Cancelar",
 		"CREATE": "Crear",
 		"CREATE-TASK": "Crear tarea",
-		"CREATE-STORY": "Crear story"
+		"CREATE-STORY": "Crear story",
+		"CREATE-PROJECT": "Crear projecto",
+		"CREATE-EPIC": "Crear epica"
 	}
 }
