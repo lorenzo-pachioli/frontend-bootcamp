@@ -1,7 +1,7 @@
 <div class="myStories-container">
     <app-card-list class="list" [list]="stories" optional="app.NO-STORIES" [loading]="loading">
         <ng-template let-item #card>
-            <app-story-card [story]='item'></app-story-card>
+            <app-story-card [story]='item' [route]="setRoute(item.id)"></app-story-card>
         </ng-template>
     </app-card-list>
 </div>
