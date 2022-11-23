@@ -10,6 +10,9 @@ import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.servic
 import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
 import { TasksService } from 'src/app/modules/api-rest/services/tasks/tasks.service';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { StoryDeleteConfirmationComponent } from 'src/app/modules/components/components/story-delete-confirmation/story-delete-confirmation.component';
+import { EpicDeleteConfirmationComponent } from 'src/app/modules/components/components/epic-delete-confirmation/epic-delete-confirmation.component';
+import { ProjectDeleteConfirmationComponent } from 'src/app/modules/components/components/project-delete-confirmation/project-delete-confirmation.component';
 
 @Component({
 	selector: 'app-card',
@@ -19,6 +22,7 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
 export class CardComponent implements OnInit {
 
 	@Input() item: any;
+	@Input() route: any;
 
 	constructor(
 		public datepipe: DatePipe,
@@ -28,6 +32,36 @@ export class CardComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
+	}
+
+	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+		if (this.item.project) {
+			this.openEpicDialog(enterAnimationDuration, exitAnimationDuration);
+		} else {
+			this.openProjectDialog(enterAnimationDuration, exitAnimationDuration);
+		}
+	}
+
+	openProjectDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+		this.dialog.open(ProjectDeleteConfirmationComponent, {
+			width: '250px',
+			enterAnimationDuration,
+			exitAnimationDuration,
+			data: {
+				id: this.item.id
+			}
+		});
+	}
+
+	openEpicDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+		this.dialog.open(EpicDeleteConfirmationComponent, {
+			width: '250px',
+			enterAnimationDuration,
+			exitAnimationDuration,
+			data: {
+				id: this.item.id
+			}
+		});
 	}
 
 }

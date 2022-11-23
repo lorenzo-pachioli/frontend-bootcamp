@@ -44,4 +44,24 @@ export class ProjectService {
 			});
 		});
 	}
+
+	private deleteHttp(token: string, id: number): Observable<any> {
+		if (token) {
+			return this.http.delete(this.url + '/' + id);
+		}
+	}
+
+	deleteProject(token: string, id: number): Promise<boolean> {
+		return new Promise((resolve) => {
+			this.deleteHttp(token, id).subscribe(projectResult => {
+				if (projectResult.success) {
+					const current = this.projectsList.filter(project => project.id !== projectResult.data.id);
+					this.projectsList$.next(current);
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
+		});
+	}
 }

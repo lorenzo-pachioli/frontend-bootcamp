@@ -49,4 +49,24 @@ export class EpicService {
 			});
 		});
 	}
+
+	private deleteHttp(token: string, id: number): Observable<any> {
+		if (token) {
+			return this.http.delete(this.url + '/' + id);
+		}
+	}
+
+	deleteEpic(token: string, id: number): Promise<boolean> {
+		return new Promise((resolve) => {
+			this.deleteHttp(token, id).subscribe(epicResult => {
+				if (epicResult.success) {
+					const current = this.epicList.filter(epic => epic.id !== epicResult.data.id);
+					this.epicList$.next(current);
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
+		});
+	}
 }

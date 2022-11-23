@@ -33,6 +33,16 @@
 				"DELETING": "Deleting task...",
 				"FAIL": "Couldn't delete task"
 			},
+			"QUESTION-PROJECT": {
+				"PROJECT": "Would you like to delete this project?",
+				"DELETING": "Deleting project...",
+				"FAIL": "Couldn't delete project"
+			},
+			"QUESTION-EPIC": {
+				"EPIC": "Would you like to delete this epic?",
+				"DELETING": "Deleting epic...",
+				"FAIL": "Couldn't delete epic"
+			},
 			"QUESTION-STORY": {
 				"STORY": "Would you like to delete this story?",
 				"DELETING": "Deleting story...",

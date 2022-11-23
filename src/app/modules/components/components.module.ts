@@ -19,8 +19,8 @@ import { ProjectInfoCardComponent } from './components/project-info-card/project
 import { StoryInfoCardComponent } from './components/story-info-card/story-info-card.component';
 import { AddStoryDialogComponent } from './components/add-story-dialog/add-story-dialog.component';
 import { StoryDeleteConfirmationComponent } from './components/story-delete-confirmation/story-delete-confirmation.component';
-
-
+import { EpicDeleteConfirmationComponent } from './components/epic-delete-confirmation/epic-delete-confirmation.component';
+import { ProjectDeleteConfirmationComponent } from './components/project-delete-confirmation/project-delete-confirmation.component';
 
 @NgModule({
 	declarations: [
@@ -35,7 +35,9 @@ import { StoryDeleteConfirmationComponent } from './components/story-delete-conf
 		ProjectInfoCardComponent,
 		StoryInfoCardComponent,
 		AddStoryDialogComponent,
-		StoryDeleteConfirmationComponent
+		StoryDeleteConfirmationComponent,
+		EpicDeleteConfirmationComponent,
+		ProjectDeleteConfirmationComponent
 	],
 	imports: [
 		CommonModule,
@@ -63,7 +65,9 @@ import { StoryDeleteConfirmationComponent } from './components/story-delete-conf
 		ProjectInfoCardComponent,
 		StoryInfoCardComponent,
 		AddStoryDialogComponent,
-		StoryDeleteConfirmationComponent
+		StoryDeleteConfirmationComponent,
+		EpicDeleteConfirmationComponent,
+		ProjectDeleteConfirmationComponent
 	]
 })
 export class ComponentsModule { }

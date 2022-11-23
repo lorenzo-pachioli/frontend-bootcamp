@@ -33,6 +33,16 @@
 				"DELETING": "Borrando tarea...",
 				"FAIL": "No se pudo borrar la tarea"
 			},
+			"QUESTION-PROJECT": {
+				"PROJECT": "Quieres borrar el projecto?",
+				"DELETING": "Borrando projecto...",
+				"FAIL": "No se pudo borrar el projecto"
+			},
+			"QUESTION-EPIC": {
+				"EPIC": "Quieres borrar la epica?",
+				"DELETING": "Borrando epica...",
+				"FAIL": "No se pudo borrar la epica"
+			},
 			"QUESTION-STORY": {
 				"STORY": "Quieres borrar la story?",
 				"DELETING": "Borrando story...",

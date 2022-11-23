@@ -11,7 +11,7 @@
 }
 
 .mat-card-title {
-    @include flex(flex, center, flex-start);
+    @include flex(flex, center, space-between, row);
     width: 100%;
     color: white;
     background-color: var(--color3);
@@ -21,33 +21,21 @@
 
     div {
         @include flex(flex, center, space-between, row);
-        width: 100%;
+        width: fit-content;
+        gap: 5px;
+    }
+
+    hr {
+        height: 30px;
+        width: 2px;
+        background-color: var(--color1);
+        border: none;
     }
 }
 
 .title {
     font-size: 20px;
     margin-bottom: 0;
-}
-
-.story-title {
-    h2 {
-        margin: 0;
-    }
-
-    span {
-        @include flex(flex, center, center);
-        height: 30px;
-        background-color: white;
-        color: var(--color3);
-        border-radius: var(--radius1);
-        padding: 10px;
-    }
-
-    p {
-        margin: 0;
-        padding-right: 10px;
-    }
 }
 
 .mat-card-content {
@@ -72,32 +60,46 @@
     }
 }
 
-.task-title {
-    @include flex(flex, center, flex-start, row);
-    height: 100%;
-    gap: var(--gap1);
-}
-
-.checkbox {
-    height: 100%;
-    transform: scale(1.4);
-}
-
-.checkbox-label {
-    height: 100%;
-    line-height: 20px;
-    font-size: 20px;
-    margin: 0;
-}
-
 .delete {
-    width: 40px;
+    @include flex(flex, center, center);
+    width: 30px;
     background-color: transparent;
     border: none;
     cursor: pointer;
 
     .mat-icon {
+        @include flex(flex, center, center);
         color: var(--color1);
         transform: scale(1.2);
     }
+
+    .mat-icon:hover {
+        color: var(--color2);
+    }
+}
+
+.delete:hover {
+    filter: opacity(50%);
+}
+
+.arrow-left {
+    width: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    .mat-icon {
+        @include flex(flex, center, center);
+        color: var(--color1);
+        transform: scale(1.2);
+        font-size: 30px;
+    }
+
+    .mat-icon:hover {
+        color: var(--color2);
+    }
+}
+
+.arrow-left:hover {
+    filter: opacity(50%);
 }
