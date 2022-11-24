@@ -57,13 +57,16 @@ export class SignUpComponent implements OnInit {
 
 		this.userService.createUser(data)
 			.then(response => {
-				if (response.success) {
+				if (response) {
+					this.loading = false;
 					this.router.navigate(['/login']);
 				} else {
+					this.loading = false;
 					this.validUser = false;
 				}
 			})
 			.catch(() => {
+				this.loading = false;
 				this.error = true;
 			})
 	}
