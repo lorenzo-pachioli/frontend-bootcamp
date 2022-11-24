@@ -6,7 +6,6 @@ import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.servic
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
 import { TasksService } from 'src/app/modules/api-rest/services/tasks/tasks.service';
-import { ITasks } from 'src/app/modules/core/interfaces/tasksInterface';
 import { IUrl } from 'src/app/modules/core/interfaces/urlInterface';
 import { NavigationService } from 'src/app/modules/core/services/navigation/navigation.service';
 import { AddTaskDialogComponent } from 'src/app/modules/components/components/add-task-dialog/add-task-dialog.component';
@@ -39,15 +38,6 @@ export class StoryComponent implements OnInit {
 			this.url.epic = sub.epic
 			this.url.story = sub.story
 		});
-
-		this.taskList.tasksList$.subscribe(() => {
-			const task = this.taskList.getTasksByStoryId(this.url.story && this.url.story._id);
-			if (task.length > 0) {
-				this.list = task;
-			} else {
-				this.loading = false;
-			}
-		})
 	}
 
 	ngOnInit(): void {

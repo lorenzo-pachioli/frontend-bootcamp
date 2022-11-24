@@ -9,7 +9,7 @@ import { ProjectService } from 'src/app/modules/api-rest/services/projects/proje
 })
 export class MyProjectsComponent implements OnInit {
 
-	constructor(public projectList: ProjectService, public epicList: EpicService) { }
+	constructor() { }
 
 	ngOnInit(): void {
 	}

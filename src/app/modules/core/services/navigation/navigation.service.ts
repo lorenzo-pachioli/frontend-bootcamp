@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Location } from '@angular/common'
 import { Router, NavigationEnd } from '@angular/router'
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { IUrl } from '../../interfaces/urlInterface';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
@@ -42,7 +42,7 @@ export class NavigationService {
 				};
 				this.history.push(event.urlAfterRedirects)
 				const separeted = this.pathValue.urlAfterRedirects.split(/\//);
-				this.setPathValues(separeted);
+				this.choosePath(separeted);
 				this.url.next(this.urlTemp);
 			}
 		})
@@ -61,7 +61,14 @@ export class NavigationService {
 		}
 	}
 
-	private setPathValues(array): any {
+	private choosePath(array: string[]): void {
+		if (array[1] === 'my-projects') { this.setPathByProject(array) }
+		if (array[1] === 'my-stories') { this.setPathByStory(array) }
+		if (array[1] === 'home') { this.urlTemp.path = array[1] }
+		if (array[1] === 'settings') { this.urlTemp.path = array[1] }
+	}
+
+	private setPathByProject(array: any): any {
 		this.urlTemp.path = array[1];
 		if (array[2]) {
 			const project = this.projectService.getOneProject(Number(array[2]));
@@ -77,6 +84,16 @@ export class NavigationService {
 		}
 		if (array[4]) {
 			const story = this.storyList.getOneStory(Number(array[4]));
+			if (story) {
+				this.urlTemp.story = story;
+			}
+		}
+	}
+
+	private setPathByStory(array: any): any {
+		this.urlTemp.path = array[1];
+		if (array[2]) {
+			const story = this.storyList.getOneStory(Number(array[2]));
 			if (story) {
 				this.urlTemp.story = story;
 			}

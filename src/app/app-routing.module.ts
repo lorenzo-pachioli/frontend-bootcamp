@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EpicComponent } from './modules/components/components/epic/epic.component';
 import { ProjectListComponent } from './modules/components/components/project-list/project-list.component';
 import { ProjectComponent } from './modules/components/components/project/project.component';
+import { StoryListComponent } from './modules/components/components/story-list/story-list.component';
 import { StoryComponent } from './modules/components/components/story/story.component';
 import { UserExistGuard } from './modules/core/guards/user-exist.guard';
 import { AccessGrantedComponent } from './modules/routes/components/access-granted/access-granted.component';
@@ -32,7 +33,14 @@ const routes: Routes = [
 					{ path: '', component: ProjectListComponent, pathMatch: 'full' }
 				],
 			},
-			{ path: 'my-stories', component: MyStoriesComponent },
+			{
+				path: 'my-stories',
+				component: MyStoriesComponent,
+				children: [
+					{ path: ':storyId', component: StoryComponent },
+					{ path: '', component: StoryListComponent, pathMatch: 'full' }
+				]
+			},
 			{ path: 'home', component: HomeComponent },
 			{ path: '', redirectTo: '/loading', pathMatch: 'full' }
 		]
