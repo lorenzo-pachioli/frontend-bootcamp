@@ -10,3 +10,14 @@ export interface IUser {
 	},
 	_v?: number
 }
+
+export interface INewUser {
+	username: string,
+	password: string,
+	repeatPassword: string,
+	email: string,
+	name: {
+		first: string,
+		last: string
+	}
+}

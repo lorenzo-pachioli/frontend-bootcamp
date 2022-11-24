@@ -3,7 +3,8 @@
 .login-container {
   @include flex(flex, center, center);
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   background-color: var(--color2);
 }
 
@@ -15,21 +16,17 @@
 
 .mat-card-title {
   @include flex(flex, center, center, column);
-  gap: var(--gap2);
 
   h1 {
     color: var(--color4);
-    padding: 10px;
+    padding: 20px;
     font-size: 60px;
+    border-bottom: var(--border5);
   }
 
   img {
     width: 70%;
   }
-}
-
-.mat-card-content {
-  margin: 0;
 }
 
 .mat-form-field {
@@ -68,36 +65,6 @@
 
 .mat-hint {
   color: red;
-}
-
-.signup {
-  @include flex(flex, center, flex-end);
-  width: 100%;
-  height: fit-content;
-  border-radius: var(--radius1);
-  color: black;
-
-  p {
-    cursor: pointer;
-    filter: opacity(70%);
-    margin: 0;
-  }
-
-  .mat-icon {
-    cursor: pointer;
-  }
-
-  /*  p:hover {
-    color: var(--color4);
-  }
-
-  .mat-icon:hover {
-    color: var(--color4);
-  } */
-}
-
-.signup:hover {
-  color: var(--color4);
 }
 
 @media screen and (max-width:540px) and (min-width:440px) {

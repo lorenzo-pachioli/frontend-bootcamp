@@ -25,6 +25,10 @@
       </form>
     </mat-card-content>
     <mat-card-content>
+      <mat-hint class="signup">
+        <p [routerLink]="'/signup'" translate="app.SIGNUP"></p>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </mat-hint>
       <div class="buttons spinner">
         <button mat-button [disabled]="!login.valid" (click)='logIn()' translate="app.LOGIN">
           <mat-spinner [diameter]="20" *ngIf="loading" ></mat-spinner>

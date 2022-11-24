@@ -1,0 +1,64 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-title >
+      <h1>Brainstorming</h1>
+    </mat-card-title>
+    <mat-card-content>
+      <form novalidate [formGroup]="signUp">
+        
+        <mat-form-field appearance="fill">
+          <mat-label translate="app.NAME"></mat-label>
+          <input matInput [formControl]="firstName" required>
+          <mat-error align="end">Min 4 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label translate="app.LASTNAME"></mat-label>
+          <input matInput [formControl]="lastName" required>
+          <mat-error align="end">Min 4 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label translate="app.USERNAME"></mat-label>
+          <input matInput [formControl]="username" required>
+          <mat-error align="end">Min 4 characters</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+          <mat-label translate="app.PASSWORD"></mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error align="end">Min 4 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label translate="app.REPEAT-PASSWORD"></mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [formControl]="repeatPassword" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error align="end">Passwords doesn't match</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label translate="app.EMAIL"></mat-label>
+          <input matInput [formControl]="email" required>
+          <mat-error align="end">Invalid email</mat-error>
+        </mat-form-field>
+  
+      </form>
+    </mat-card-content>
+    <mat-card-content>
+      <div class="buttons spinner">
+        <button mat-button [disabled]="!signUp.valid" (click)='logIn()' translate="app.SIGNUP">
+          <mat-spinner [diameter]="20" *ngIf="loading" ></mat-spinner>
+        </button>
+      </div>
+      <mat-hint *ngIf='!validUser'>Invalid information</mat-hint>
+      <mat-hint *ngIf='error'>Something went wrong during authentication</mat-hint>
+    </mat-card-content>
+  </mat-card>
+</div>
+

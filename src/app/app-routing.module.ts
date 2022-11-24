@@ -14,9 +14,17 @@ import { MyProjectsComponent } from './modules/routes/components/my-projects/my-
 import { MyStoriesComponent } from './modules/routes/components/my-stories/my-stories.component';
 import { NotFoundComponent } from './modules/routes/components/not-found/not-found.component';
 import { SettingsComponent } from './modules/routes/components/settings/settings.component';
+import { SignUpComponent } from './modules/routes/components/sign-up/sign-up.component';
 
 const routes: Routes = [
-	{ path: 'login', component: LoginComponent },
+	{
+		path: 'login',
+		component: LoginComponent
+	},
+	{
+		path: 'signup',
+		component: SignUpComponent
+	},
 	{
 		path: '',
 		component: AccessGrantedComponent,

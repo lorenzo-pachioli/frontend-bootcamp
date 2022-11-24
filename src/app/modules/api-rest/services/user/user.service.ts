@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IUser } from 'src/app/modules/core/interfaces/userInterface';
+import { INewUser, IUser } from 'src/app/modules/core/interfaces/userInterface';
 import { HttpClient } from '@angular/common/http';
 
 interface IUserLogIn {
@@ -83,5 +83,21 @@ export class UserService {
 			return this.usersList.find(user => user._id === id)
 		}
 		return false;
+	}
+
+	private fetchCreateUserHttp(newUser: INewUser): Observable<any> {
+		return this.http.post(this.url, newUser);
+	}
+
+	createUser(newUser: any): Promise<any> {
+		return new Promise((resolve) => {
+			this.fetchCreateUserHttp(newUser).subscribe(usersResult => {
+				if (usersResult.success) {
+					resolve(true);
+				} else {
+					resolve(false);
+				}
+			});
+		});
 	}
 }
