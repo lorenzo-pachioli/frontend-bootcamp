@@ -7,7 +7,6 @@ import { StoriesService } from 'src/app/modules/api-rest/services/stories/storie
 import { IUrl } from 'src/app/modules/core/interfaces/urlInterface';
 import { NavigationService } from 'src/app/modules/core/services/navigation/navigation.service';
 import { AddStoryDialogComponent } from '../add-story-dialog/add-story-dialog.component';
-import { AddTaskDialogComponent } from '../add-task-dialog/add-task-dialog.component';
 
 @Component({
 	selector: 'app-epic',
@@ -47,7 +46,6 @@ export class EpicComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		const token = sessionStorage.getItem('token');
 		if (this.url.epic) {
 			this.storyList.fetchStories();
 			this.item = this.url.epic;

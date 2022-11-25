@@ -38,21 +38,29 @@ export class StoryComponent implements OnInit {
 			this.url.epic = sub.epic
 			this.url.story = sub.story
 		});
+
+		this.taskList.tasksList$.subscribe(() => {
+			if (this.url.story) {
+				const task = this.taskList.getTasksByStoryId(this.url.story._id);
+				this.list = task;
+			}
+		});
 	}
 
 	ngOnInit(): void {
 		if (this.url.story) {
 			this.taskList.fetchTasks();
 			this.item = this.url.story;
-			const task = this.taskList.getTasksByStoryId(this.url.story && this.url.story._id);
-			if (task.length > 0) {
-				this.list = task;
-			} else {
-				this.loading = false;
-			}
+			const task = this.taskList.getTasksByStoryId(this.url.story._id);
+			this.list = task;
+			this.loading = false;
 		} else {
 			this.router.navigate(['/not-found']);
 		}
+	}
+
+	OnDestroy(): void {
+		this.taskList.tasksList$.unsubscribe();
 	}
 
 	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {

@@ -62,7 +62,8 @@ export class TaskCardComponent implements OnInit {
 			enterAnimationDuration,
 			exitAnimationDuration,
 			data: {
-				id: this.task.id
+				id: this.task.id,
+				item: 'TASK'
 			}
 		});
 	}

@@ -28,7 +28,7 @@
 		"NO-ASSIGNED": "No hay usuarios asignados",
 		"DELETE": {
 			"TITLE": "Borrar",
-			"QUESTION": {
+			"QUESTION-TASK": {
 				"TASK": "Quieres borrar la tarea?",
 				"DELETING": "Borrando tarea...",
 				"FAIL": "No se pudo borrar la tarea"

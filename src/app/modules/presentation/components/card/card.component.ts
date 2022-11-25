@@ -3,8 +3,7 @@ import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
-import { EpicDeleteConfirmationComponent } from 'src/app/modules/components/components/epic-delete-confirmation/epic-delete-confirmation.component';
-import { ProjectDeleteConfirmationComponent } from 'src/app/modules/components/components/project-delete-confirmation/project-delete-confirmation.component';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
 	selector: 'app-card',
@@ -27,33 +26,14 @@ export class CardComponent implements OnInit {
 	}
 
 	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-		if (this.item.project) {
-			this.openEpicDialog(enterAnimationDuration, exitAnimationDuration);
-		} else {
-			this.openProjectDialog(enterAnimationDuration, exitAnimationDuration);
-		}
-	}
-
-	openProjectDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-		this.dialog.open(ProjectDeleteConfirmationComponent, {
+		this.dialog.open(ConfirmationDialogComponent, {
 			width: '250px',
 			enterAnimationDuration,
 			exitAnimationDuration,
 			data: {
-				id: this.item.id
+				id: this.item.id,
+				item: this.item.project ? 'EPIC' : 'PROJECT'
 			}
 		});
 	}
-
-	openEpicDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-		this.dialog.open(EpicDeleteConfirmationComponent, {
-			width: '250px',
-			enterAnimationDuration,
-			exitAnimationDuration,
-			data: {
-				id: this.item.id
-			}
-		});
-	}
-
 }

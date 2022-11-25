@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
 import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
 import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
-import { StoryDeleteConfirmationComponent } from '../story-delete-confirmation/story-delete-confirmation.component';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
+import { ConfirmationDialogComponent } from 'src/app/modules/presentation/components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
 	selector: 'app-story-card',
@@ -43,12 +43,13 @@ export class StoryCardComponent implements OnInit {
 	}
 
 	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-		this.dialog.open(StoryDeleteConfirmationComponent, {
+		this.dialog.open(ConfirmationDialogComponent, {
 			width: '250px',
 			enterAnimationDuration,
 			exitAnimationDuration,
 			data: {
-				id: this.story.id
+				id: this.story.id,
+				item: 'STORY'
 			}
 		});
 	}

@@ -18,9 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectInfoCardComponent } from './components/project-info-card/project-info-card.component';
 import { StoryInfoCardComponent } from './components/story-info-card/story-info-card.component';
 import { AddStoryDialogComponent } from './components/add-story-dialog/add-story-dialog.component';
-import { StoryDeleteConfirmationComponent } from './components/story-delete-confirmation/story-delete-confirmation.component';
-import { EpicDeleteConfirmationComponent } from './components/epic-delete-confirmation/epic-delete-confirmation.component';
-import { ProjectDeleteConfirmationComponent } from './components/project-delete-confirmation/project-delete-confirmation.component';
 import { AddEpicDialogComponent } from './components/add-epic-dialog/add-epic-dialog.component';
 import { AddProjectDialogComponent } from './components/add-project-dialog/add-project-dialog.component';
 import { StoryListComponent } from './components/story-list/story-list.component';
@@ -38,9 +35,6 @@ import { StoryListComponent } from './components/story-list/story-list.component
 		ProjectInfoCardComponent,
 		StoryInfoCardComponent,
 		AddStoryDialogComponent,
-		StoryDeleteConfirmationComponent,
-		EpicDeleteConfirmationComponent,
-		ProjectDeleteConfirmationComponent,
 		AddEpicDialogComponent,
 		AddProjectDialogComponent,
 		StoryListComponent
@@ -71,9 +65,6 @@ import { StoryListComponent } from './components/story-list/story-list.component
 		ProjectInfoCardComponent,
 		StoryInfoCardComponent,
 		AddStoryDialogComponent,
-		StoryDeleteConfirmationComponent,
-		EpicDeleteConfirmationComponent,
-		ProjectDeleteConfirmationComponent,
 		StoryListComponent
 	]
 })

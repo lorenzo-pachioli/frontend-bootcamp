@@ -28,7 +28,7 @@
 		"NO-STORIES-COMPLETED": "There are no stories completed",
 		"DELETE": {
 			"TITLE": "Delete",
-			"QUESTION": {
+			"QUESTION-TASK": {
 				"TASK": "Would you like to delete this task?",
 				"DELETING": "Deleting task...",
 				"FAIL": "Couldn't delete task"
