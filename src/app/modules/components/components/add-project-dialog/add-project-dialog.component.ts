@@ -53,14 +53,15 @@ export class AddProjectDialogComponent implements OnInit {
 			owner: user._id,
 			members: this.newProject.value.members.map(u => u._id)
 		};
-		this.projectList.addProject(token, story).subscribe(projectResult => {
-			if (projectResult.success) {
+		this.projectList.addProject(token, story).subscribe({
+			next: (projectResult) => {
 				this.loading = false;
 				this.dialogRef.close();
 				const current = this.projectList.projectsList;
 				current.push(projectResult.data);
 				this.projectList.projectsList$.next(current);
-			}
+			},
+			error: () => this.loading = false
 		});
 	}
 }

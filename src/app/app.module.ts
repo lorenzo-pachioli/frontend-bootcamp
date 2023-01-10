@@ -14,6 +14,7 @@ import { DatePipe } from '@angular/common';
 import { RoutesModule } from './modules/routes/routes.module';
 import { ErrorHttpCatchInterceptor } from './modules/core/interceptors/error-http-catch.interceptor';
 import { TokenInyectorInterceptor } from './modules/core/interceptors/token-inyector.interceptor';
+import { MaterialModule } from './modules/material/material.module';
 
 registerLocaleData(localeEsAr, 'en-US');
 

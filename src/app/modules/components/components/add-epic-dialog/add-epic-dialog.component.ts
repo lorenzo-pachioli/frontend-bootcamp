@@ -44,14 +44,15 @@ export class AddEpicDialogComponent implements OnInit {
 			description: this.newEpic.value.description,
 			project: project && project._id
 		};
-		this.epicList.addEpic(token, epic).subscribe(epicResult => {
-			if (epicResult.success) {
+		this.epicList.addEpic(token, epic).subscribe({
+			next: (epicResult) => {
 				this.loading = false;
 				this.dialogRef.close();
 				const current = this.epicList.epicList;
 				current.push(epicResult.data);
 				this.epicList.epicList$.next(current);
-			}
+			},
+			error: () => this.loading = false
 		});
 	}
 }

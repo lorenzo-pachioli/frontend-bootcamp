@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { INewStory, IStory } from 'src/app/modules/core/interfaces/storyInterface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../environments/environment';
 
 @Injectable({
 	providedIn: 'root'
@@ -10,7 +11,7 @@ export class StoriesService {
 
 	storiesList: Array<IStory>;
 	public storiesList$: BehaviorSubject<Array<IStory>> = new BehaviorSubject([]);
-	private url = 'https://api-brainstorming.up.railway.app/stories';
+	private url = environment.API + 'stories';
 	constructor(private readonly http: HttpClient) {
 		this.storiesList$.subscribe(data => {
 			this.storiesList = data;

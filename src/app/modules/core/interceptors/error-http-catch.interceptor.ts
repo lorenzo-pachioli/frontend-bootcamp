@@ -8,19 +8,22 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../../presentation/components/error-dialog/error-dialog.component';
 
 @Injectable()
 export class ErrorHttpCatchInterceptor implements HttpInterceptor {
 
-	constructor(private router: Router) { }
+	constructor(public dialog: MatDialog) { }
 
 	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 		return next.handle(request).pipe(
 			catchError((error: any) => {
 				console.error('Error:', error);
-				sessionStorage.removeItem('token');
-				sessionStorage.removeItem('_id');
-				this.router.navigate(['/login']);
+				this.dialog.open(ErrorDialogComponent, {
+					width: '400px',
+					data: { title: 'Error', content: 'Uppsss! Something went wrong, try again later' }
+				});
 				return throwError(error.statusText);
 			})
 		)

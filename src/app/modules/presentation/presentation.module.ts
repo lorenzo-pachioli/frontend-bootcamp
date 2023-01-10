@@ -20,6 +20,7 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { CoreModule } from '../core/core.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 
 @NgModule({
 	declarations: [
@@ -32,7 +33,8 @@ import { MainComponent } from './components/main/main.component';
 		InfoCardComponent,
 		ConfirmationDialogComponent,
 		MainComponent,
-		FooterComponent
+		FooterComponent,
+		ErrorDialogComponent
 	],
 	imports: [
 		CommonModule,
@@ -56,7 +58,8 @@ import { MainComponent } from './components/main/main.component';
 		InfoCardComponent,
 		ConfirmationDialogComponent,
 		MainComponent,
-		FooterComponent
+		FooterComponent,
+		ErrorDialogComponent
 	],
 	providers: [
 		ProjectService,

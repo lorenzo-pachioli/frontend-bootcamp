@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ITasks, INewTasks } from 'src/app/modules/core/interfaces/tasksInterface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../environments/environment';
 
 @Injectable({
 	providedIn: 'root'
@@ -10,7 +11,7 @@ export class TasksService {
 
 	tasksList: Array<ITasks>;
 	public tasksList$: BehaviorSubject<Array<ITasks>> = new BehaviorSubject([]);
-	private url = 'https://api-brainstorming.up.railway.app/tasks';
+	private url = environment.API + 'tasks';
 	constructor(private readonly http: HttpClient) {
 		this.tasksList$.subscribe(data => {
 			this.tasksList = data;
@@ -22,7 +23,7 @@ export class TasksService {
 		return list;
 	}
 
-	private updateHttp(token: string, id: number, task: ITasks): Observable<any> {
+	private updateHttp(token: string, task: ITasks): Observable<any> {
 		if (token) {
 			return this.http.put(this.url, task);
 		}
@@ -30,7 +31,7 @@ export class TasksService {
 
 	updateTask(token: string, id: number, task: ITasks): Promise<boolean> {
 		return new Promise((resolve) => {
-			this.updateHttp(token, id, task).subscribe(taskResult => {
+			this.updateHttp(token, task).subscribe(taskResult => {
 				if (taskResult.success) {
 					const current = this.tasksList.map(t => {
 						if (t.id === taskResult.data.id) {

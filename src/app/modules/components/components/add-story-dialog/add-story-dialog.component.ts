@@ -59,14 +59,15 @@ export class AddStoryDialogComponent implements OnInit {
 			owner: user._id,
 			assignedTo: this.newStory.value.assignedTo.map(u => u._id)
 		};
-		this.storyList.addStory(token, story).subscribe(storyResult => {
-			if (storyResult.success) {
+		this.storyList.addStory(token, story).subscribe({
+			next: (storyResult) => {
 				this.loading = false;
 				this.dialogRef.close();
 				const current = this.storyList.storiesList;
 				current.push(storyResult.data);
 				this.storyList.storiesList$.next(current);
-			}
+			},
+			error: () => this.loading = false
 		});
 	}
 }

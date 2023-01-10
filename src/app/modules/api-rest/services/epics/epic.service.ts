@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { IEpic, INewEpic } from 'src/app/modules/core/interfaces/epicInterface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../environments/environment';
 
 @Injectable({
 	providedIn: 'root'
@@ -10,7 +11,7 @@ export class EpicService {
 
 	public epicList: Array<IEpic>;
 	public epicList$: BehaviorSubject<Array<IEpic>> = new BehaviorSubject([]);
-	private url = 'https://api-brainstorming.up.railway.app/epics/';
+	private url = environment.API + 'epics/';
 	constructor(private readonly http: HttpClient) {
 		this.epicList$.subscribe(data => {
 			this.epicList = data;

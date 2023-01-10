@@ -46,14 +46,16 @@ export class AddTaskDialogComponent implements OnInit {
 			created: this.today,
 			story: story._value.story && story._value.story._id
 		};
-		this.taskList.addTask(token, task).subscribe(taskResult => {
-			if (taskResult.success) {
+		this.taskList.addTask(token, task).subscribe({
+			next: (taskResult) => {
 				this.loading = false;
 				this.dialogRef.close();
 				const current = this.taskList.tasksList;
 				current.push(taskResult.data);
 				this.taskList.tasksList$.next(current);
-			}
+			},
+			error: () => this.loading = false,
+			complete: () => { }
 		});
 	}
 }

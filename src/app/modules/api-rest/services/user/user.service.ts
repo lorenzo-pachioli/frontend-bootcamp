@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { INewUser, IUser } from 'src/app/modules/core/interfaces/userInterface';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../environments/environment';
 
 interface IUserLogIn {
 	username: string,
@@ -24,7 +25,7 @@ export class UserService {
 		}
 	})
 	public usersList = [];
-	private url = 'https://api-brainstorming.up.railway.app/users/';
+	private url = environment.API + 'users/';
 	constructor(private readonly http: HttpClient) {
 	}
 

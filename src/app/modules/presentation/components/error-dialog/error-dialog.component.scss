@@ -1,0 +1,53 @@
+.dialog-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #F44336;
+  border: 2px solid #F44336;
+  border-radius: 5px;
+
+  .mat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    font-size: 30px;
+  }
+}
+
+.alert-title {
+  color: #F44336;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0;
+}
+
+.alert-content {
+  min-width: fit-content;
+  text-align: center;
+
+  p {
+    height: fit-content;
+    word-break: break-all;
+    padding: 10px;
+  }
+}
+
+.alert-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  min-width: fit-content;
+
+  button {
+    width: 47%;
+    padding: 0;
+  }
+}

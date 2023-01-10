@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../environments/environment';
 
 interface IUserLogIn {
 	username: string,
@@ -11,8 +12,7 @@ interface IUserLogIn {
 })
 export class AuthService {
 
-	private token = sessionStorage.getItem('token');
-	private url = 'https://api-brainstorming.up.railway.app/login';
+	private url = environment.API + 'login';
 	constructor(
 		private readonly http: HttpClient
 	) { }
