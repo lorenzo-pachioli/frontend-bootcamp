@@ -4,7 +4,7 @@
 		<mat-icon>add</mat-icon>
 		<p translate="app.CREATE-STORY" ></p>
 	</button>
-	<app-card-list class="list" [list]="list" optional="app.NO-EPICS" [loading]="loading">
+	<app-card-list class="list" [list]="list" optional="app.NO-STORIES" [loading]="loading">
 		<ng-template let-item #card>
 				<app-story-card [story]='item' [route]="setRoute(item.id)"></app-story-card>
 		</ng-template>
