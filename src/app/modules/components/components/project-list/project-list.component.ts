@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component';
 
@@ -12,10 +13,11 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
 	projects = [];
 	loading = true;
+	projectSubscription: Subscription;
 
 	constructor(public projectService: ProjectService, public dialog: MatDialog) {
 
-		this.projectService.projectsList$.subscribe(data => {
+		this.projectSubscription = this.projectService.projectsList$.subscribe(data => {
 			if (data.length > 0) {
 				this.projects = data;
 			} else {
@@ -29,7 +31,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.projectService.projectsList$.unsubscribe();
+		this.projectSubscription.unsubscribe();
 	}
 
 	setRoute(id: number): string {

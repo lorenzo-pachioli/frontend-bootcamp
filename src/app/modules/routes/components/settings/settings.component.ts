@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/modules/api-rest/services/user/user.service';
 import { IUser } from 'src/app/modules/core/interfaces/userInterface';
 
@@ -13,20 +14,21 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
 	user: IUser;
 	language = localStorage.getItem('lang');
+	userSubscription: Subscription;
 
 	constructor(
 		private router: Router,
 		private userService: UserService,
 		public translate: TranslateService
 	) {
-		this.userService.user$.subscribe(u => this.user = u)
+		this.userSubscription = this.userService.user$.subscribe(u => this.user = u)
 	}
 
 	ngOnInit(): void {
 	}
 
 	ngOnDestroy(): void {
-		this.userService.user$.unsubscribe();
+		this.userSubscription.unsubscribe();
 	}
 
 	logOut(): void {

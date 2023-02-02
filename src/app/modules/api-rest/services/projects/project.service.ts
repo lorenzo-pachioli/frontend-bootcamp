@@ -1,6 +1,6 @@
 import { OnDestroy } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { INewProject, IProject } from 'src/app/modules/core/interfaces/projectInterface';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment';
@@ -13,15 +13,16 @@ export class ProjectService implements OnDestroy {
 	public projectsList: Array<IProject>;
 	public projectsList$: BehaviorSubject<Array<IProject>> = new BehaviorSubject([]);
 	private url = environment.API + 'projects';
+	projectSubscription: Subscription;
 
 	constructor(private readonly http: HttpClient) {
-		this.projectsList$.subscribe(data => {
+		this.projectSubscription = this.projectsList$.subscribe(data => {
 			this.projectsList = data;
 		});
 	}
 
 	ngOnDestroy(): void {
-		this.projectsList$.unsubscribe();
+		this.projectSubscription.unsubscribe();
 	}
 
 	getOneProject(id: number): IProject | false {

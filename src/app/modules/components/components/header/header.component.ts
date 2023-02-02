@@ -6,6 +6,7 @@ import {
 	Output,
 	OnDestroy
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IUrl } from 'src/app/modules/core/interfaces/urlInterface';
 import { NavigationService } from 'src/app/modules/core/services/navigation/navigation.service';
 
@@ -22,13 +23,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	url: IUrl = {
 		path: ''
 	}
+	navigationSubscription: Subscription;
 
 	@Input() menuState = false;
 	@Output() menuStateChange: EventEmitter<boolean> = new EventEmitter();
 
 	constructor(private navigation: NavigationService) {
 
-		this.navigation.url.subscribe(sub => {
+		this.navigationSubscription = this.navigation.url.subscribe(sub => {
 			this.url.path = sub.path
 			this.url.project = sub.project
 			this.url.epic = sub.epic
@@ -41,7 +43,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.navigation.url.unsubscribe();
+		this.navigationSubscription.unsubscribe();
 	}
 
 	setMenuState(): void {

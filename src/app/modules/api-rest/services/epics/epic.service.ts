@@ -1,7 +1,7 @@
 import { OnDestroy } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { IEpic, INewEpic } from 'src/app/modules/core/interfaces/epicInterface';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment';
 
@@ -13,15 +13,16 @@ export class EpicService implements OnDestroy {
 	public epicList: Array<IEpic>;
 	public epicList$: BehaviorSubject<Array<IEpic>> = new BehaviorSubject([]);
 	private url = environment.API + 'epics/';
+	epicSubscription: Subscription;
 
 	constructor(private readonly http: HttpClient) {
-		this.epicList$.subscribe(data => {
+		this.epicSubscription = this.epicList$.subscribe(data => {
 			this.epicList = data;
 		});
 	}
 
 	ngOnDestroy(): void {
-		this.epicList$.unsubscribe();
+		this.epicSubscription.unsubscribe();
 	}
 
 	getOneEpic(id: number): IEpic | false {

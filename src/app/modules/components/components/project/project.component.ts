@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
 import { IProject } from 'src/app/modules/core/interfaces/projectInterface';
 import { IUrl } from 'src/app/modules/core/interfaces/urlInterface';
@@ -20,6 +21,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
 		path: ''
 	};
 	loading = true;
+	navigationSubscription: Subscription;
+	epicSubscription: Subscription;
 
 	constructor(
 		private navigation: NavigationService,
@@ -28,14 +31,14 @@ export class ProjectComponent implements OnInit, OnDestroy {
 		public dialog: MatDialog
 	) {
 
-		this.navigation.url.subscribe(sub => {
+		this.navigationSubscription = this.navigation.url.subscribe(sub => {
 			this.url.path = sub.path
 			this.url.project = sub.project
 			this.url.epic = sub.epic
 			this.url.story = sub.story
 		});
 
-		this.epicList.epicList$.subscribe(() => {
+		this.epicSubscription = this.epicList.epicList$.subscribe(() => {
 			const task = this.epicList.getEpicsByProyectId(this.url.project && this.url.project._id);
 			if (task.length > 0) {
 				this.list = task;
@@ -62,8 +65,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.navigation.url.unsubscribe();
-		this.epicList.epicList$.unsubscribe();
+		this.navigationSubscription.unsubscribe();
+		this.epicSubscription.unsubscribe();
 	}
 
 	setRoute(id: number): string {

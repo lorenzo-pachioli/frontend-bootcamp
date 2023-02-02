@@ -5,6 +5,7 @@ import { StoriesService } from 'src/app/modules/api-rest/services/stories/storie
 import { IProject, IProjectNum } from 'src/app/modules/core/interfaces/projectInterface';
 import { IEpic, IEpicNum } from 'src/app/modules/core/interfaces/epicInterface';
 import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-home',
@@ -17,6 +18,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 	projectList: Array<IProject> = [];
 	epicList: Array<IEpic> = [];
 	storyList: Array<IStory> = [];
+	projectSubscription: Subscription;
+	epicSubscription: Subscription;
+	storySubscription: Subscription;
 
 	constructor(
 		public projectService: ProjectService,
@@ -24,7 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 		public storyService: StoriesService
 	) {
 
-		this.projectService.projectsList$.subscribe(data => {
+		this.projectSubscription = this.projectService.projectsList$.subscribe(data => {
 			if (data) {
 				this.projectList = data;
 				if (this.projectList.length > 0 && this.epicList.length > 0) {
@@ -33,14 +37,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 			}
 		});
 
-		this.epicService.epicList$.subscribe(data => {
+		this.epicSubscription = this.epicService.epicList$.subscribe(data => {
 			this.epicList = data;
 			if (this.epicList.length > 0) {
 				this.setProjectsNumbers();
 			}
 		});
 
-		this.storyService.storiesList$.subscribe(data => {
+		this.storySubscription = this.storyService.storiesList$.subscribe(data => {
 			this.storyList = data;
 			if (this.storyList.length > 0) {
 				this.setProjectsNumbers();
@@ -52,9 +56,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.projectService.projectsList$.unsubscribe();
-		this.epicService.epicList$.unsubscribe();
-		this.storyService.storiesList$.unsubscribe();
+		this.projectSubscription.unsubscribe();
+		this.epicSubscription.unsubscribe();
+		this.storySubscription.unsubscribe();
 	}
 
 	setProjectsNumbers(): void {

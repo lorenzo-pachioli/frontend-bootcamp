@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Location } from '@angular/common'
 import { Router, NavigationEnd } from '@angular/router'
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { IUrl } from '../../interfaces/urlInterface';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
@@ -23,6 +23,7 @@ export class NavigationService implements OnDestroy {
 		url: '/',
 		urlAfterRedirects: '/'
 	};
+	routeSubscription: Subscription;
 
 	constructor(
 		private projectService: ProjectService,
@@ -32,7 +33,7 @@ export class NavigationService implements OnDestroy {
 		private location: Location
 	) {
 
-		this.router.events.subscribe((event) => {
+		this.routeSubscription = this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
 				this.pathValue = event
 				this.urlTemp = {
@@ -48,6 +49,7 @@ export class NavigationService implements OnDestroy {
 
 	ngOnDestroy(): void {
 		this.url.unsubscribe();
+		this.routeSubscription.unsubscribe();
 	}
 
 	getUrl(): any {

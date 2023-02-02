@@ -5,6 +5,7 @@ import { TasksService } from 'src/app/modules/api-rest/services/tasks/tasks.serv
 import { IUrl } from 'src/app/modules/core/interfaces/urlInterface';
 import { NavigationService } from 'src/app/modules/core/services/navigation/navigation.service';
 import { AddTaskDialogComponent } from 'src/app/modules/components/components/add-task-dialog/add-task-dialog.component';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-story',
@@ -19,6 +20,8 @@ export class StoryComponent implements OnInit, OnDestroy {
 		path: ''
 	};
 	loading = true;
+	navigationSubscription: Subscription;
+	taskSubscription: Subscription;
 
 	constructor(
 		private navigation: NavigationService,
@@ -27,14 +30,14 @@ export class StoryComponent implements OnInit, OnDestroy {
 		private router: Router
 	) {
 
-		this.navigation.url.subscribe(sub => {
+		this.navigationSubscription = this.navigation.url.subscribe(sub => {
 			this.url.path = sub.path
 			this.url.project = sub.project
 			this.url.epic = sub.epic
 			this.url.story = sub.story
 		});
 
-		this.taskList.tasksList$.subscribe(() => {
+		this.taskSubscription = this.taskList.tasksList$.subscribe(() => {
 			if (this.url.story) {
 				const task = this.taskList.getTasksByStoryId(this.url.story._id);
 				this.list = task;
@@ -55,8 +58,8 @@ export class StoryComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.navigation.url.unsubscribe();
-		this.taskList.tasksList$.unsubscribe();
+		this.navigationSubscription.unsubscribe();
+		this.taskSubscription.unsubscribe();
 	}
 
 	openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {

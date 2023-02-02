@@ -1,7 +1,7 @@
 import { OnDestroy } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { INewStory, IStory } from 'src/app/modules/core/interfaces/storyInterface';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment';
 
@@ -13,15 +13,16 @@ export class StoriesService implements OnDestroy {
 	storiesList: Array<IStory>;
 	public storiesList$: BehaviorSubject<Array<IStory>> = new BehaviorSubject([]);
 	private url = environment.API + 'stories';
+	storySubscription: Subscription;
 
 	constructor(private readonly http: HttpClient) {
-		this.storiesList$.subscribe(data => {
+		this.storySubscription = this.storiesList$.subscribe(data => {
 			this.storiesList = data;
 		});
 	}
 
 	ngOnDestroy(): void {
-		this.storiesList$.unsubscribe();
+		this.storySubscription.unsubscribe();
 	}
 
 	getOneStory(id: number): IStory | false {

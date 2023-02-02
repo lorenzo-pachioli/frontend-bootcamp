@@ -6,6 +6,7 @@ import {
 	Output,
 	OnDestroy
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/modules/api-rest/services/user/user.service';
 import { IUser } from 'src/app/modules/core/interfaces/userInterface';
 
@@ -17,11 +18,12 @@ import { IUser } from 'src/app/modules/core/interfaces/userInterface';
 export class MenuComponent implements OnInit, OnDestroy {
 
 	userLogged: IUser;
+	userSubscription: Subscription;
 	@Input() menuState = false;
 	@Output() menuStateChange: EventEmitter<boolean> = new EventEmitter();
 
 	constructor(public user: UserService) {
-		this.user.user$.subscribe(u => {
+		this.userSubscription = this.user.user$.subscribe(u => {
 			this.userLogged = u;
 		})
 	}
@@ -30,7 +32,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.user.user$.unsubscribe();
+		this.userSubscription.unsubscribe();
 	}
 
 	setMenuState(): void {

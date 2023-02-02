@@ -1,4 +1,3 @@
-import { OnDestroy } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { INewUser, IUser } from 'src/app/modules/core/interfaces/userInterface';
@@ -8,7 +7,7 @@ import { environment } from '../../../../../environments/environment';
 @Injectable({
 	providedIn: 'root'
 })
-export class UserService implements OnDestroy {
+export class UserService {
 
 	public user: IUser;
 	public user$: BehaviorSubject<IUser> = new BehaviorSubject({
@@ -25,10 +24,6 @@ export class UserService implements OnDestroy {
 	private url = environment.API + 'users/';
 
 	constructor(private readonly http: HttpClient) { }
-
-	ngOnDestroy(): void {
-		this.user$.unsubscribe();
-	}
 
 	setUser(user: any): boolean {
 		this.user$.next(user);
