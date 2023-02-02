@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-
-/* const DEFAULT_LANG = 'es-AR'; */
 
 @Component({
 	selector: 'app-main',
@@ -12,11 +9,7 @@ export class MainComponent implements OnInit {
 
 	currentYear = new Date().getFullYear()
 
-	constructor(public translate: TranslateService) {
-		/* translate.setDefaultLang(DEFAULT_LANG) */
-	}
+	constructor() { }
 
-	ngOnInit(): void {
-	}
-
+	ngOnInit(): void { }
 }

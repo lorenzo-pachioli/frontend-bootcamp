@@ -33,5 +33,4 @@ export class ProjectInfoCardComponent implements OnInit {
 		}
 		return '';
 	}
-
 }

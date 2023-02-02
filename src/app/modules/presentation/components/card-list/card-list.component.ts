@@ -12,9 +12,9 @@ export class CardListComponent implements OnInit {
 	@Input() list: Array<any>;
 	@Input() optional = '';
 	@ContentChild('card', { static: false }) cardTemplateRef: TemplateRef<any>;
+
 	constructor(public translate: TranslateService) { }
 
 	ngOnInit(): void {
 	}
-
 }

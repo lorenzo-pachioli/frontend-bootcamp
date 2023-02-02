@@ -20,13 +20,6 @@ export class UserExistGuard implements CanActivate {
 		private router: Router
 	) { }
 
-	OnDestroy(): void {
-		this.projectService.projectsList$.unsubscribe();
-		this.epicService.epicList$.unsubscribe();
-		this.storyService.storiesList$.unsubscribe();
-		this.taskService.tasksList$.unsubscribe();
-	}
-
 	async canActivate(): Promise<boolean> {
 		const token = sessionStorage.getItem('token');
 		const id = sessionStorage.getItem('_id');

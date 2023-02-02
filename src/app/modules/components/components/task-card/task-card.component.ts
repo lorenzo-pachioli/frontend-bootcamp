@@ -15,6 +15,7 @@ export class TaskCardComponent implements OnInit {
 	deletedStatus = false;
 	@Input() task?: ITasks;
 	@Input() deleteTask?: Promise<boolean>;
+
 	constructor(
 		public datepipe: DatePipe,
 		public taskList: TasksService,

@@ -4,10 +4,6 @@ import { INewUser, IUser } from 'src/app/modules/core/interfaces/userInterface';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment';
 
-interface IUserLogIn {
-	username: string,
-	password: string
-}
 @Injectable({
 	providedIn: 'root'
 })
@@ -26,8 +22,8 @@ export class UserService {
 	})
 	public usersList = [];
 	private url = environment.API + 'users/';
-	constructor(private readonly http: HttpClient) {
-	}
+
+	constructor(private readonly http: HttpClient) { }
 
 	setUser(user: any): boolean {
 		this.user$.next(user);

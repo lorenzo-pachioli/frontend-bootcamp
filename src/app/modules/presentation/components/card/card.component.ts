@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
-import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
@@ -17,8 +15,6 @@ export class CardComponent implements OnInit {
 
 	constructor(
 		public datepipe: DatePipe,
-		public projectList: ProjectService,
-		public epicList: EpicService,
 		public dialog: MatDialog
 	) { }
 

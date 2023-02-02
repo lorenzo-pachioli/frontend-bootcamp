@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
-import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
-import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
+import { IProject } from 'src/app/modules/core/interfaces/projectInterface';
 import { IUrl } from 'src/app/modules/core/interfaces/urlInterface';
 import { NavigationService } from 'src/app/modules/core/services/navigation/navigation.service';
 import { AddEpicDialogComponent } from '../add-epic-dialog/add-epic-dialog.component';
@@ -13,7 +13,7 @@ import { AddEpicDialogComponent } from '../add-epic-dialog/add-epic-dialog.compo
 	templateUrl: './project.component.html',
 	styleUrls: ['./project.component.scss']
 })
-export class ProjectComponent implements OnInit {
+export class ProjectComponent implements OnInit, OnDestroy {
 
 	item;
 	list = [];
@@ -21,21 +21,24 @@ export class ProjectComponent implements OnInit {
 		path: ''
 	};
 	loading = true;
+	navigationSubscription: Subscription;
+	epicSubscription: Subscription;
+
 	constructor(
 		private navigation: NavigationService,
-		public projectList: ProjectService,
 		public epicList: EpicService,
-		public storyList: StoriesService,
 		private router: Router,
 		public dialog: MatDialog
 	) {
-		this.navigation.url.subscribe(sub => {
+
+		this.navigationSubscription = this.navigation.url.subscribe(sub => {
 			this.url.path = sub.path
 			this.url.project = sub.project
 			this.url.epic = sub.epic
 			this.url.story = sub.story
 		});
-		this.epicList.epicList$.subscribe(() => {
+
+		this.epicSubscription = this.epicList.epicList$.subscribe(() => {
 			const task = this.epicList.getEpicsByProyectId(this.url.project && this.url.project._id);
 			if (task.length > 0) {
 				this.list = task;
@@ -46,7 +49,7 @@ export class ProjectComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		const token = sessionStorage.getItem('token');
+
 		if (this.url.project) {
 			this.epicList.fetchEpics();
 			this.item = this.url.project;
@@ -59,6 +62,11 @@ export class ProjectComponent implements OnInit {
 		} else {
 			this.router.navigate(['/not-found']);
 		}
+	}
+
+	ngOnDestroy(): void {
+		this.navigationSubscription.unsubscribe();
+		this.epicSubscription.unsubscribe();
 	}
 
 	setRoute(id: number): string {

@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
 		}
 		this.authService.setLogIn(data)
 			.then(response => {
+				this.loading = false;
 				if (response.success) {
 					this.userService.setUser(response.user);
 					this.router.navigate(['/loading']);
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
 			})
 			.catch(() => {
 				this.error = true;
+				this.loading = false;
 			})
 	}
-
 }

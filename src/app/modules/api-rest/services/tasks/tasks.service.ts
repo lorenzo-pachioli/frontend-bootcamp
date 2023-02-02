@@ -1,21 +1,28 @@
+import { OnDestroy } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { ITasks, INewTasks } from 'src/app/modules/core/interfaces/tasksInterface';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment';
 
 @Injectable({
 	providedIn: 'root'
 })
-export class TasksService {
+export class TasksService implements OnDestroy {
 
 	tasksList: Array<ITasks>;
 	public tasksList$: BehaviorSubject<Array<ITasks>> = new BehaviorSubject([]);
 	private url = environment.API + 'tasks';
+	taskSubscription: Subscription;
+
 	constructor(private readonly http: HttpClient) {
-		this.tasksList$.subscribe(data => {
+		this.taskSubscription = this.tasksList$.subscribe(data => {
 			this.tasksList = data;
 		});
+	}
+
+	ngOnDestroy(): void {
+		this.taskSubscription.unsubscribe();
 	}
 
 	getTasksByStoryId(id: string): ITasks[] {
