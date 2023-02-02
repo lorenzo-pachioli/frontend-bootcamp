@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { EpicService } from '../../api-rest/services/epics/epic.service';
 import { ProjectService } from '../../api-rest/services/projects/project.service';
@@ -9,7 +9,7 @@ import { UserService } from '../../api-rest/services/user/user.service';
 @Injectable({
 	providedIn: 'root'
 })
-export class UserExistGuard implements CanActivate {
+export class UserExistGuard implements CanActivate, OnDestroy {
 
 	constructor(
 		private userService: UserService,
@@ -20,7 +20,7 @@ export class UserExistGuard implements CanActivate {
 		private router: Router
 	) { }
 
-	OnDestroy(): void {
+	ngOnDestroy(): void {
 		this.projectService.projectsList$.unsubscribe();
 		this.epicService.epicList$.unsubscribe();
 		this.storyService.storiesList$.unsubscribe();

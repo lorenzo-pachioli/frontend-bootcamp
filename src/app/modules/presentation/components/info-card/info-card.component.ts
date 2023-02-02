@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
-
 @Component({
 	selector: 'app-info-card',
 	templateUrl: './info-card.component.html',
@@ -16,5 +15,4 @@ export class InfoCardComponent implements OnInit {
 
 	ngOnInit(): void {
 	}
-
 }

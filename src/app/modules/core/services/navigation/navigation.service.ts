@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Location } from '@angular/common'
 import { Router, NavigationEnd } from '@angular/router'
 import { BehaviorSubject } from 'rxjs';
@@ -10,16 +10,13 @@ import { StoriesService } from 'src/app/modules/api-rest/services/stories/storie
 @Injectable({
 	providedIn: 'root'
 })
-export class NavigationService {
+export class NavigationService implements OnDestroy {
 
 	private history: string[] = []
-
 	private urlTemp: IUrl;
-
 	public url: BehaviorSubject<IUrl> = new BehaviorSubject({
 		path: ''
 	});
-
 	private pathValue = {
 		id: 1,
 		type: 1,
@@ -34,6 +31,7 @@ export class NavigationService {
 		private router: Router,
 		private location: Location
 	) {
+
 		this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
 				this.pathValue = event
@@ -46,6 +44,10 @@ export class NavigationService {
 				this.url.next(this.urlTemp);
 			}
 		})
+	}
+
+	ngOnDestroy(): void {
+		this.url.unsubscribe();
 	}
 
 	getUrl(): any {

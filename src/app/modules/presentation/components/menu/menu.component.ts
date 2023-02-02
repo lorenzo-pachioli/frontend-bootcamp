@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+	Component,
+	EventEmitter,
+	Input,
+	OnInit,
+	Output,
+	OnDestroy
+} from '@angular/core';
 import { UserService } from 'src/app/modules/api-rest/services/user/user.service';
 import { IUser } from 'src/app/modules/core/interfaces/userInterface';
 
@@ -7,7 +14,7 @@ import { IUser } from 'src/app/modules/core/interfaces/userInterface';
 	templateUrl: './menu.component.html',
 	styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
 
 	userLogged: IUser;
 	@Input() menuState = false;
@@ -20,6 +27,10 @@ export class MenuComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+	}
+
+	ngOnDestroy(): void {
+		this.user.user$.unsubscribe();
 	}
 
 	setMenuState(): void {

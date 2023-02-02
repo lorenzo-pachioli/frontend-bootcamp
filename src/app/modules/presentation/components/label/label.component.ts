@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 export interface Label {
 	text?: string;
@@ -11,9 +11,9 @@ export interface Label {
 	styleUrls: ['./label.component.css']
 })
 export class LabelComponent {
+
 	@Input() label: Label;
 
 	constructor() {
 	}
-
 }

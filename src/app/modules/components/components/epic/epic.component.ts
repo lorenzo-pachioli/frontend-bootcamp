@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
-import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
+import { IEpic } from 'src/app/modules/core/interfaces/epicInterface';
 import { IUrl } from 'src/app/modules/core/interfaces/urlInterface';
 import { NavigationService } from 'src/app/modules/core/services/navigation/navigation.service';
 import { AddStoryDialogComponent } from '../add-story-dialog/add-story-dialog.component';
@@ -13,7 +12,7 @@ import { AddStoryDialogComponent } from '../add-story-dialog/add-story-dialog.co
 	templateUrl: './epic.component.html',
 	styleUrls: ['./epic.component.scss']
 })
-export class EpicComponent implements OnInit {
+export class EpicComponent implements OnInit, OnDestroy {
 
 	item;
 	list = [];
@@ -21,10 +20,9 @@ export class EpicComponent implements OnInit {
 		path: ''
 	};
 	loading = true;
+
 	constructor(
 		private navigation: NavigationService,
-		public projectList: ProjectService,
-		public epicList: EpicService,
 		public storyList: StoriesService,
 		private router: Router,
 		public dialog: MatDialog
@@ -58,6 +56,11 @@ export class EpicComponent implements OnInit {
 		} else {
 			this.router.navigate(['/not-found']);
 		}
+	}
+
+	ngOnDestroy(): void {
+		this.navigation.url.unsubscribe();
+		this.storyList.storiesList$.unsubscribe();
 	}
 
 	setRoute(id: number): string {

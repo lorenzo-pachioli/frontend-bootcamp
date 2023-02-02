@@ -1,10 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
-import { StoriesService } from 'src/app/modules/api-rest/services/stories/stories.service';
 import { IStory } from 'src/app/modules/core/interfaces/storyInterface';
-import { Router } from '@angular/router';
-import { FormControl, Validators } from '@angular/forms';
 import { ConfirmationDialogComponent } from 'src/app/modules/presentation/components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
@@ -18,10 +15,8 @@ export class StoryCardComponent implements OnInit {
 	@Input() route: any;
 
 	constructor(
-		public storyList: StoriesService,
 		public datepipe: DatePipe,
-		public dialog: MatDialog,
-		private router: Router
+		public dialog: MatDialog
 	) { }
 
 	ngOnInit(): void {

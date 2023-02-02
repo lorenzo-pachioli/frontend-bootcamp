@@ -1,17 +1,14 @@
+import { OnDestroy } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { INewUser, IUser } from 'src/app/modules/core/interfaces/userInterface';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment';
 
-interface IUserLogIn {
-	username: string,
-	password: string
-}
 @Injectable({
 	providedIn: 'root'
 })
-export class UserService {
+export class UserService implements OnDestroy {
 
 	public user: IUser;
 	public user$: BehaviorSubject<IUser> = new BehaviorSubject({
@@ -26,7 +23,11 @@ export class UserService {
 	})
 	public usersList = [];
 	private url = environment.API + 'users/';
-	constructor(private readonly http: HttpClient) {
+
+	constructor(private readonly http: HttpClient) { }
+
+	ngOnDestroy(): void {
+		this.user$.unsubscribe();
 	}
 
 	setUser(user: any): boolean {

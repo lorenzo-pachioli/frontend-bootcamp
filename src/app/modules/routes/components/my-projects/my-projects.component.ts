@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
-import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 
 @Component({
 	selector: 'app-my-projects',
@@ -13,5 +11,4 @@ export class MyProjectsComponent implements OnInit {
 
 	ngOnInit(): void {
 	}
-
 }

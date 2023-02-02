@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { EpicService } from 'src/app/modules/api-rest/services/epics/epic.service';
 import { ProjectService } from 'src/app/modules/api-rest/services/projects/project.service';
 import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component';
 
@@ -9,11 +8,13 @@ import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dia
 	templateUrl: './project-list.component.html',
 	styleUrls: ['./project-list.component.scss']
 })
-export class ProjectListComponent implements OnInit {
+export class ProjectListComponent implements OnInit, OnDestroy {
 
 	projects = [];
 	loading = true;
+
 	constructor(public projectService: ProjectService, public dialog: MatDialog) {
+
 		this.projectService.projectsList$.subscribe(data => {
 			if (data.length > 0) {
 				this.projects = data;
@@ -27,7 +28,7 @@ export class ProjectListComponent implements OnInit {
 		this.projectService.fetchProjects();
 	}
 
-	OnDestroy(): void {
+	ngOnDestroy(): void {
 		this.projectService.projectsList$.unsubscribe();
 	}
 

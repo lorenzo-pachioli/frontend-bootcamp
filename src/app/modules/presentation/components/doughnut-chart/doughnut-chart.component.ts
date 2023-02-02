@@ -15,6 +15,7 @@ export class DoughnutChartComponent implements OnInit {
 	data = [];
 	@Input() items = [];
 	@Input() subItems = [];
+
 	constructor() { }
 
 	ngOnInit(): void {
@@ -76,6 +77,4 @@ export class DoughnutChartComponent implements OnInit {
 			}
 		})
 	};
-
 }
-
