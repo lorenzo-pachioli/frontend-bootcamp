@@ -42,11 +42,11 @@ importers:
         specifier: 14.2.3
         version: 14.2.3(@angular/compiler-cli@14.2.2(@angular/compiler@14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4)))(typescript@4.6.4))(typescript@4.6.4)(webpack@5.74.0(postcss@8.4.16))
       '@ngx-translate/core':
-        specifier: 13.0.0
-        version: 13.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0)
+        specifier: 14.0.0
+        version: 14.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0)
       '@ngx-translate/http-loader':
-        specifier: 6.0.0
-        version: 6.0.0(@angular/common@14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(@ngx-translate/core@13.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(rxjs@6.6.0)
+        specifier: 7.0.0
+        version: 7.0.0(@angular/common@14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(@ngx-translate/core@14.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(rxjs@6.6.0)
       '@types/angular':
         specifier: 1.8.4
         version: 1.8.4
@@ -55,7 +55,7 @@ importers:
         version: 3.9.1
       ngx-translate-multi-http-loader:
         specifier: 3.0.0
-        version: 3.0.0(@angular/common@14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(@ngx-translate/core@13.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(rxjs@6.6.0)
+        version: 3.0.0(@angular/common@14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(@ngx-translate/core@14.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(rxjs@6.6.0)
       rxjs:
         specifier: 6.6.0
         version: 6.6.0
@@ -1074,18 +1074,18 @@ packages:
       typescript: '>=4.6.2 <4.9'
       webpack: ^5.54.0
 
-  '@ngx-translate/core@13.0.0':
-    resolution: {integrity: sha512-+tzEp8wlqEnw0Gc7jtVRAJ6RteUjXw6JJR4O65KlnxOmJrCGPI0xjV/lKRnQeU0w4i96PQs/jtpL921Wrb7PWg==}
+  '@ngx-translate/core@14.0.0':
+    resolution: {integrity: sha512-UevdwNCXMRCdJv//0kC8h2eSfmi02r29xeE8E9gJ1Al4D4jEJ7eiLPdjslTMc21oJNGguqqWeEVjf64SFtvw2w==}
     peerDependencies:
-      '@angular/core': '>=10.0.0'
-      rxjs: '>=6.5.3'
+      '@angular/core': '>=13.0.0'
+      rxjs: ^6.5.3 || ^7.4.0
 
-  '@ngx-translate/http-loader@6.0.0':
-    resolution: {integrity: sha512-LCekn6qCbeXWlhESCxU1rAbZz33WzDG0lI7Ig0pYC1o5YxJWrkU9y3Y4tNi+jakQ7R6YhTR2D3ox6APxDtA0wA==}
+  '@ngx-translate/http-loader@7.0.0':
+    resolution: {integrity: sha512-j+NpXXlcGVdyUNyY/qsJrqqeAdJdizCd+GKh3usXExSqy1aE9866jlAIL+xrfDU4w+LiMoma5pgE4emvFebZmA==}
     peerDependencies:
-      '@angular/common': '>=10.0.0'
-      '@ngx-translate/core': '>=13.0.0'
-      rxjs: '>=6.5.3'
+      '@angular/common': '>=13.0.0'
+      '@ngx-translate/core': '>=14.0.0'
+      rxjs: ^6.5.3 || ^7.4.0
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -6008,18 +6008,18 @@ snapshots:
       typescript: 4.6.4
       webpack: 5.74.0(esbuild@0.15.5)(postcss@8.4.16)
 
-  '@ngx-translate/core@13.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0)':
+  '@ngx-translate/core@14.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0)':
     dependencies:
       '@angular/core': 14.2.2(rxjs@6.6.0)(zone.js@0.11.4)
       rxjs: 6.6.0
-      tslib: 2.0.0
+      tslib: 2.8.1
 
-  '@ngx-translate/http-loader@6.0.0(@angular/common@14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(@ngx-translate/core@13.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(rxjs@6.6.0)':
+  '@ngx-translate/http-loader@7.0.0(@angular/common@14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(@ngx-translate/core@14.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(rxjs@6.6.0)':
     dependencies:
       '@angular/common': 14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0)
-      '@ngx-translate/core': 13.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0)
+      '@ngx-translate/core': 14.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0)
       rxjs: 6.6.0
-      tslib: 2.0.0
+      tslib: 2.8.1
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -8164,7 +8164,7 @@ snapshots:
     dependencies:
       copy-anything: 2.0.6
       parse-node-version: 1.0.1
-      tslib: 2.4.0
+      tslib: 2.8.1
     optionalDependencies:
       errno: 0.1.8
       graceful-fs: 4.2.11
@@ -8416,10 +8416,10 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  ngx-translate-multi-http-loader@3.0.0(@angular/common@14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(@ngx-translate/core@13.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(rxjs@6.6.0):
+  ngx-translate-multi-http-loader@3.0.0(@angular/common@14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(@ngx-translate/core@14.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0))(rxjs@6.6.0):
     dependencies:
       '@angular/common': 14.2.2(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0)
-      '@ngx-translate/core': 13.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0)
+      '@ngx-translate/core': 14.0.0(@angular/core@14.2.2(rxjs@6.6.0)(zone.js@0.11.4))(rxjs@6.6.0)
       deepmerge: 2.1.1
       rxjs: 6.6.0
       tslib: 1.14.1
@@ -9197,7 +9197,7 @@ snapshots:
 
   rxjs@7.8.2:
     dependencies:
-      tslib: 2.4.0
+      tslib: 2.8.1
 
   safe-buffer@5.1.2: {}
 
