@@ -13,6 +13,13 @@
 .main {
   @include flex(flex, center, flex-start, column);
   width: 100%;
+  background-color: var(--color2);
+  background-image:
+    linear-gradient(rgba(237, 245, 218, 0.6), rgba(237, 245, 218, 0.6)),
+    url("../../../../../assets/images/green-floralwrapping-paper.png");
+  background-repeat: repeat;
+  background-size: 102px 102px;
+  background-attachment: fixed;
 }
 
 .footer {
