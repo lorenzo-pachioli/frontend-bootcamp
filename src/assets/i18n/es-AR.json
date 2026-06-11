@@ -81,6 +81,7 @@
 		"CREATE-TASK": "Crear tarea",
 		"CREATE-STORY": "Crear story",
 		"CREATE-PROJECT": "Crear projecto",
-		"CREATE-EPIC": "Crear epica"
+		"CREATE-EPIC": "Crear epica",
+		"PROFILE": "Perfil"
 	}
 }

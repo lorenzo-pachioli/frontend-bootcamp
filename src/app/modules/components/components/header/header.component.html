@@ -13,7 +13,7 @@
 				<mat-icon class="menu-icon">keyboard_arrow_left</mat-icon>
 			</button>
 			<h1>{{headerTitle}} </h1>
-			<mat-icon class="icon-separator">keyboard_arrow_right</mat-icon> 
+			<mat-icon class="icon-separator">keyboard_arrow_right</mat-icon>
 			<h1>{{headerTitle2}}</h1>
 		</div>
 		<!-- project route -->
@@ -24,7 +24,7 @@
 			<h1>{{headerTitle}}</h1>
 		</div>
 		<!-- main routes -->
-		<div *ngSwitchDefault >
+		<div *ngSwitchDefault>
 			<button mat-icon-button (click)="setMenuState()">
 				<mat-icon class="menu-icon">menu</mat-icon>
 			</button>
@@ -33,5 +33,5 @@
 	</div>
 	<!-- menu -->
 	<app-menu [(menuState)]="menuState"></app-menu>
-	<img *ngIf="!url.project" src="../../../../assets/images/LogoWhite.svg" alt="" routerLink="/settings" />
+	<img *ngIf="!url.project" src="../../../../assets/images/LogoWhite.svg" alt="" routerLink="/home" />
 </header>

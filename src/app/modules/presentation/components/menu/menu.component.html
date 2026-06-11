@@ -6,17 +6,19 @@
         </span>
     </div>
     <div class="menu-nav">
-        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.HOME" routerLink="/home" (click)="setMenuState()">
+        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.HOME" routerLink="/home"
+            (click)="setMenuState()">
         </button>
-        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.STORY" routerLink="/my-stories" (click)="setMenuState()">  
+        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.STORY" routerLink="/my-stories"
+            (click)="setMenuState()">
         </button>
-        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.PROJECT" routerLink="/my-projects" (click)="setMenuState()">
+        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.PROJECT" routerLink="/my-projects"
+            (click)="setMenuState()">
         </button>
-        <button class="menu-button" mat-button mat-flat-button translate="app.HEADER.MENU" (click)="setMenuState()">
+        <button class="menu-button" mat-button routerLink="/settings" (click)="setMenuState()" translate="app.PROFILE">
+            <!-- {{userLogged && userLogged.name.first}} {{userLogged && userLogged.name.last}} -->
         </button>
     </div>
-    <button class="menu-user" mat-button routerLink="/settings" (click)="setMenuState()">
-        {{userLogged && userLogged.name.first}} {{userLogged && userLogged.name.last}}
+    <button class="menu-user" mat-button mat-flat-button translate="app.HEADER.MENU" (click)="setMenuState()">
     </button>
 </div>
-
